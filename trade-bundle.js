@@ -42,8 +42,8 @@ window.TRADE_DATA=[{"item":"08 Edible Fruit & Nuts; Citrus Fruit Or Melon Peel",
     const width = Math.max(560, chart.clientWidth || 760), height = width < 680 ? 440 : 570;
     const margin = {top:26,right:32,bottom:58,left:72}, innerW=width-margin.left-margin.right, innerH=height-margin.top-margin.bottom;
     const allValues = data.flatMap(d => mode === 'position' ? [d.y2025.imports,d.y2025.exports] : [d.y2017.imports,d.y2017.exports,d.y2025.imports,d.y2025.exports]).filter(v => v>0);
-    const minPow = Math.max(0, Math.floor(Math.log10(Math.min(...allValues))) - .2);
-    const maxPow = Math.ceil(Math.log10(Math.max(...allValues)) + .15);
+    const minPow = Math.max(0, Math.floor(Math.log10(Math.min(...allValues))));
+    const maxPow = Math.max(minPow + 1, Math.ceil(Math.log10(Math.max(...allValues))));
     const floor = 10 ** minPow, ceiling = 10 ** maxPow;
     const scaleX = v => margin.left + (Math.log10(Math.max(v,floor))-minPow)/(maxPow-minPow)*innerW;
     const scaleY = v => margin.top + innerH - (Math.log10(Math.max(v,floor))-minPow)/(maxPow-minPow)*innerH;
@@ -60,15 +60,30 @@ window.TRADE_DATA=[{"item":"08 Edible Fruit & Nuts; Citrus Fruit Or Melon Peel",
     svg.append(textNode(margin.left+innerW/2,height-10,'Imports from partner country (US$)','axis-label','middle'));
     const ylabel=textNode(16,margin.top+innerH/2,'Exports to partner country (US$)','axis-label','middle'); ylabel.setAttribute('transform',`rotate(-90 16 ${margin.top+innerH/2})`); svg.append(ylabel);
 
-    const labelSet = new Set(data.slice(0, countSelect.value==='all'?12:Math.min(12,data.length)).map(d=>d.country));
+    const labelSet = new Set(data.slice(0, countSelect.value==='all'?8:Math.min(10,data.length)).map(d=>d.country));
+    const labels=[];
     data.slice().reverse().forEach(d => {
       if(mode==='change') drawMovement(svg,d,scaleX,scaleY,floor);
       const current=d.y2025, cx=scaleX(current.imports), cy=scaleY(current.exports);
       const circle=node('circle',{cx,cy,r:labelSet.has(d.country)?6:4.5,fill:current.exports>=current.imports?'#6658e8':'#707075',class:'trade-point',tabindex:'0','aria-label':`${d.country}: ${money(current.exports)} exports and ${money(current.imports)} imports in 2025`});
       bindTooltip(circle,d); svg.append(circle);
-      if(labelSet.has(d.country)) svg.append(textNode(cx+9,cy-8,d.country,'country-label','start'));
+      if(labelSet.has(d.country)) labels.push({country:d.country,x:cx,y:cy,labelY:cy});
     });
+    placeLabels(svg,labels,margin,innerW,innerH);
     chart.append(svg);
+  }
+
+  function placeLabels(svg,labels,margin,innerW,innerH){
+    const gap=17,top=margin.top+8,bottom=margin.top+innerH-6;
+    labels.sort((a,b)=>a.y-b.y);
+    labels.forEach((label,i)=>{label.labelY=Math.max(label.y,i===0?top:labels[i-1].labelY+gap)});
+    for(let i=labels.length-1;i>=0;i--){const limit=i===labels.length-1?bottom:labels[i+1].labelY-gap;labels[i].labelY=Math.min(labels[i].labelY,limit)}
+    labels.forEach(label=>{
+      const useLeft=label.x>margin.left+innerW*.77;
+      const textX=label.x+(useLeft?-10:10),anchor=useLeft?'end':'start';
+      if(Math.abs(label.labelY-label.y)>3) svg.append(node('line',{x1:label.x,y1:label.y,x2:textX+(useLeft?4:-4),y2:label.labelY,class:'label-leader'}));
+      svg.append(textNode(textX,label.labelY+4,label.country,'country-label',anchor));
+    });
   }
 
   function drawMovement(svg,d,sx,sy,floor){
