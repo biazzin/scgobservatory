@@ -106,11 +106,11 @@
         </div>
 
         <div class="pattern-heading">
-          <p class="trade-eyebrow">Observed patterns</p>
-          <h2>Signals that warrant a closer look</h2>
+          <p class="trade-eyebrow">Largest shifts</p>
+          <h2>What changed most between 2017 and 2025?</h2>
         </div>
         <div id="pattern-cards" class="pattern-grid"></div>
-        <p class="pattern-caution">These patterns are consistent with changes in sourcing geography, but port-level trade data cannot establish substitution or identify firm decisions.</p>
+        <p class="pattern-caution">These are preliminary signals based on broad HS2 categories. Product-level analysis at HS4 and HS6 is needed to identify what moved and why.</p>
       </div>
     </section>
 
@@ -235,6 +235,27 @@
       svg.append(label(scale(newValue)+(farther?10:-10),y-11,newValue.toLocaleString('en-US'),'locality-value',farther?'start':'end'));
     });
     holder.replaceChildren(svg);
+
+    const patternHolder = document.querySelector('#pattern-cards');
+    if (patternHolder) {
+      patternHolder.classList.add('is-explained');
+      patternHolder.innerHTML = `
+        <article class="pattern-card">
+          <span class="pattern-number">01</span>
+          <h3>Taiwan’s machinery surge</h3>
+          <p><strong>+$2.11B in HS84</strong>The largest country–product increase in the dataset.</p>
+        </article>
+        <article class="pattern-card">
+          <span class="pattern-number">02</span>
+          <h3>Europe’s pharmaceutical reconfiguration</h3>
+          <p><strong>+$5.27B in pharmaceuticals</strong>Growth was led by Ireland, Switzerland, the United Kingdom, and the Netherlands.</p>
+        </article>
+        <article class="pattern-card">
+          <span class="pattern-number">03</span>
+          <h3>Electronics dispersed across new hubs</h3>
+          <p><strong>China −$98.6M</strong>Malaysia, Taiwan, Costa Rica, and Thailand collectively gained $1.51B.</p>
+        </article>`;
+    }
   })();
   </script>
 </body>
