@@ -178,6 +178,50 @@
   </footer>
 
   <script src="cincinnati-trade-chart-v4.js"></script>
-  <script src="locality-section.js"></script>
+  <script>
+  (() => {
+    const holder = document.querySelector('#locality-chart');
+    if (!holder) return;
+    const data = [
+      ['Pharmaceutical products',6201,6355],
+      ['Machinery and parts',7864,10477],
+      ['Electrical machinery',10699,11447],
+      ['Medical and optical instruments',8987,7909],
+      ['Tools and cutlery',7968,8289],
+      ['Organic chemicals',5833,7337],
+      ['Articles of iron or steel',8069,9093],
+      ['Stone, plaster and cement articles',7064,6815]
+    ];
+    const make = (tag, attrs = {}) => {
+      const element = document.createElementNS('http://www.w3.org/2000/svg', tag);
+      Object.entries(attrs).forEach(([key,value]) => element.setAttribute(key,value));
+      return element;
+    };
+    const label = (x,y,value,className,anchor) => {
+      const element = make('text',{x,y,class:className,'text-anchor':anchor});
+      element.textContent = value;
+      return element;
+    };
+    const width=1040,height=390,left=255,right=70,top=42,bottom=36;
+    const scale = value => left + (value-5000)/7000*(width-left-right);
+    const svg = make('svg',{viewBox:`0 0 ${width} ${height}`,'aria-hidden':'true'});
+    [6000,8000,10000,12000].forEach(value => {
+      const x=scale(value);
+      svg.append(make('line',{x1:x,y1:top-17,x2:x,y2:height-bottom,class:'locality-grid-line'}));
+      svg.append(label(x,20,`${value/1000}k km`,'locality-axis-label','middle'));
+    });
+    data.forEach(([name,oldValue,newValue],index) => {
+      const y=top+index*39;
+      const farther=newValue>=oldValue;
+      svg.append(label(left-18,y+4,name,'locality-row-label','end'));
+      svg.append(make('line',{x1:scale(oldValue),y1:y,x2:scale(newValue),y2:y,class:'locality-link'}));
+      svg.append(make('circle',{cx:scale(oldValue),cy:y,r:6,class:'locality-old'}));
+      svg.append(make('circle',{cx:scale(newValue),cy:y,r:7,class:'locality-current'}));
+      svg.append(label(scale(oldValue)+(farther?-10:10),y-11,oldValue.toLocaleString('en-US'),'locality-value',farther?'end':'start'));
+      svg.append(label(scale(newValue)+(farther?10:-10),y-11,newValue.toLocaleString('en-US'),'locality-value',farther?'start':'end'));
+    });
+    holder.replaceChildren(svg);
+  })();
+  </script>
 </body>
 </html>
