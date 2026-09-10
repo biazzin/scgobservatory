@@ -1,3 +1,4 @@
+/* Updated September 10, 2026: regional sourcing-distance styles included. */
 :root{--trade-violet:#5b4ce6;--trade-cyan:#00a6a6;--trade-ink:#17171a;--trade-grid:#d9d9de}
 .trade-page{background:#fff}
 .trade-intro{padding:82px 0 54px;border-bottom:1px solid var(--border)}
