@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore Cincinnati's international trade relationships by country and product category.">
+  <title>Cincinnati Trade Relationships | Supply Chain Geopolitics Observatory</title>
+  <link rel="icon" href="favicon.svg">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="trade.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="wordmark" href="index.html" aria-label="Supply Chain Geopolitics Observatory home">
+        <img src="logo.png" alt="SCG Supply Chain Geopolitics Observatory">
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="who-we-are.html">Who we are</a>
+        <a href="projects.html">Projects</a>
+        <a href="research.html">Research</a>
+        <a href="publications.html">Publications</a>
+        <a class="nav-join" href="join.html">Join us</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="trade-page">
+    <section class="trade-intro shell">
+      <p class="trade-eyebrow">Regional trade relationships</p>
+      <h1>Where Cincinnati’s trade relationships are changing.</h1>
+      <p class="trade-deck">Compare the value and direction of goods moving through the Cincinnati–Lawrenceburg port district.</p>
+    </section>
+
+    <section class="trade-workspace shell" aria-label="Interactive Cincinnati trade chart">
+      <div class="trade-controls">
+        <div class="control-group mode-control" aria-label="Chart view">
+          <button class="mode-button is-active" type="button" data-mode="position">Position in 2025</button>
+          <button class="mode-button" type="button" data-mode="change">Change since 2017</button>
+        </div>
+        <label class="control-field">
+          <span>Product category</span>
+          <select id="item-filter"></select>
+        </label>
+        <label class="control-field compact-field">
+          <span>Countries shown</span>
+          <select id="country-count">
+            <option value="20">Top 20</option>
+            <option value="40" selected>Top 40</option>
+            <option value="80">Top 80</option>
+            <option value="all">All countries</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="chart-grid">
+        <aside class="chart-reading">
+          <p class="reading-label" id="reading-label">Trade position</p>
+          <h2 id="reading-title">Imports show dependence. Exports show reach.</h2>
+          <p id="reading-copy">Countries above the diagonal buy more from Cincinnati than they sell to it. Countries below the line are more important as sources of imports.</p>
+          <div class="legend" aria-label="Chart legend">
+            <span><i class="dot exporter"></i>Net export relationship</span>
+            <span><i class="dot importer"></i>Net import relationship</span>
+            <span id="arrow-legend" hidden><i class="arrow-mark">→</i>2017 to 2025</span>
+          </div>
+          <dl class="trade-summary">
+            <div><dt>Exports</dt><dd id="summary-exports">—</dd></div>
+            <div><dt>Imports</dt><dd id="summary-imports">—</dd></div>
+            <div><dt>Net position</dt><dd id="summary-balance">—</dd></div>
+          </dl>
+        </aside>
+
+        <div class="chart-panel">
+          <div class="chart-heading">
+            <div>
+              <p id="chart-kicker">Cincinnati trade by partner country</p>
+              <h2 id="chart-title">Exports and imports, 2025</h2>
+            </div>
+            <p class="unit-note">US dollars · logarithmic scale</p>
+          </div>
+          <div id="trade-chart" class="chart" role="img" aria-label="Scatter plot comparing Cincinnati exports and imports by country"></div>
+          <p class="chart-note" id="chart-note">Distance from the diagonal indicates the size of the trade imbalance. Hover or focus on a country for details.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="trade-method shell">
+      <p>About the data</p>
+      <div>
+        <h2>A relationship-level view of regional trade.</h2>
+        <p>Values aggregate all reported Harmonized System product categories for the Cincinnati–Lawrenceburg, OH port district. A zero indicates that the source file reported no trade for that country–product–year combination. The chart describes trade recorded through the port district; it does not measure the complete economy of the Greater Cincinnati metropolitan area.</p>
+        <p class="source">Source: U.S. Census Bureau, USA Trade Online. Data for 2017 and 2025.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="shell footer-grid">
+      <div><p class="footer-title">Supply Chain Geopolitics Observatory</p><p>Researching the connections between global change and business.</p></div>
+      <div><p class="footer-label">Contact</p><a href="mailto:biazzinc1@nku.edu">biazzinc1@nku.edu</a><a href="https://www.linkedin.com/company/supply-chain-geopolitics-observ/">LinkedIn</a></div>
+    </div>
+    <div class="shell footer-bottom">© 2026 Supply Chain Geopolitics Observatory</div>
+  </footer>
+
+  <script src="trade-data.js"></script>
+  <script src="trade.js"></script>
+</body>
+</html>
