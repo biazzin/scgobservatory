@@ -84,6 +84,35 @@
       </div>
     </section>
 
+    <section class="shift-section">
+      <div class="shell">
+        <div class="shift-intro">
+          <div>
+            <p class="trade-eyebrow">Changing import patterns</p>
+            <h2>Which product relationships changed most?</h2>
+          </div>
+          <p>The matrix compares the ten product categories with the largest combined import shifts across China, Canada, Mexico, and Vietnam. Color shows the direction and size of the dollar change from 2017 to 2025.</p>
+        </div>
+
+        <div class="heatmap-card">
+          <div class="heatmap-key" aria-label="Heatmap color scale">
+            <span>Imports decreased</span>
+            <i class="key-swatch key-down"></i><i class="key-swatch key-flat"></i><i class="key-swatch key-up"></i>
+            <span>Imports increased</span>
+          </div>
+          <div id="shift-heatmap" class="heatmap" role="img" aria-label="Changes in Cincinnati imports by product category and country"></div>
+          <p class="heatmap-note">Categories are ranked by the combined absolute change across the four countries. Values are changes in nominal US dollars.</p>
+        </div>
+
+        <div class="pattern-heading">
+          <p class="trade-eyebrow">Observed patterns</p>
+          <h2>Signals that warrant a closer look</h2>
+        </div>
+        <div id="pattern-cards" class="pattern-grid"></div>
+        <p class="pattern-caution">These patterns are consistent with changes in sourcing geography, but port-level trade data cannot establish substitution or identify firm decisions.</p>
+      </div>
+    </section>
+
     <section class="trade-method shell">
       <p>About the data</p>
       <div>
@@ -102,7 +131,6 @@
     <div class="shell footer-bottom">© 2026 Supply Chain Geopolitics Observatory</div>
   </footer>
 
-  <script src="trade-data.js"></script>
-  <script src="trade.js"></script>
+  <script src="trade-bundle.js?v=20260910-2"></script>
 </body>
 </html>
