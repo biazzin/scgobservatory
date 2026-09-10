@@ -129,21 +129,21 @@
           <div class="answer-grid">
             <div>
               <p class="answer-word">No.</p>
-              <p class="answer-copy">The average sourcing distance increased by <strong>17.4%</strong>.</p>
+              <p class="answer-copy">The average sourcing distance increased by <strong>16.9%</strong>.</p>
             </div>
-            <div class="distance-comparison" aria-label="Average import distance increased from 7,532 kilometers in 2017 to 8,843 kilometers in 2025">
-              <div class="distance-year"><span>2017</span><strong>7,532 km</strong></div>
+            <div class="distance-comparison" aria-label="Average import distance increased from 7,531 kilometers in 2017 to 8,801 kilometers in 2025">
+              <div class="distance-year"><span>2017</span><strong>7,531 km</strong></div>
               <div class="distance-track"><span class="track-start"></span><span class="track-line"></span><span class="track-arrow">→</span><span class="track-end"></span></div>
-              <div class="distance-year align-right"><span>2025</span><strong>8,843 km</strong></div>
-              <p class="distance-change">+1,311 km farther</p>
+              <div class="distance-year align-right"><span>2025</span><strong>8,801 km</strong></div>
+              <p class="distance-change">+1,270 km farther</p>
             </div>
           </div>
         </div>
 
         <div class="locality-metrics" aria-label="Regionalization indicators">
-          <article><span>01</span><strong>+17.4%</strong><h3>Average import distance</h3><p>Distance rose from 7,532 to 8,843 kilometers.</p></article>
-          <article><span>02</span><strong>54 of 86</strong><h3>Product categories moved farther</h3><p>Nearly two-thirds recorded a greater weighted sourcing distance.</p></article>
-          <article><span>03</span><strong>2.0%</strong><h3>Canada and Mexico share</h3><p>The regional share rose from 1.1%, but remains small.</p></article>
+          <article><span>01</span><strong>+16.9%</strong><h3>Average import distance</h3><p>Distance rose from 7,531 to 8,801 kilometers.</p></article>
+          <article><span>02</span><strong>53 of 85</strong><h3>Product categories moved farther</h3><p>Nearly two-thirds recorded a greater weighted sourcing distance.</p></article>
+          <article><span>03</span><strong>1.9%</strong><h3>Canada and Mexico share</h3><p>The regional share rose from 1.0%, but remains small.</p></article>
         </div>
 
         <div class="locality-chart-card">
@@ -163,7 +163,7 @@
       <p>About the data</p>
       <div>
         <h2>A relationship-level view of regional trade.</h2>
-        <p>Values aggregate all reported Harmonized System product categories for the Cincinnati–Lawrenceburg, OH port district. A zero indicates that the source file reported no trade for that country–product–year combination. The chart describes trade recorded through the port district; it does not measure the complete economy of the Greater Cincinnati metropolitan area.</p>
+        <p>Values aggregate reported Harmonized System product categories for the Cincinnati–Lawrenceburg, OH port district. Chapter 98, Special Classification Provisions, is excluded because it does not represent a comparable product category. A zero indicates that the source file reported no trade for that country–product–year combination. The chart describes trade recorded through the port district; it does not measure the complete economy of the Greater Cincinnati metropolitan area.</p>
         <p class="source">Source: U.S. Census Bureau, USA Trade Online. Data for 2017 and 2025.</p>
       </div>
     </section>
@@ -177,6 +177,20 @@
     <div class="shell footer-bottom">© 2026 Supply Chain Geopolitics Observatory</div>
   </footer>
 
+  <script>
+  (() => {
+    let filteredTradeData = [];
+    Object.defineProperty(window, 'TRADE_DATA', {
+      configurable: true,
+      get: () => filteredTradeData,
+      set: value => {
+        filteredTradeData = Array.isArray(value)
+          ? value.filter(row => !String(row.item || '').startsWith('98 '))
+          : value;
+      }
+    });
+  })();
+  </script>
   <script src="cincinnati-trade-chart-v4.js"></script>
   <script>
   (() => {
