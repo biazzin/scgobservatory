@@ -37,158 +37,52 @@
       font-weight: 500;
     }
 
-    .article-wrap {
-      width: min(calc(100% - 40px), 760px);
+    .article-copy {
+      width: min(calc(100% - 40px), 780px);
       margin-inline: auto;
       padding: clamp(3.5rem, 8vw, 6rem) 0;
     }
 
-    .article-wrap p {
+    .article-copy p {
       margin: 0 0 1.55rem;
       font-size: 1.12rem;
       line-height: 1.78;
     }
 
-    .article-wrap .opening {
+    .article-copy .opening {
       font-size: 1.3rem;
       line-height: 1.65;
     }
 
-    .article-wrap h2 {
-      margin: 3.25rem 0 1.2rem;
-      font-size: clamp(1.8rem, 4vw, 2.65rem);
-      line-height: 1.12;
-      letter-spacing: -.025em;
+    .chain-figure {
+      width: min(calc(100% - 40px), 1160px);
+      margin: 0 auto;
+      padding: clamp(1rem, 3vw, 2rem) 0 clamp(3.5rem, 8vw, 6rem);
     }
 
-    .illustration-feature {
-      display: grid;
-      grid-template-columns: .78fr 1.22fr;
-      gap: clamp(2rem, 6vw, 5rem);
-      align-items: center;
-      margin: 0 auto clamp(3.5rem, 8vw, 6rem);
-      padding-top: clamp(3rem, 7vw, 5rem);
-      padding-bottom: clamp(3rem, 7vw, 5rem);
-      border-top: 1px solid var(--line, #d8dcda);
-      border-bottom: 1px solid var(--line, #d8dcda);
-    }
-
-    .illustration-feature h2 {
-      margin: 0 0 1.2rem;
-      font-size: clamp(2rem, 4vw, 3.4rem);
-      font-weight: 400;
-      line-height: 1.08;
-      letter-spacing: -.035em;
-    }
-
-    .illustration-feature p:not(.section-kicker) {
-      margin: 0;
-      font-size: 1.05rem;
-      line-height: 1.7;
-    }
-
-    .illustration-feature img {
+    .chain-figure img {
       display: block;
       width: 100%;
       height: auto;
-      border-radius: 22px;
       border: 1px solid var(--line, #d8dcda);
+      border-radius: 20px;
       background: #fff;
     }
 
-    .map-feature {
-      display: grid;
-      grid-template-columns: .78fr 1.22fr;
-      gap: clamp(2rem, 6vw, 5rem);
-      align-items: center;
-      padding-top: clamp(3rem, 7vw, 5rem);
-      padding-bottom: clamp(3rem, 7vw, 5rem);
-      border-top: 1px solid var(--line, #d8dcda);
-      border-bottom: 1px solid var(--line, #d8dcda);
-    }
-
-    .map-feature h2 {
-      margin: 0 0 1.2rem;
-      font-size: clamp(2rem, 4vw, 3.4rem);
-      line-height: 1.08;
-      letter-spacing: -.035em;
-    }
-
-    .map-feature p:not(.section-kicker) {
-      margin: 0;
-      font-size: 1.05rem;
-      line-height: 1.7;
-    }
-
-    .map-feature img {
-      display: block;
-      width: 100%;
-      height: auto;
-      border-radius: 22px;
-      border: 1px solid var(--line, #d8dcda);
-      background: #fff;
-    }
-
-    .stat-band {
-      display: grid;
-      grid-template-columns: .7fr 1.3fr;
-      gap: 1px;
-      margin: 2.6rem 0;
-      border-top: 1px solid var(--line, #d8dcda);
-      border-bottom: 1px solid var(--line, #d8dcda);
-    }
-
-    .stat {
-      padding: 1.6rem 1.4rem;
-    }
-
-    .stat + .stat {
-      border-left: 1px solid var(--line, #d8dcda);
-    }
-
-    .stat strong {
-      display: block;
-      margin-bottom: .4rem;
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      line-height: 1;
-      letter-spacing: -.045em;
-    }
-
-    .stat span {
-      display: block;
+    .chain-figure figcaption {
+      max-width: 780px;
+      margin: .9rem auto 0;
       color: var(--muted, #667075);
-      font-size: .84rem;
-      line-height: 1.45;
-    }
-
-    .buyer-questions {
-      margin: 2.8rem 0;
-      padding: 2rem;
-      border-radius: 18px;
-      background: var(--soft, #eef1ef);
-    }
-
-    .buyer-questions h3 {
-      margin: 0 0 1rem;
-      font-size: 1.15rem;
-    }
-
-    .buyer-questions ul {
-      margin: 0;
-      padding-left: 1.2rem;
-    }
-
-    .buyer-questions li {
-      margin: .65rem 0;
-      line-height: 1.55;
+      font-size: .82rem;
+      line-height: 1.5;
     }
 
     .source-note {
-      margin-top: 3.5rem;
-      padding-top: 1.2rem;
+      margin-top: 3.5rem !important;
+      padding-top: 1.25rem;
       border-top: 1px solid var(--line, #d8dcda);
       color: var(--muted, #667075);
-      font-size: .8rem !important;
+      font-size: .82rem !important;
       line-height: 1.55 !important;
     }
 
@@ -197,20 +91,18 @@
       margin-top: 1rem;
     }
 
-    @media (max-width: 760px) {
-      .map-feature,
-      .illustration-feature,
-      .stat-band {
-        grid-template-columns: 1fr;
-      }
-
-      .stat + .stat {
-        border-top: 1px solid var(--line, #d8dcda);
-        border-left: 0;
-      }
-
+    @media (max-width: 640px) {
       .article-header h1 {
         font-size: clamp(2.8rem, 14vw, 4.5rem);
+      }
+
+      .article-copy,
+      .chain-figure {
+        width: min(calc(100% - 28px), 1160px);
+      }
+
+      .chain-figure img {
+        border-radius: 14px;
       }
     }
   </style>
@@ -244,137 +136,117 @@
     </header>
 
     <article>
-      <div class="article-wrap">
+      <div class="article-copy">
         <p class="opening">
-          A lipstick tube seems far removed from maritime tensions near Iran. Look beyond the label,
-          however, and the distance begins to collapse. The ingredients inside that lipstick connect
-          cosmetics companies to palm plantations in Southeast Asia, fertilizer and natural gas markets,
-          biodiesel policy, and one of the world’s most consequential maritime chokepoints.
+          A lipstick tube seems far removed from maritime tensions near Iran. Look beyond the label, however,
+          and the distance begins to collapse. The ingredients inside that lipstick connect cosmetics companies
+          to palm plantations in Southeast Asia, fertilizer and natural gas markets, biodiesel policy, and one
+          of the world’s most consequential maritime chokepoints.
         </p>
 
         <p>
-          This connection exposes a weakness in how many companies assess geopolitical risk. Executives
-          tend to map where their direct suppliers and factories are located. That view can miss the
-          common resources and infrastructure buried several tiers beneath them. A disruption does not
-          need to stop a cosmetics factory to alter its economics.
+          This connection exposes a weakness in how many companies assess geopolitical risk. Executives tend
+          to map where their direct suppliers and factories are located. That view can miss the common resources
+          and infrastructure buried several tiers beneath them. A disruption does not need to stop a cosmetics
+          factory to alter its economics.
         </p>
-
-        <h2>The ingredient list tells only part of the story</h2>
 
         <p>
           The Strait of Hormuz handles roughly one-fifth of globally traded oil. When military tensions
-          intensified in the region in early 2026, energy markets quickly repriced the risk. The immediate
-          concern was oil, but the effects moved well beyond petroleum companies and firms operating in
-          the Middle East.
+          intensified in the region in early 2026, shipping conditions deteriorated and energy markets quickly
+          repriced the risk. The immediate concern was oil, but the effects moved well beyond petroleum companies
+          and firms operating in the Middle East.
         </p>
 
         <p>
-          Palm oil illustrates how that transmission occurs. Its derivatives are embedded in cosmetics
-          and personal-care products. Glyceryl stearate, cetyl alcohol, and palmitic acid can all trace
-          back to palm oil through different stages of chemical processing. Move farther upstream and
-          those separate ingredient chains converge: palm oil depends on plantations, plantations depend
-          on fertilizer, and fertilizer production depends heavily on natural gas.
+          Palm oil illustrates how this transmission occurs. It is produced primarily in Indonesia and Malaysia
+          and is widely associated with food. Its derivatives are also embedded in cosmetics and personal-care
+          products. Glyceryl stearate, cetyl alcohol, and palmitic acid can all trace back to palm oil through
+          different stages of chemical processing. Move farther upstream and those separate ingredient chains
+          converge: palm oil depends on oil-palm plantations, plantations depend on fertilizer, and fertilizer
+          production depends heavily on natural gas.
         </p>
 
         <p>
-          To a cosmetics buyer, these may appear to be distinct purchases from distinct suppliers.
-          Economically, they may share the same underlying vulnerability.
+          To a cosmetics buyer, these may appear to be distinct purchases from distinct suppliers. Economically,
+          they may share the same underlying vulnerability.
         </p>
       </div>
 
-      <section class="shell illustration-feature" aria-labelledby="connection-title">
-        <div>
-          <p class="section-kicker">The invisible link</p>
-          <h2 id="connection-title">How does a crisis near Iran reach a lipstick?</h2>
-          <p>
-            Follow the connection through energy prices, biodiesel demand, palm oil markets, and cosmetic
-            ingredients. The final product may be far from the disruption, but it is already connected to it.
-          </p>
-        </div>
+      <figure class="chain-figure">
+        <img src="mapa_Lipstick.png" alt="The hidden palm oil value chain inside a lipstick, from plantation to consumer price">
+        <figcaption>
+          Palm oil becomes progressively less visible as it moves through chemical conversion, formulation,
+          branding, and retail, although upstream volatility can still reach the final product.
+        </figcaption>
+      </figure>
 
-        <img src="lipstick.jpg" alt="Illustrated flow from the Strait of Hormuz crisis to higher palm oil and lipstick ingredient costs">
-      </section>
-
-      <section class="shell map-feature" aria-labelledby="distance-title">
-        <div>
-          <p class="section-kicker">Distance can mislead</p>
-          <h2 id="distance-title">Thousands of miles apart. Economically close.</h2>
-          <p>
-            Hormuz sits far from the palm-producing economies of Indonesia and Malaysia. The connection
-            is economic: energy prices change biodiesel incentives, which change competition for palm oil.
-          </p>
-        </div>
-
-        <img src="mapa_Lipstick.png" alt="Map locating the Strait of Hormuz, Indonesia, and Malaysia">
-      </section>
-
-      <div class="article-wrap">
-        <h2>Small ingredient, material exposure</h2>
-
+      <div class="article-copy">
         <p>
-          Higher oil prices made palm-based biodiesel more attractive. Indonesia’s increasing use of palm
-          oil for biodiesel directed more supply toward the energy sector, while concerns about future
-          availability intensified competition among industries. The buyer analysis behind this article
-          shows crude palm oil prices rising approximately 18 percent between January and March 2026.
+          The dependency became visible in 2026. Higher oil prices made palm-based biodiesel more attractive.
+          Indonesia’s increasing use of palm oil for biodiesel directed more supply toward the energy sector,
+          while concerns about future availability intensified competition among industries. A buyer analysis
+          included in the accompanying industry material shows crude palm oil prices rising approximately
+          18 percent between January and March 2026.
         </p>
 
-        <div class="stat-band" aria-label="Illustrative palm oil exposure">
-          <div class="stat">
-            <strong>18%</strong>
-            <span>Approximate increase in the referenced crude palm oil assessment between January and March 2026.</span>
-          </div>
-          <div class="stat">
-            <strong>€500–800K</strong>
-            <span>Illustrative additional cost exposure for a company with $1 billion in revenue. Actual exposure depends on formulations, volumes, contracts, and hedging.</span>
-          </div>
-        </div>
+        <p>
+          The sequence matters. Instability near Iran affected oil markets. Higher oil prices changed biodiesel
+          economics. Biodiesel demand placed additional pressure on palm oil. That pressure then reached
+          manufacturers using palm-derived ingredients in products such as lipstick, moisturizers, foundations,
+          shampoos, and soaps.
+        </p>
 
         <p>
           Cosmetics and healthcare account for less than 5 percent of global palm oil consumption. Their
-          relatively small share does not protect them. These industries compete for the same commodity
-          with much larger food and energy markets. They are price takers in a contest shaped by forces
-          far outside the beauty sector.
+          relatively small share does not protect them. These industries compete for the same commodity with
+          much larger food and energy markets. They are price takers in a contest shaped by forces far outside
+          the beauty sector.
         </p>
 
         <p>
           At the product level, palm-derived inputs may represent only about 2 to 4 percent of a lipstick’s
-          consumer price. That small percentage can look immaterial. Scale changes the calculation. Several
-          ingredients may depend on the same feedstock, and many products across a portfolio may contain
-          those ingredients. What appears diversified at the supplier level can remain concentrated at the
-          raw-material level.
-        </p>
-
-        <div class="buyer-questions">
-          <h3>Questions worth asking before the next disruption</h3>
-          <ul>
-            <li>Do several ingredients ultimately depend on the same raw material?</li>
-            <li>Which product lines carry the greatest cumulative exposure?</li>
-            <li>Are alternative feedstocks technically and commercially viable?</li>
-            <li>How quickly could formulations change if supply tightened?</li>
-          </ul>
-        </div>
-
-        <h2>Risk travels through connected markets</h2>
-
-        <p>
-          Conventional risk maps focus on direct relationships: who supplies the company, where production
-          occurs, which transportation lanes are used, and how much inventory is available. Those measures
-          remain essential, but they do not reveal shared exposure to energy systems, commodity substitution,
-          industrial policy, or infrastructure several tiers upstream.
+          consumer price. That small percentage can encourage managers to dismiss the exposure as immaterial.
+          Scale changes the calculation. An illustrative estimate in the buyer analysis suggests that an
+          unexpected 18 percent increase could add approximately €500,000 to €800,000 in costs for a company
+          with $1 billion in revenue, although the document does not disclose the assumptions behind that range.
+          The figure should therefore be read as an indication of possible magnitude, not a universal forecast.
         </p>
 
         <p>
-          The lipstick example warns against confusing geographic distance with economic insulation. The
-          Strait of Hormuz is closer to a cosmetics portfolio than it appears because risk travels through
-          connected markets, not only through visible supplier relationships. Companies that map only what
-          they buy directly will continue to be surprised by vulnerabilities already embedded in their products.
+          The larger managerial problem is aggregation. A single palm-derived ingredient may look insignificant.
+          Several ingredients may depend on the same feedstock, and many products across a company’s portfolio
+          may contain those ingredients. What appears diversified at the supplier level can remain concentrated
+          at the raw-material level.
+        </p>
+
+        <p>
+          This changes the questions procurement and supply-chain leaders should ask. Do multiple ingredients
+          ultimately depend on the same raw material? Which product lines have the greatest cumulative exposure?
+          Are alternative feedstocks technically and commercially viable? How quickly could formulations be
+          changed if prices rose sharply or supply tightened? A supplier list alone cannot answer these questions.
+        </p>
+
+        <p>
+          Conventional risk maps focus on direct relationships: who supplies the company, where production occurs,
+          which transportation lanes are used, and how much inventory is available. Those measures remain essential,
+          but they do not reveal shared exposure to energy systems, commodity substitution, industrial policy, or
+          infrastructure several tiers upstream. A company can diversify suppliers and still depend on the same
+          plantation base, fertilizer market, shipping corridor, digital network, or energy source.
+        </p>
+
+        <p>
+          The lipstick example is a warning against confusing geographic distance with economic insulation. The
+          Strait of Hormuz is closer to a cosmetics portfolio than it appears because risk travels through connected
+          markets, not only through visible supplier relationships. Companies that map only what they buy directly
+          will continue to be surprised by vulnerabilities already embedded in their products.
         </p>
 
         <p class="source-note">
-          <strong>Source note.</strong> Market information and buyer estimates are drawn from the supplied
-          cosmetics-industry analysis, including Fastmarkets’ crude palm oil assessment for September 2025
-          through June 2026. The company-level estimate is illustrative and should be interpreted in light
-          of firm-specific formulations, purchasing volumes, contracts, and hedging arrangements.
+          <strong>Source note:</strong> Market information and buyer estimates referenced here are drawn from the
+          supplied cosmetics-industry analysis, including Fastmarkets’ crude palm oil assessment for September 2025
+          through June 2026. The company-level estimate is illustrative and should be interpreted in light of
+          firm-specific formulations, purchasing volumes, contracts, and hedging arrangements.
         </p>
 
         <a class="text-link article-back" href="index.html">← Back to the Observatory</a>
