@@ -9,6 +9,20 @@
   <link rel="icon" href="favicon.svg">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="trade.css">
+  <style>
+    .pattern-grid.findings-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .pattern-card p strong {
+      display: inline;
+      margin: 0;
+    }
+    @media (max-width: 760px) {
+      .pattern-grid.findings-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body>
   <header class="site-header">
@@ -87,29 +101,11 @@
 
     <section class="shift-section">
       <div class="shell">
-        <div class="shift-intro">
-          <div>
-            <p class="trade-eyebrow">Changing import patterns</p>
-            <h2>Which product relationships changed most?</h2>
-          </div>
-          <p>The matrix compares the ten product categories with the largest combined import shifts across China, Canada, Mexico, and Vietnam. Color shows the direction and size of the dollar change from 2017 to 2025.</p>
-        </div>
-
-        <div class="heatmap-card">
-          <div class="heatmap-key" aria-label="Heatmap color scale">
-            <span>Imports decreased</span>
-            <i class="key-swatch key-down"></i><i class="key-swatch key-flat"></i><i class="key-swatch key-up"></i>
-            <span>Imports increased</span>
-          </div>
-          <div id="shift-heatmap" class="heatmap" role="img" aria-label="Changes in Cincinnati imports by product category and country"></div>
-          <p class="heatmap-note">Categories are ranked by the combined absolute change across the four countries. Values are changes in nominal US dollars.</p>
-        </div>
-
         <div class="pattern-heading">
-          <p class="trade-eyebrow">Largest shifts</p>
-          <h2>What changed most between 2017 and 2025?</h2>
+          <p class="trade-eyebrow">Changing import patterns</p>
+          <h2>What the data reveals</h2>
         </div>
-        <div id="pattern-cards" class="pattern-grid"></div>
+        <div id="pattern-cards" class="pattern-grid findings-grid"></div>
         <p class="pattern-caution">These are preliminary signals based on broad HS2 categories. Product-level analysis at HS4 and HS6 is needed to identify what moved and why.</p>
       </div>
     </section>
@@ -242,18 +238,23 @@
       patternHolder.innerHTML = `
         <article class="pattern-card">
           <span class="pattern-number">01</span>
-          <h3>Taiwan’s machinery surge</h3>
-          <p><strong>+$2.11B in HS84</strong>The largest country–product increase in the dataset.</p>
+          <h3>China’s role is changing</h3>
+          <p>Imports from China declined by <strong>$258.7M in machinery</strong> and <strong>$98.6M in electronics</strong>, while several other sourcing locations gained ground.</p>
         </article>
         <article class="pattern-card">
           <span class="pattern-number">02</span>
-          <h3>Europe’s pharmaceutical reconfiguration</h3>
-          <p><strong>+$5.27B in pharmaceuticals</strong>Growth was led by Ireland, Switzerland, the United Kingdom, and the Netherlands.</p>
+          <h3>Nearshoring extends beyond Mexico</h3>
+          <p>Imports from Costa Rica increased from <strong>$1.7M to $399.1M</strong>, surpassing Mexico’s <strong>$295.5M</strong> in 2025. Electronics and medical instruments accounted for most of this growth.</p>
         </article>
         <article class="pattern-card">
           <span class="pattern-number">03</span>
           <h3>Electronics dispersed across new hubs</h3>
-          <p><strong>China −$98.6M</strong>Malaysia, Taiwan, Costa Rica, and Thailand collectively gained $1.51B.</p>
+          <p>China’s electronics imports declined by <strong>$98.6M</strong>, while Malaysia, Taiwan, Costa Rica, and Thailand collectively gained <strong>$1.51B</strong>.</p>
+        </article>
+        <article class="pattern-card">
+          <span class="pattern-number">04</span>
+          <h3>Unexpected suppliers are emerging</h3>
+          <p>New sourcing relationships are appearing outside the region’s established partners. Apparel imports from El Salvador rose from <strong>$373K to $5.2M</strong>, while Kenya increased from <strong>$1.7K to $1.25M</strong>. In machinery, Morocco rose from <strong>$1.9M to $18.8M</strong> and Tunisia from <strong>$70K to $3.7M</strong>.</p>
         </article>`;
     }
   })();
