@@ -18,6 +18,7 @@
       max-width: 980px;
       margin: 0;
       font-size: clamp(3rem, 7vw, 6.2rem);
+      font-weight: 400;
       line-height: .98;
       letter-spacing: -.055em;
     }
@@ -31,8 +32,9 @@
 
     .article-meta {
       margin-top: 2rem;
-      color: var(--muted, #667075);
+      color: #171b1d;
       font-size: .92rem;
+      font-weight: 500;
     }
 
     .article-wrap {
@@ -59,26 +61,39 @@
       letter-spacing: -.025em;
     }
 
-    .editorial-figure {
-      width: min(calc(100% - 40px), 1080px);
+    .illustration-feature {
+      display: grid;
+      grid-template-columns: .78fr 1.22fr;
+      gap: clamp(2rem, 6vw, 5rem);
+      align-items: center;
       margin: 0 auto clamp(3.5rem, 8vw, 6rem);
+      padding-top: clamp(3rem, 7vw, 5rem);
+      padding-bottom: clamp(3rem, 7vw, 5rem);
+      border-top: 1px solid var(--line, #d8dcda);
+      border-bottom: 1px solid var(--line, #d8dcda);
     }
 
-    .editorial-figure img {
+    .illustration-feature h2 {
+      margin: 0 0 1.2rem;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      font-weight: 400;
+      line-height: 1.08;
+      letter-spacing: -.035em;
+    }
+
+    .illustration-feature p:not(.section-kicker) {
+      margin: 0;
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+
+    .illustration-feature img {
       display: block;
       width: 100%;
       height: auto;
       border-radius: 22px;
       border: 1px solid var(--line, #d8dcda);
       background: #fff;
-    }
-
-    .editorial-figure figcaption {
-      max-width: 760px;
-      margin: .9rem auto 0;
-      color: var(--muted, #667075);
-      font-size: .83rem;
-      line-height: 1.5;
     }
 
     .map-feature {
@@ -184,6 +199,7 @@
 
     @media (max-width: 760px) {
       .map-feature,
+      .illustration-feature,
       .stat-band {
         grid-template-columns: 1fr;
       }
@@ -266,13 +282,18 @@
         </p>
       </div>
 
-      <figure class="editorial-figure">
+      <section class="shell illustration-feature" aria-labelledby="connection-title">
+        <div>
+          <p class="section-kicker">The invisible link</p>
+          <h2 id="connection-title">How does a crisis near Iran reach a lipstick?</h2>
+          <p>
+            Follow the connection through energy prices, biodiesel demand, palm oil markets, and cosmetic
+            ingredients. The final product may be far from the disruption, but it is already connected to it.
+          </p>
+        </div>
+
         <img src="lipstick.jpg" alt="Illustrated flow from the Strait of Hormuz crisis to higher palm oil and lipstick ingredient costs">
-        <figcaption>
-          The invisible link: geopolitical tension moves through energy prices, biodiesel demand,
-          palm oil markets, and cosmetic ingredients before reaching the final product.
-        </figcaption>
-      </figure>
+      </section>
 
       <section class="shell map-feature" aria-labelledby="distance-title">
         <div>
