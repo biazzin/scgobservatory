@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore how the effective tariff burden on selected industrial machinery imports changed from 2024 to 2026.">
+  <title>Machinery Under Tariff Pressure | Supply Chain Geopolitics Observatory</title>
+  <link rel="icon" href="favicon.svg">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    :root{--ink:#1f2933;--muted:#68737d;--paper:#f7f5f0;--card:#fff;--line:#d9ddd9;--china:#b64032;--world:#3e4850;--accent:#c99a43;--navy:#173b5d}
+    *{box-sizing:border-box} body{margin:0;color:var(--ink);background:var(--paper);font-family:Arial,Helvetica,sans-serif}
+    .shell{width:min(1180px,calc(100% - 48px));margin:0 auto}
+    .site-header{background:#fff;border-bottom:1px solid #e2e5e4}.header-inner{min-height:92px;display:flex;align-items:center;justify-content:space-between;gap:30px}
+    .wordmark img{display:block;width:80px;height:auto}.site-header nav{display:flex;gap:27px;align-items:center}.site-header nav a{color:#2d3439;text-decoration:none;font-size:.94rem}.nav-join{border:1px solid #9ca4a8;border-radius:999px;padding:10px 18px}
+    .hero{padding:78px 0 48px}.eyebrow{margin:0 0 15px;color:#8a6426;font-size:.76rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+    h1{font-family:Georgia,serif;font-size:clamp(2.75rem,5.7vw,5.6rem);line-height:.98;letter-spacing:-.045em;max-width:960px;margin:0}
+    .deck{max-width:760px;margin:28px 0 0;color:#58636b;font-size:1.16rem;line-height:1.62}
+    .headline-strip{display:grid;grid-template-columns:1.2fr repeat(3,.72fr);background:var(--navy);color:#fff;border-radius:22px;overflow:hidden;margin-bottom:36px}
+    .headline-copy{padding:31px 34px}.headline-copy p{margin:0;color:#d6e0e7;line-height:1.5}.headline-copy strong{display:block;color:#fff;font-family:Georgia,serif;font-size:1.55rem;line-height:1.18;margin-bottom:10px}
+    .stat{padding:30px 24px;border-left:1px solid rgba(255,255,255,.18)}.stat span{display:block;color:#cbd6de;font-size:.76rem;text-transform:uppercase;letter-spacing:.08em}.stat strong{display:block;font-size:2rem;margin:10px 0 5px}.stat small{color:#dbe3e9;line-height:1.35}
+    .analysis-card{background:var(--card);border:1px solid #dadfdc;border-radius:25px;padding:34px 34px 26px;box-shadow:0 10px 32px rgba(31,41,51,.07);margin-bottom:70px}
+    .card-top{display:flex;justify-content:space-between;gap:30px;align-items:flex-start;margin-bottom:24px}.card-top h2{font-family:Georgia,serif;font-size:clamp(1.8rem,3vw,2.55rem);margin:3px 0 9px;letter-spacing:-.025em}.card-top p{margin:0;color:var(--muted);line-height:1.5}
+    .controls{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end;max-width:520px}.controls button{border:1px solid #cbd0cd;background:#fff;color:#39434a;border-radius:999px;padding:9px 13px;cursor:pointer;font-weight:600}.controls button:hover,.controls button:focus-visible{border-color:#5b6469}.controls button.active{background:#29343b;border-color:#29343b;color:#fff}
+    .legend{display:flex;gap:22px;align-items:center;margin:2px 0 12px;color:#4c565c;font-size:.88rem}.legend span{display:flex;align-items:center;gap:8px}.swatch{width:22px;height:3px;border-radius:4px}.swatch.china{background:var(--china)}.swatch.world{background:var(--world)}
+    #chart{width:100%;min-height:500px}.chart-svg{width:100%;height:auto;display:block}.grid{stroke:#e4e7e5;stroke-width:1}.axis-label{fill:#788289;font-size:12px}.x-label{fill:#68737a;font-size:11px}.series{fill:none;stroke-linecap:round;stroke-linejoin:round}.series.china{stroke:var(--china);stroke-width:4}.series.world{stroke:var(--world);stroke-width:3}.point{stroke:#fff;stroke-width:2}.event-band{fill:#d8b46f;opacity:.12}.event-line{stroke:#b48637;stroke-width:1.5;stroke-dasharray:5 5}.event-text{fill:#896425;font-size:11px;font-weight:700;letter-spacing:.04em}.end-label{font-size:13px;font-weight:700}.end-label.china{fill:var(--china)}.end-label.world{fill:var(--world)}
+    .tooltip{position:absolute;pointer-events:none;background:#202a31;color:#fff;border-radius:9px;padding:10px 12px;font-size:.8rem;line-height:1.45;box-shadow:0 8px 20px rgba(0,0,0,.16);opacity:0;transform:translate(-50%,-110%);white-space:nowrap}.chart-wrap{position:relative}.chart-note{border-top:1px solid #e2e5e3;margin:15px 0 0;padding-top:17px;color:#6c757b;font-size:.84rem;line-height:1.55}
+    .interpretation{background:#e8e5de;padding:68px 0}.interpretation-grid{display:grid;grid-template-columns:.75fr 1.25fr;gap:90px}.interpretation h2{font-family:Georgia,serif;font-size:clamp(2rem,4vw,3.5rem);line-height:1.05;margin:0}.interpretation blockquote{font-family:Georgia,serif;font-size:clamp(1.45rem,2.6vw,2.25rem);line-height:1.35;margin:0;color:#243038}.interpretation p{color:#59636a;line-height:1.7;margin:22px 0 0}
+    .method{display:grid;grid-template-columns:.5fr 1.5fr;gap:70px;padding:62px 0}.method h2{font-family:Georgia,serif;margin:0 0 14px;font-size:1.65rem}.method p{color:#626d73;line-height:1.65;margin:0 0 12px}.source{font-size:.85rem}
+    footer{background:#20292f;color:#e8ecee;padding:38px 0}.footer-grid{display:flex;justify-content:space-between;gap:40px}.footer-title{font-family:Georgia,serif;font-size:1.15rem;margin:0 0 7px}.footer-grid p{margin:0;color:#bcc5ca}.footer-grid a{color:#e8ecee;text-decoration:none;display:block;margin:3px 0}.footer-label{font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px!important}
+    @media(max-width:850px){.site-header nav{display:none}.headline-strip{grid-template-columns:1fr 1fr}.headline-copy{grid-column:1/-1}.stat{border-top:1px solid rgba(255,255,255,.18)}.stat:last-child{grid-column:1/-1}.card-top,.interpretation-grid{display:block}.controls{justify-content:flex-start;margin-top:22px}.interpretation blockquote{margin-top:32px}.method{grid-template-columns:1fr;gap:20px}}
+    @media(max-width:560px){.shell{width:min(100% - 28px,1180px)}.hero{padding:52px 0 35px}.headline-strip{grid-template-columns:1fr}.stat,.stat:last-child{grid-column:1}.analysis-card{padding:24px 16px}.controls button{font-size:.76rem}.footer-grid{display:block}.footer-grid>div+div{margin-top:24px}}
+  </style>
+  <style id="identity-overrides">
+    /* Page-specific rules built on the Observatory's shared styles.css. */
+    :root{--china:#0071e3;--world:#86868b;--paper:#fff;--card:#fff;--navy:#1d1d1f}
+    body{background:#fff;color:#1d1d1f;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
+    .shell{width:min(1200px,calc(100% - 48px));margin-inline:auto}
+    .site-header{background:#1d1d1fee;color:#f5f5f7;border:0;position:sticky;top:0;z-index:10;backdrop-filter:saturate(180%) blur(20px)}
+    .header-inner{min-height:92px}.wordmark img{height:80px;width:auto;max-width:600px}
+    .site-header nav{gap:30px}.site-header nav a{color:#d6d6d6;font-size:12px}.site-header nav a:hover{color:#fff}.nav-join{border:0;padding:0;color:#fff!important}
+    .machinery-hero{padding-block:100px 85px;border-bottom:1px solid #d2d2d7}
+    .machinery-hero .eyebrow,.eyebrow{color:#6e6e73;font-size:13px;font-weight:600;text-transform:none;letter-spacing:0}
+    .machinery-hero h1{font-family:inherit;font-weight:600;font-size:clamp(52px,6.8vw,84px);line-height:1.02;letter-spacing:-.055em;max-width:1050px;margin:22px 0 38px}
+    .machinery-hero .deck{max-width:800px;font-size:23px;line-height:1.45;letter-spacing:-.015em;color:#6e6e73;margin:0}
+    .scope-note{display:inline-flex;align-items:center;gap:10px;margin-top:34px;padding:10px 14px;border-radius:980px;background:#f5f5f7;color:#424245;font-size:13px;font-weight:600}
+    .scope-note::before{content:"";width:7px;height:7px;border-radius:50%;background:#0071e3}
+    main>.shell:nth-of-type(2){padding-block:85px 110px}
+    .headline-strip{grid-template-columns:1.2fr repeat(3,.72fr);background:#f5f5f7;color:#1d1d1f;border:0;border-radius:14px;margin-bottom:52px}
+    .headline-copy{padding:31px 34px}.headline-copy strong{font-family:inherit;color:#1d1d1f;font-weight:600;letter-spacing:-.025em}.headline-copy p,.stat small{color:#6e6e73}
+    .stat{border-left:1px solid #d2d2d7}.stat span{color:#86868b}.stat strong{color:#1d1d1f;font-weight:600;letter-spacing:-.035em}
+    .analysis-card{background:#fff;border:1px solid #d2d2d7;border-radius:14px;padding:40px 42px 30px;box-shadow:none;margin:0}
+    .card-top h2{font-family:inherit;font-weight:600;letter-spacing:-.035em}.card-top p{color:#6e6e73}.controls button{border:1px solid #d2d2d7;color:#424245;background:#fff;font-size:13px}.controls button:hover,.controls button:focus-visible{border-color:#86868b}.controls button.active{background:#1d1d1f;border-color:#1d1d1f;color:#fff}
+    .legend{color:#6e6e73}.swatch.china{background:#0071e3}.swatch.world{background:#86868b}.series.china{stroke:#0071e3}.series.world{stroke:#86868b}.end-label.china{fill:#0071e3}.end-label.world{fill:#6e6e73}.event-band{fill:#0071e3;opacity:.06}.event-line{stroke:#0071e3;opacity:.7}.event-text{fill:#0071e3}.tooltip{background:#1d1d1f}.grid{stroke:#e8e8ed}.axis-label,.x-label{fill:#86868b}.chart-note{border-color:#d2d2d7;color:#86868b}
+    .interpretation{background:#000;color:#f5f5f7;padding:90px 0}.interpretation h2{font-family:inherit;font-weight:600;letter-spacing:-.035em}.interpretation .eyebrow{color:#86868b}.interpretation blockquote{font-family:inherit;font-weight:600;letter-spacing:-.035em;color:#f5f5f7}.interpretation p{color:#a1a1a6}
+    .regional-bridge{padding-block:95px;border-bottom:1px solid #d2d2d7}.regional-bridge-inner{display:grid;grid-template-columns:.55fr 1.45fr;gap:70px}.regional-bridge h2{font-size:clamp(40px,5vw,64px);font-weight:600;letter-spacing:-.045em;line-height:1.04;margin:0 0 20px}.regional-bridge p{max-width:780px;color:#6e6e73;font-size:20px;line-height:1.52;margin:0 0 26px}.regional-bridge a{color:#06c;font-size:17px}.regional-bridge a:hover{text-decoration:underline}
+    .study-cta{padding-block:90px}.study-cta-inner{display:grid;grid-template-columns:.8fr 1.2fr;gap:90px;align-items:start}.study-cta h2{font-size:clamp(42px,5vw,68px);font-weight:600;letter-spacing:-.05em;line-height:1.03;margin:0}.study-cta-copy{font-size:20px;line-height:1.55;color:#6e6e73;margin:0 0 28px}.study-cta a{display:inline-flex;align-items:center;background:#0071e3;color:#fff;border-radius:980px;padding:12px 20px;font-size:15px;font-weight:500}.study-cta a:hover{background:#0077ed}
+    .reconfiguration{background:#f5f5f7;padding-block:105px}.reconfiguration-intro{display:grid;grid-template-columns:.55fr 1.45fr;gap:70px;margin-bottom:48px}.reconfiguration-intro h2{font-size:clamp(42px,5vw,68px);font-weight:600;letter-spacing:-.05em;line-height:1.03;margin:0}.reconfiguration-intro p:last-child{font-size:20px;line-height:1.5;color:#6e6e73;margin:0}
+    .trend-card{background:#fff;border-radius:14px;padding:42px;border:1px solid #e2e2e7}.trend-stats{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid #d2d2d7;margin-bottom:28px}.trend-stat{padding:0 28px 28px}.trend-stat:first-child{padding-left:0}.trend-stat+.trend-stat{border-left:1px solid #d2d2d7}.trend-stat span{display:block;color:#86868b;font-size:13px}.trend-stat strong{display:block;font-size:34px;letter-spacing:-.04em;margin:8px 0 4px}.trend-stat small{color:#6e6e73}.trend-legend{display:flex;gap:24px;color:#6e6e73;font-size:13px;margin-bottom:10px}.trend-legend span{display:flex;align-items:center;gap:8px}.trend-legend i{display:block;width:22px;height:3px;border-radius:3px}.trend-total{background:#1d1d1f}.trend-china{background:#0071e3}#structure-chart{min-height:430px}.structure-line{fill:none;stroke-linecap:round;stroke-linejoin:round}.structure-line.total{stroke:#1d1d1f;stroke-width:4}.structure-line.china{stroke:#0071e3;stroke-width:4}.structure-point{stroke:#fff;stroke-width:2}.structure-label{font-size:13px;font-weight:700}.structure-label.total{fill:#1d1d1f}.structure-label.china{fill:#0071e3}.share-label{fill:#0071e3;font-size:11px;font-weight:600}.trend-note{font-size:13px;line-height:1.55;color:#86868b;border-top:1px solid #d2d2d7;padding-top:18px;margin:12px 0 0}
+    .method{padding-block:100px;grid-template-columns:.45fr 1fr 1fr;gap:60px}.method>div:last-child{grid-column:2/4}.method h2{font-family:inherit;font-weight:600;font-size:45px;letter-spacing:-.035em}.method p{color:#6e6e73}
+    footer{background:#f5f5f7;color:#6e6e73;padding:58px 0 25px}.footer-grid{display:grid;grid-template-columns:1.5fr .7fr;gap:80px}.footer-title{font-family:inherit;color:#1d1d1f;font-size:17px;font-weight:600}.footer-grid p{color:#6e6e73}.footer-grid a{color:#1d1d1f}.footer-label{color:#1d1d1f}.footer-bottom{border-top:1px solid #d2d2d7;margin-top:48px;padding-top:20px;color:#86868b}
+    @media(max-width:850px){.shell{width:min(100% - 32px,1200px)}.header-inner{min-height:76px}.wordmark img{height:48px}.headline-strip{grid-template-columns:1fr 1fr}.headline-copy{grid-column:1/-1}.stat{border-top:1px solid #d2d2d7}.stat:last-child{grid-column:1/-1}.interpretation-grid,.reconfiguration-intro,.regional-bridge-inner,.study-cta-inner{display:block}.reconfiguration-intro p:last-child,.regional-bridge>div>div,.study-cta>div>div:last-child{margin-top:24px}.trend-stats{grid-template-columns:1fr}.trend-stat{padding:20px 0}.trend-stat+.trend-stat{border-left:0;border-top:1px solid #d2d2d7}.method{grid-template-columns:1fr}.method>div:last-child{grid-column:auto}.footer-grid{grid-template-columns:1fr}}
+    @media(max-width:640px){.header-inner{padding-block:10px;align-items:flex-start;flex-direction:column}.wordmark img{height:44px}.site-header nav{display:flex;width:100%;overflow-x:auto;padding-bottom:4px}.machinery-hero{padding-block:72px}.machinery-hero h1{font-size:50px}.headline-strip{grid-template-columns:1fr}.headline-copy,.stat,.stat:last-child{grid-column:1}.analysis-card{padding:28px 18px}.card-top{display:block}.controls{justify-content:flex-start}.interpretation{padding:72px 0}}
+  </style>
+</head>
+<body>
+  <header class="site-header"><div class="shell header-inner"><a class="wordmark" href="index.html" aria-label="Supply Chain Geopolitics Observatory home"><img src="logo.png" alt="SCG Supply Chain Geopolitics Observatory"></a><nav aria-label="Primary navigation"><a href="who-we-are.html">Who we are</a><a href="projects.html">Projects</a><a href="research.html">Research</a><a href="publications.html">Publications</a><a class="nav-join" href="join.html">Join us</a></nav></div></header>
+
+  <main>
+    <section class="page-hero shell machinery-hero">
+      <p class="eyebrow">U.S. machinery imports by country of origin</p>
+      <h1>Trade disruption changed the economics—and the map—of machinery sourcing.</h1>
+      <p class="deck">National import data show two connected changes: the effective tariff burden rose abruptly, while an expanding U.S. machinery market shifted away from China.</p>
+      <p class="scope-note">Geographic scope: United States, aggregated across all customs districts</p>
+    </section>
+
+    <section class="shell">
+      <div class="headline-strip">
+        <div class="headline-copy"><strong>A decision environment reset</strong><p>The selected categories cover separation equipment, gears and transmission components, electric motors, and electrical converters.</p></div>
+        <div class="stat"><span>China · 2024 average</span><strong id="stat-start">22.7%</strong><small>Effective tariff rate</small></div>
+        <div class="stat"><span>China · May 2025</span><strong id="stat-peak">68.9%</strong><small>Peak in the series</small></div>
+        <div class="stat"><span>China · July 2026</span><strong id="stat-latest">34.8%</strong><small>Still above 2024</small></div>
+      </div>
+
+      <article class="analysis-card">
+        <div class="card-top">
+          <div><p class="eyebrow">Observed tariff burden</p><h2 id="chart-title">Selected machinery</h2><p>Calculated duties as a share of customs value, January 2024–July 2026</p></div>
+          <div class="controls" aria-label="Select machinery category">
+            <button class="active" data-key="all">All selected</button><button data-key="8421">Separation</button><button data-key="8483">Gears</button><button data-key="8501">Motors</button><button data-key="8504">Converters</button>
+          </div>
+        </div>
+        <div class="legend"><span><i class="swatch china"></i>Imports from China</span><span><i class="swatch world"></i>Imports from all origins</span></div>
+        <div class="chart-wrap"><div id="chart" role="img" aria-label="Monthly effective tariff rates on selected industrial machinery imports from China and all origins"></div><div class="tooltip" id="tooltip"></div></div>
+        <p class="chart-note">The effective tariff rate equals calculated duties divided by customs value. It is a trade-weighted realized measure, so it reflects statutory duties, product mix, origin mix, and applicable tariff programs. Monthly values are not seasonally adjusted. The pattern identifies a changed cost environment; it does not establish how any individual company responded.</p>
+      </article>
+    </section>
+
+    <section class="reconfiguration" aria-labelledby="reconfiguration-title">
+      <div class="shell">
+        <div class="reconfiguration-intro">
+          <div><p class="eyebrow">Structural reconfiguration · 2017–2025</p><h2 id="reconfiguration-title">The market expanded. China lost ground.</h2></div>
+          <p>U.S. imports in the four selected machinery families increased by 81.1%. Imports from China declined by 32.4%. Demand for imported equipment continued to grow, but the geography supplying it changed.</p>
+        </div>
+        <div class="trend-card multicountry">
+          <div class="trend-stats">
+            <div class="trend-stat"><span>Total machinery imports</span><strong>+81.1%</strong><small>$38.50B to $69.72B</small></div>
+            <div class="trend-stat"><span>Imports from China</span><strong>−32.4%</strong><small>$10.29B to $6.96B</small></div>
+            <div class="trend-stat"><span>China's share</span><strong>26.7% → 10.0%</strong><small>−16.7 percentage points</small></div>
+          </div>
+          <div class="trend-legend"><span><i class="trend-total"></i>Total imports</span><span><i class="trend-china"></i>Imports from China</span></div>
+          <div id="structure-chart" role="img" aria-label="Indexed growth of total U.S. machinery imports and imports from China from 2017 to 2025"></div>
+          <p class="trend-note">Index: 2017 = 100. Annual imports for consumption for HTS 8421, 8483, 8501, and 8504. The chart describes U.S. national trade by country of origin. It does not measure Greater Cincinnati or Northern Kentucky.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="interpretation"><div class="shell interpretation-grid"><div><p class="eyebrow">The next question</p><h2>Where did the dependencies move?</h2></div><div><blockquote>If the market continued to grow while its sourcing geography changed, where did the underlying dependencies move?</blockquote><p>Country-of-origin data show where direct trade relationships changed. They cannot reveal every component, technology, infrastructure system, or lower-tier supplier supporting those flows.</p></div></div></section>
+
+    <section class="regional-bridge">
+      <div class="shell regional-bridge-inner">
+        <p class="eyebrow">Regional perspective</p>
+        <div>
+          <h2>How does this national shift appear in Northern Kentucky–Greater Cincinnati?</h2>
+          <p>Compare the value, direction, and sourcing distance of goods recorded through the regional port of entry.</p>
+          <a href="trade.html">Explore Greater Cincinnati’s changing trade relationships →</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="study-cta">
+      <div class="shell study-cta-inner">
+        <div><p class="eyebrow">Applied market analysis</p><h2>What is changing in your market?</h2></div>
+        <div><p class="study-cta-copy">We develop tailored analyses to help organizations understand shifts in trade exposure, sourcing relationships, and competitive position.</p><a href="mailto:biazzinc1@nku.edu?subject=Market%20study%20inquiry">Discuss a market study</a></div>
+      </div>
+    </section>
+
+    <section class="method shell"><div><p class="eyebrow">About the data</p></div><div><h2>National evidence, interpreted at the appropriate scale</h2><p>Imports for consumption for HTS 8421, 8483, 8501, and 8504 were aggregated across all U.S. customs districts and organized by country of origin. The tariff chart uses monthly observations from January 2024 through July 2026. The structural chart uses complete calendar years from 2017 through 2025.</p><p>These results describe the U.S. import environment facing companies. They do not represent Greater Cincinnati or Northern Kentucky trade flows and do not identify the behavior of individual firms.</p><p class="source">Source: U.S. International Trade Commission DataWeb, Imports for Consumption. Calculations by the Supply Chain Geopolitics Observatory. This page presents a snapshot of a broader analysis of the U.S. industrial machinery sector.</p></div></section>
+  </main>
+
+  <footer><div class="shell footer-grid"><div><p class="footer-title">Supply Chain Geopolitics Observatory</p><p>Researching the connections between global change and business.</p></div><div><p class="footer-label">Contact</p><a href="mailto:biazzinc1@nku.edu">biazzinc1@nku.edu</a><a href="https://www.linkedin.com/company/supply-chain-geopolitics-observ/">LinkedIn</a></div></div><div class="shell footer-bottom">© 2026 Supply Chain Geopolitics Observatory</div></footer>
+
+  <script>
+  const DATA={
+    all:{label:'Selected machinery',rows:[[3.747,22.686],[3.45,22.431],[3.005,22.262],[3.126,22.359],[3.305,21.818],[3.321,22.513],[3.502,22.579],[3.407,23.067],[3.348,23.145],[3.231,22.753],[3.143,23.083],[3.48,22.886],[3.67,22.487],[3.649,24.56],[5.311,36.589],[9.08,57.047],[12.364,68.89],[11.327,51.974],[12.083,51.893],[14.465,52.403],[18.23,55.092],[19.2,55.967],[18.042,49.964],[18.195,46.344],[18.481,46.377],[15.156,42.266],[10.741,34.924],[11.836,34.421],[11.833,34.459],[11.839,33.989],[11.766,34.753]]},
+    8421:{label:'Separation & filtering equipment',rows:[[2.722,20.616],[2.556,19.646],[2.164,19.463],[2.195,19.046],[2.201,16.498],[2.262,18.12],[2.325,18.701],[2.197,20.026],[2.035,19.464],[1.879,19.2],[2.026,19.871],[2.445,19.4],[2.622,19.481],[2.44,20.375],[4.543,31.053],[7.951,47.866],[11.563,67.559],[10.358,53.204],[10.965,51.532],[11.666,51.039],[13.622,53.342],[14.341,53.598],[13.123,47.17],[13.392,44.771],[14.081,45.816],[12.067,42.172],[8.985,33.66],[9.288,31.938],[8.85,31.477],[8.992,32.21],[8.561,31.976]]},
+    8483:{label:'Gears & transmission components',rows:[[4.829,25.036],[4.768,24.612],[4.453,25.033],[4.546,25.242],[4.699,25.443],[4.73,25.555],[4.872,25.058],[5.153,25.566],[4.957,25.498],[4.709,25.416],[4.276,25.253],[4.659,25.427],[4.908,25.055],[4.921,26.037],[6.671,36.347],[10.888,57.54],[15.415,71.102],[14.426,51.704],[14.522,51.31],[19.612,54.676],[28.752,65.839],[28.372,66.36],[27.814,60.639],[26.908,55.486],[27.188,55.43],[24.062,54.463],[20.241,47.838],[17.565,42.787],[16.845,40.682],[16.043,41.001],[16.404,41.492]]},
+    8501:{label:'Electric motors',rows:[[4.22,20.377],[4.075,20.197],[3.798,19.782],[3.944,20.25],[4.003,20.141],[3.907,21.002],[4.413,21.088],[4.04,20.767],[4.175,21.429],[3.868,19.993],[3.685,20.954],[4.076,20.762],[4.27,19.498],[4.279,22.3],[7.004,35.169],[9.311,54.59],[12.748,64.715],[11.438,49.02],[12.682,50.947],[14.056,51.12],[17.468,48.678],[18.562,51.009],[17.171,45.293],[16.561,41.922],[16.907,42.006],[13.833,38.97],[10.368,32.686],[10.148,31.413],[9.635,31.755],[9.677,31.989],[10.199,33.366]]},
+    8504:{label:'Converters & inverters',rows:[[3.626,23.737],[3.13,24.097],[2.558,23.812],[2.706,23.994],[3.005,23.909],[3.081,24.184],[3.157,24.206],[3.133,24.302],[3.092,24.383],[3.071,24.307],[3.066,24.349],[3.307,24.366],[3.493,24.098],[3.508,26.726],[4.523,39.967],[8.847,61.762],[11.476,70.653],[10.697,53.098],[11.514,52.821],[14.129,52.609],[17.072,54.401],[18.213,54.778],[17.197,48.518],[17.924,44.409],[18.095,44.608],[14.012,38.799],[8.527,31.343],[11.73,33.869],[12.414,34.394],[12.555,33.109],[12.261,34.222]]}
+  };
+  const DATES=Array.from({length:31},(_,i)=>{const d=new Date(2024,i,1);return d.toLocaleDateString('en-US',{month:'short',year:'numeric'})});
+  const chart=document.querySelector('#chart'),tooltip=document.querySelector('#tooltip');
+  function render(key='all'){
+    const item=DATA[key],rows=item.rows,W=1080,H=500,m={t:40,r:105,b:55,l:58},iw=W-m.l-m.r,ih=H-m.t-m.b,max=80;
+    const x=i=>m.l+i/(rows.length-1)*iw,y=v=>m.t+(max-v)/max*ih;
+    const path=j=>rows.map((r,i)=>(i?'L':'M')+x(i).toFixed(1)+','+y(r[j]).toFixed(1)).join(' ');
+    let svg=`<svg class="chart-svg" viewBox="0 0 ${W} ${H}" aria-hidden="true">`;
+    svg+=`<rect class="event-band" x="${x(13)}" y="${m.t}" width="${x(16)-x(13)}" height="${ih}"/><line class="event-line" x1="${x(13)}" x2="${x(13)}" y1="${m.t}" y2="${H-m.b}"/><text class="event-text" x="${x(13)+8}" y="${m.t+16}">2025 ESCALATION</text>`;
+    for(let v=0;v<=80;v+=20){svg+=`<line class="grid" x1="${m.l}" x2="${W-m.r}" y1="${y(v)}" y2="${y(v)}"/><text class="axis-label" x="${m.l-10}" y="${y(v)+4}" text-anchor="end">${v}%</text>`}
+    [0,6,12,18,24,30].forEach(i=>svg+=`<text class="x-label" x="${x(i)}" y="${H-22}" text-anchor="middle">${DATES[i]}</text>`);
+    svg+=`<path class="series china" d="${path(1)}"/><path class="series world" d="${path(0)}"/>`;
+    rows.forEach((r,i)=>svg+=`<circle class="point" data-i="${i}" cx="${x(i)}" cy="${y(r[1])}" r="4" fill="var(--china)"/><circle class="point" data-i="${i}" cx="${x(i)}" cy="${y(r[0])}" r="3.5" fill="var(--world)"/>`);
+    const last=rows.length-1;svg+=`<text class="end-label china" x="${x(last)+10}" y="${y(rows[last][1])+4}">China ${rows[last][1].toFixed(1)}%</text><text class="end-label world" x="${x(last)+10}" y="${y(rows[last][0])+4}">All ${rows[last][0].toFixed(1)}%</text></svg>`;
+    chart.innerHTML=svg;document.querySelector('#chart-title').textContent=item.label;
+    const avg24=rows.slice(0,12).reduce((s,r)=>s+r[1],0)/12,peak=Math.max(...rows.map(r=>r[1])),latest=rows[last][1];
+    document.querySelector('#stat-start').textContent=avg24.toFixed(1)+'%';document.querySelector('#stat-peak').textContent=peak.toFixed(1)+'%';document.querySelector('#stat-latest').textContent=latest.toFixed(1)+'%';
+    chart.querySelectorAll('.point').forEach(p=>{p.addEventListener('mouseenter',e=>{const i=+e.target.dataset.i,r=rows[i];tooltip.innerHTML=`<strong>${DATES[i]}</strong><br>China: ${r[1].toFixed(1)}%<br>All origins: ${r[0].toFixed(1)}%`;tooltip.style.left=e.target.getAttribute('cx')/W*100+'%';tooltip.style.top=e.target.getAttribute('cy')/H*100+'%';tooltip.style.opacity=1});p.addEventListener('mouseleave',()=>tooltip.style.opacity=0)});
+  }
+  function renderStructure(){
+    const years=[2017,2018,2019,2020,2021,2022,2023,2024,2025];
+    const total=[100,109.84,111.35,109.22,130.05,149.71,162.99,173.74,181.09];
+    const china=[100,110.79,91.45,82.80,91.35,95.63,81.05,77.84,67.64];
+    const share=[26.7,26.9,22.0,20.3,18.8,17.1,13.3,12.0,10.0];
+    const W=1080,H=430,m={t:34,r:100,b:52,l:58},iw=W-m.l-m.r,ih=H-m.t-m.b,min=50,max=190;
+    const x=i=>m.l+i/(years.length-1)*iw,y=v=>m.t+(max-v)/(max-min)*ih;
+    const path=a=>a.map((v,i)=>(i?'L':'M')+x(i).toFixed(1)+','+y(v).toFixed(1)).join(' ');
+    let svg=`<svg class="chart-svg" viewBox="0 0 ${W} ${H}" aria-hidden="true">`;
+    [50,100,150].forEach(v=>svg+=`<line class="grid" x1="${m.l}" x2="${W-m.r}" y1="${y(v)}" y2="${y(v)}"/><text class="axis-label" x="${m.l-10}" y="${y(v)+4}" text-anchor="end">${v}</text>`);
+    years.forEach((yr,i)=>svg+=`<text class="x-label" x="${x(i)}" y="${H-19}" text-anchor="middle">${yr}</text>`);
+    svg+=`<path class="structure-line total" d="${path(total)}"/><path class="structure-line china" d="${path(china)}"/>`;
+    total.forEach((v,i)=>svg+=`<circle class="structure-point" cx="${x(i)}" cy="${y(v)}" r="5" fill="#1d1d1f"/>`);
+    china.forEach((v,i)=>svg+=`<circle class="structure-point" cx="${x(i)}" cy="${y(v)}" r="5" fill="#0071e3"/><text class="share-label" x="${x(i)}" y="${y(v)+22}" text-anchor="middle">${share[i]}%</text>`);
+    svg+=`<text class="structure-label total" x="${x(8)+12}" y="${y(total[8])+4}">Total 181</text><text class="structure-label china" x="${x(8)+12}" y="${y(china[8])+4}">China 68</text></svg>`;
+    document.querySelector('#structure-chart').innerHTML=svg;
+  }
+  document.querySelectorAll('.controls button').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.controls button').forEach(x=>x.classList.remove('active'));b.classList.add('active');render(b.dataset.key)}));render();renderStructure();
+  </script>
+</body>
+</html>
