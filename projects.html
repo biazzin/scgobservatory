@@ -125,21 +125,40 @@
 
     .regional-panel {
       display: grid;
-      grid-template-columns: 0.72fr 1.28fr;
-      gap: 70px;
-      padding: 48px;
+      grid-template-columns: 0.82fr 1.18fr;
+      gap: 48px;
+      align-items: center;
+      padding: 38px 44px 38px 28px;
       border: 1px solid #d8cbb7;
       border-radius: 22px;
       background: #f3eee6;
     }
 
+    .regional-visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 0;
+    }
+
+    .regional-art {
+      display: block;
+      width: 100%;
+      max-width: 440px;
+      height: auto;
+      opacity: 0.92;
+      mix-blend-mode: multiply;
+      -webkit-mask-image: radial-gradient(ellipse at 45% 50%, #000 54%, transparent 92%);
+      mask-image: radial-gradient(ellipse at 45% 50%, #000 54%, transparent 92%);
+    }
+
     .regional-period {
-      margin: 24px 0 0;
+      margin: 0 0 10px;
       color: #765f3e;
-      font-size: clamp(46px, 5.8vw, 78px);
-      font-weight: 600;
-      line-height: 1;
-      letter-spacing: -0.055em;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: 0.08em;
     }
 
     .regional-panel h2 {
@@ -233,7 +252,8 @@
       }
       .flagship-copy { width: 100%; }
       .flagship-art { inset: auto 0 0; width: 100%; height: 310px; object-position: center bottom; }
-      .regional-panel { gap: 25px; padding: 32px 24px; }
+      .regional-panel { gap: 22px; padding: 28px 24px 34px; }
+      .regional-art { max-width: 520px; }
       .forum-grid { gap: 42px; min-height: 0; }
       .forum-date { padding: 0 0 35px; border-right: 0; border-bottom: 1px solid #3a3a3e; }
       .forum-day { font-size: 110px; }
@@ -313,11 +333,12 @@
 
     <section class="shell regional-wrap">
       <article class="regional-panel">
-        <div>
-          <p class="section-kicker">Regional intelligence</p>
-          <p class="regional-period">2017→2025</p>
+        <div class="regional-visual">
+          <img class="regional-art" src="figuracinci.jpg" alt="Editorial illustration of Greater Cincinnati trade connections, infrastructure, and industry">
         </div>
         <div>
+          <p class="section-kicker">Regional intelligence</p>
+          <p class="regional-period">2017 → 2025</p>
           <h2>Greater Cincinnati’s Changing Trade Geography</h2>
           <p>
             A preliminary examination of changes in the Cincinnati–Lawrenceburg port district’s
