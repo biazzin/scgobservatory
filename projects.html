@@ -3,30 +3,245 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="The research agenda, current projects, methods, and public conversations of the Supply Chain Geopolitics Observatory.">
+  <meta name="description" content="Current research, regional intelligence, and public initiatives from the Supply Chain Geopolitics Observatory.">
   <title>Our Work | Supply Chain Geopolitics Observatory</title>
   <link rel="icon" href="favicon.svg">
   <link rel="stylesheet" href="styles.css">
   <style>
-    .regional-feature {
-      margin: 2rem 0;
-      padding: 2rem;
+    .work-hero {
+      padding: 88px 0 76px;
+      display: grid;
+      grid-template-columns: 1.4fr 0.6fr;
+      gap: 70px;
+      align-items: end;
+      border-bottom: 1px solid #d2d2d7;
+    }
+
+    .work-hero h1 {
+      max-width: 920px;
+      margin: 20px 0 0;
+      font-size: clamp(54px, 6.5vw, 86px);
+      line-height: 0.98;
+      letter-spacing: -0.055em;
+    }
+
+    .work-hero-copy {
+      margin: 0;
+      color: #6e6e73;
+      font-size: 19px;
+      line-height: 1.55;
+    }
+
+    .portfolio { padding: 74px 0 92px; }
+
+    .portfolio-intro {
+      display: flex;
+      justify-content: space-between;
+      gap: 50px;
+      align-items: baseline;
+      margin-bottom: 32px;
+    }
+
+    .portfolio-intro h2 {
+      margin: 0;
+      font-size: 34px;
+      letter-spacing: -0.03em;
+    }
+
+    .project-mosaic {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
+      grid-template-rows: auto auto;
+      gap: 16px;
+    }
+
+    .project-panel {
+      position: relative;
+      overflow: hidden;
+      border-radius: 20px;
+      padding: 38px;
+    }
+
+    .project-panel h3 {
+      margin: 12px 0 16px;
+      font-size: 32px;
+      line-height: 1.08;
+      letter-spacing: -0.035em;
+    }
+
+    .project-panel p:last-child {
+      margin-bottom: 0;
+      font-size: 17px;
+      line-height: 1.55;
+    }
+
+    .project-flagship {
+      grid-row: 1 / 3;
+      min-height: 475px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: #171719;
+      color: #f5f5f7;
+    }
+
+    .project-flagship::after {
+      content: "";
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      right: -95px;
+      bottom: -110px;
+      border: 1px solid #505055;
+      border-radius: 50%;
+      box-shadow: 0 0 0 52px #222225, 0 0 0 53px #505055;
+    }
+
+    .project-flagship .section-kicker { color: #a1a1a6; }
+    .project-flagship h3 { max-width: 580px; font-size: clamp(38px, 4vw, 58px); }
+    .project-flagship p:last-child { max-width: 620px; color: #c7c7cc; }
+
+    .project-secondary { background: #f1f1f3; color: #1d1d1f; }
+    .project-secondary p:last-child { color: #626268; }
+
+    .project-student {
+      border: 1px solid #d2d2d7;
+      background: #fff;
+    }
+    .project-student p:last-child { color: #6e6e73; }
+
+    .regional-wrap { padding: 0 0 92px; }
+
+    .regional-panel {
+      display: grid;
+      grid-template-columns: 0.72fr 1.28fr;
+      gap: 70px;
+      padding: 48px;
       border: 1px solid #d8cbb7;
-      border-radius: 18px;
+      border-radius: 22px;
       background: #f3eee6;
     }
 
-    .regional-feature .section-kicker { color: #765f3e; }
-
-    .event-note {
-      margin-top: 1.35rem;
-      padding-top: 1.15rem;
-      border-top: 1px solid #d8cbb7;
-      color: #4a4238;
-      font-size: 0.95rem;
+    .regional-period {
+      margin: 24px 0 0;
+      color: #765f3e;
+      font-size: clamp(46px, 5.8vw, 78px);
+      font-weight: 600;
+      line-height: 1;
+      letter-spacing: -0.055em;
     }
 
-    .event-note a { font-weight: 700; }
+    .regional-panel h2 {
+      margin: 4px 0 16px;
+      font-size: 40px;
+      line-height: 1.1;
+      letter-spacing: -0.035em;
+    }
+
+    .regional-panel p {
+      color: #5f574d;
+      font-size: 17px;
+      line-height: 1.55;
+    }
+
+    .regional-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px 28px;
+      align-items: center;
+      margin-top: 24px;
+    }
+
+    .event-link {
+      max-width: 640px;
+      margin: 30px 0 0;
+      padding-top: 22px;
+      border-top: 1px solid #d8cbb7;
+      font-size: 15px !important;
+    }
+
+    .event-link a { font-weight: 700; }
+
+    .forum-stage { background: #0c0c0d; color: #f5f5f7; }
+
+    .forum-grid {
+      min-height: 430px;
+      display: grid;
+      grid-template-columns: 0.62fr 1.38fr;
+      gap: 85px;
+      align-items: center;
+      padding: 72px 0;
+    }
+
+    .forum-date {
+      padding-right: 60px;
+      border-right: 1px solid #3a3a3e;
+    }
+
+    .forum-month {
+      display: block;
+      color: #a1a1a6;
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+    }
+
+    .forum-day {
+      display: block;
+      margin: 4px 0;
+      font-size: clamp(92px, 12vw, 155px);
+      font-weight: 600;
+      line-height: 0.9;
+      letter-spacing: -0.075em;
+    }
+
+    .forum-year { color: #a1a1a6; font-size: 20px; }
+    .forum-copy .section-kicker { color: #a1a1a6; }
+
+    .forum-copy h2 {
+      max-width: 700px;
+      margin: 14px 0 18px;
+      font-size: clamp(42px, 5vw, 66px);
+      line-height: 1;
+      letter-spacing: -0.05em;
+    }
+
+    .forum-meta { margin: 0 0 20px; color: #d2d2d7; font-weight: 600; }
+    .forum-description { max-width: 720px; color: #aeb0b5; font-size: 18px; line-height: 1.55; }
+    .forum-copy .text-link { display: inline-block; margin-top: 12px; color: #fff; }
+
+    .methods { padding: 58px 0 70px; }
+
+    .method-line {
+      display: grid;
+      grid-template-columns: 0.4fr 1.6fr;
+      gap: 60px;
+      padding-top: 28px;
+      border-top: 1px solid #d2d2d7;
+    }
+
+    .method-line p:last-child {
+      max-width: 900px;
+      margin: 0;
+      color: #525257;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 800px) {
+      .work-hero,
+      .regional-panel,
+      .forum-grid,
+      .method-line { grid-template-columns: 1fr; }
+      .work-hero { gap: 30px; padding: 68px 0 60px; }
+      .project-mosaic { grid-template-columns: 1fr; }
+      .project-flagship { grid-row: auto; min-height: 430px; }
+      .regional-panel { gap: 25px; padding: 32px 24px; }
+      .forum-grid { gap: 42px; min-height: 0; }
+      .forum-date { padding: 0 0 35px; border-right: 0; border-bottom: 1px solid #3a3a3e; }
+      .forum-day { font-size: 110px; }
+      .method-line { gap: 20px; }
+    }
   </style>
 </head>
 
@@ -36,7 +251,6 @@
       <a class="wordmark" href="index.html" aria-label="Supply Chain Geopolitics Observatory home">
         <img src="logo.png" alt="SCG Supply Chain Geopolitics Observatory">
       </a>
-
       <nav aria-label="Primary navigation">
         <a href="index.html">Home</a>
         <a href="who-we-are.html">Who We Are</a>
@@ -48,117 +262,106 @@
   </header>
 
   <main>
-    <section class="page-hero shell">
-      <p class="eyebrow">Our Work</p>
-      <h1>Understanding how global change becomes a business consequence.</h1>
-      <p class="page-intro">
-        We connect long-term questions with focused investigations, regional evidence,
-        and conversations that bring research into practice.
+    <section class="shell work-hero">
+      <div>
+        <p class="eyebrow">Our Work</p>
+        <h1>Following the connections that reshape supply chains.</h1>
+      </div>
+      <p class="work-hero-copy">
+        Our research moves from geopolitical change to firm decisions, shared dependencies,
+        and regional consequences.
       </p>
     </section>
 
-    <section class="shell section-space">
-      <div class="section-intro">
-        <p class="section-kicker">What we investigate</p>
-        <h2>Four connected areas of inquiry</h2>
+    <section class="shell portfolio">
+      <div class="portfolio-intro">
+        <p class="section-kicker">Current research</p>
+        <h2>Work underway</h2>
       </div>
 
-      <div class="research-grid">
-        <article>
-          <p class="number">01</p>
-          <h2>Geopolitical triads and supply chain reconfiguration</h2>
-          <p>How interventions between two countries create redirection, opportunity, exposure, and strategic change in third countries.</p>
+      <div class="project-mosaic">
+        <article class="project-panel project-flagship">
+          <div>
+            <p class="section-kicker">Geopolitical triads</p>
+            <h3>Beyond Bilateral Exposure</h3>
+          </div>
+          <p>
+            Examining how U.S.–China tensions reshape Brazil’s role in global supply chains
+            through changes in trade, sourcing, production, and investment.
+          </p>
         </article>
-        <article>
-          <p class="number">02</p>
-          <h2>Strategic dependencies and resilience</h2>
-          <p>How organizations understand and sometimes overlook the shared infrastructure and enabling systems behind operational continuity.</p>
-        </article>
-        <article>
-          <p class="number">03</p>
-          <h2>Trade policy and industrial transformation</h2>
-          <p>How tariffs, sanctions, investment restrictions, and industrial policy influence firm decisions and regional competitiveness.</p>
-        </article>
-        <article>
-          <p class="number">04</p>
-          <h2>Signals, narratives, and managerial judgment</h2>
-          <p>How business leaders interpret incomplete geopolitical signals and translate uncertainty into sourcing, investment, and operational choices.</p>
-        </article>
-      </div>
-    </section>
 
-    <section class="band">
-      <div class="shell method-block">
-        <p class="section-kicker">How we work</p>
-        <h2>Evidence guides the question.</h2>
-        <p>
-          Our projects combine product-level trade data, archival evidence, interviews,
-          field investigation, company and industry cases, and collaboration across disciplines.
-          The method follows the question and the strength of the available evidence.
-        </p>
+        <article class="project-panel project-secondary">
+          <p class="section-kicker">Strategic dependencies</p>
+          <h3>Invisible Infrastructure</h3>
+          <p>
+            Investigating how firms share vulnerability through energy, cloud systems,
+            telecommunications, positioning services, and other enabling systems.
+          </p>
+        </article>
+
+        <article class="project-panel project-student">
+          <p class="section-kicker">Student research</p>
+          <h3>Where Research Begins</h3>
+          <p>
+            Undergraduate researchers examine GPS disruption, tariffs, industrial policy,
+            drones, cybersecurity, and regional supply chains.
+          </p>
+        </article>
       </div>
     </section>
 
-    <section class="shell project-list">
-      <div class="section-intro">
-        <p class="section-kicker">What is underway</p>
-        <h2>Research in motion</h2>
-      </div>
-
-      <article>
-        <span>01</span>
-        <div>
-          <p class="section-kicker">Current research</p>
-          <h2>Beyond Bilateral Exposure</h2>
-          <p>Examining how U.S.–China tensions reshape Brazil’s role in global supply chains through changes in trade, sourcing, production, and investment.</p>
-        </div>
-      </article>
-
-      <article>
-        <span>02</span>
-        <div>
-          <p class="section-kicker">Research program</p>
-          <h2>Invisible Infrastructure</h2>
-          <p>Investigating how operationally distinct firms and supply chains share vulnerability through dependencies such as energy, cloud systems, telecommunications, and positioning services.</p>
-        </div>
-      </article>
-
-      <article class="regional-feature">
-        <span>03</span>
+    <section class="shell regional-wrap">
+      <article class="regional-panel">
         <div>
           <p class="section-kicker">Regional intelligence</p>
-          <h2><a href="trade.html">Greater Cincinnati’s Changing Trade Geography</a></h2>
-          <p>Examining how the Cincinnati–Lawrenceburg port district’s trade relationships, sourcing distances, and product–country patterns changed between 2017 and 2025.</p>
-          <a class="text-link" href="trade.html">View the preliminary analysis ›</a>
-          <p class="event-note">
+          <p class="regional-period">2017→2025</p>
+        </div>
+        <div>
+          <h2>Greater Cincinnati’s Changing Trade Geography</h2>
+          <p>
+            A preliminary examination of changes in the Cincinnati–Lawrenceburg port district’s
+            trade relationships, sourcing distances, and product–country patterns.
+          </p>
+          <div class="regional-actions">
+            <a class="text-link" href="trade.html">View the analysis ›</a>
+          </div>
+          <p class="event-link">
             This analysis will inform the conversation at
             <a href="https://business.nkychamber.com/events/Details/eggs-n-issues-navigating-global-trade-disruption-what-supply-chain-shifts-mean-for-northern-kentucky-1477939" target="_blank" rel="noopener noreferrer">Eggs ’n Issues: Navigating Global Trade Disruption</a>,
             hosted by the Northern Kentucky Chamber of Commerce on October 20, 2026.
           </p>
         </div>
       </article>
-
-      <article>
-        <span>04</span>
-        <div>
-          <p class="section-kicker">Student research</p>
-          <h2>Where Research Begins</h2>
-          <p>Supporting undergraduate researchers as they examine focused questions involving GPS disruption, industrial policy, tariffs, drones, cybersecurity, and regional supply chains.</p>
-        </div>
-      </article>
     </section>
 
-    <section class="shell feature-block">
-      <div>
-        <p class="section-kicker">Conversations we convene</p>
-        <h2>Supply Chain Geopolitics Forum</h2>
+    <section class="forum-stage">
+      <div class="shell forum-grid">
+        <div class="forum-date" aria-label="January 22, 2027">
+          <span class="forum-month">JAN</span>
+          <span class="forum-day">22</span>
+          <span class="forum-year">2027</span>
+        </div>
+        <div class="forum-copy">
+          <p class="section-kicker">Upcoming at the Observatory</p>
+          <h2>Supply Chain Geopolitics Forum</h2>
+          <p class="forum-meta">Northern Kentucky University</p>
+          <p class="forum-description">
+            A regional forum connecting business leaders, researchers, students, and public
+            institutions around the geopolitical forces changing supply chains and competitiveness.
+          </p>
+          <a class="text-link" href="join.html">Connect with the Observatory ›</a>
+        </div>
       </div>
-      <div>
-        <p class="feature-copy">
-          The Forum brings researchers, business leaders, students, and public institutions
-          into a regional conversation about the geopolitical forces affecting Northern Kentucky and Greater Cincinnati.
+    </section>
+
+    <section class="shell methods">
+      <div class="method-line">
+        <p class="section-kicker">How we work</p>
+        <p>
+          Trade data, archival evidence, interviews, field investigation, and company and industry
+          cases are combined according to the question and the available evidence.
         </p>
-        <a class="text-link" href="join.html">Join the conversation ›</a>
       </div>
     </section>
   </main>
