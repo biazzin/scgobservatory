@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- Updated September 10, 2026: regional sourcing-distance section included. -->
+<!-- Updated September 14, 2026: Customs District 41 tariff analysis revised. -->
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -9,66 +9,8 @@
   <link rel="icon" href="favicon.svg">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="trade.css">
-  <style>
-    .pattern-grid.findings-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1.5rem;
-    }
-    .findings-grid .pattern-card {
-      background: #f8f9fc;
-      border: 1px solid #3f3f43;
-      border-radius: 24px;
-      box-shadow: 0 3px 10px rgba(32, 32, 35, 0.12);
-      padding: 2rem;
-    }
-    .findings-grid .pattern-card::before,
-    .findings-grid .pattern-card::after {
-      display: none;
-    }
-    .pattern-card p strong {
-      display: inline;
-      margin: 0;
-    }
-    .tariff-section { padding-block: 110px; background: #fff; border-top: 1px solid #dedbd5; }
-    .tariff-intro { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(300px, .9fr); gap: clamp(40px, 7vw, 100px); align-items: end; margin-bottom: 62px; }
-    .tariff-intro h2 { max-width: 820px; margin: 0; font-size: clamp(40px, 5.3vw, 68px); font-weight: 600; line-height: 1.02; letter-spacing: -.045em; }
-    .tariff-intro-copy { max-width: 600px; margin: 0; color: #626267; font-size: 19px; line-height: 1.55; }
-    .tariff-dashboard { overflow: hidden; border-radius: 30px; background: #343437; color: #fff; box-shadow: 0 18px 45px rgba(29, 29, 31, .13); }
-    .tariff-primary { display: grid; grid-template-columns: .85fr 1.15fr; min-height: 390px; }
-    .tariff-number-panel { display: flex; flex-direction: column; justify-content: space-between; padding: clamp(38px, 5vw, 68px); background: #29292c; }
-    .tariff-label { margin: 0; color: #c8c8cd; font-size: 13px; font-weight: 600; letter-spacing: .09em; text-transform: uppercase; }
-    .tariff-big-number { display: block; margin: 24px 0 8px; color: #e2c69e; font-size: clamp(72px, 10vw, 132px); font-weight: 600; line-height: .88; letter-spacing: -.065em; }
-    .tariff-per { margin: 0; color: #e8e8ea; font-size: 20px; }
-    .tariff-number-note { max-width: 410px; margin: 36px 0 0; color: #b8b8bd; font-size: 15px; line-height: 1.5; }
-    .tariff-trend-panel { padding: clamp(38px, 5vw, 68px); }
-    .tariff-trend-heading { display: flex; justify-content: space-between; gap: 25px; align-items: flex-start; margin-bottom: 42px; }
-    .tariff-trend-heading h3 { max-width: 440px; margin: 8px 0 0; font-size: clamp(26px, 3vw, 38px); line-height: 1.1; letter-spacing: -.025em; }
-    .tariff-trend-heading p:last-child { max-width: 220px; margin: 0; color: #b8b8bd; font-size: 14px; line-height: 1.45; text-align: right; }
-    .tariff-timeline { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; padding-top: 34px; }
-    .tariff-timeline::before { content: ""; position: absolute; top: 8px; left: 5%; right: 5%; height: 2px; background: linear-gradient(90deg, #79797e 0 29%, #d7bd96 55%, #e2c69e 100%); }
-    .tariff-year { position: relative; padding-right: 18px; }
-    .tariff-year::before { content: ""; position: absolute; top: -32px; left: 0; width: 11px; height: 11px; border: 3px solid #343437; border-radius: 50%; background: #d7bd96; box-shadow: 0 0 0 1px #d7bd96; }
-    .tariff-year span { display: block; color: #aaaab0; font-size: 13px; }
-    .tariff-year strong { display: block; margin-top: 8px; font-size: clamp(25px, 3vw, 38px); font-weight: 500; }
-    .tariff-secondary { display: grid; grid-template-columns: .9fr 1.1fr; border-top: 1px solid #505055; }
-    .tariff-counterfactual { padding: clamp(38px, 5vw, 62px); background: #3d3d41; }
-    .tariff-counterfactual h3, .tariff-drivers h3 { margin: 9px 0 18px; font-size: clamp(26px, 3vw, 36px); line-height: 1.12; letter-spacing: -.025em; }
-    .counterfactual-row { display: grid; grid-template-columns: 1fr auto; gap: 25px; align-items: end; padding: 18px 0; border-bottom: 1px solid #5a5a5f; }
-    .counterfactual-row span { color: #c5c5ca; font-size: 15px; }
-    .counterfactual-row strong { font-size: 28px; font-weight: 500; }
-    .counterfactual-row.observed strong { color: #e2c69e; }
-    .tariff-offset { margin: 24px 0 0; color: #efefef; font-size: 17px; line-height: 1.48; }
-    .tariff-offset strong { color: #e2c69e; }
-    .tariff-drivers { padding: clamp(38px, 5vw, 62px); }
-    .driver-list { display: grid; gap: 17px; margin-top: 30px; }
-    .driver-row { display: grid; grid-template-columns: minmax(150px, 1fr) minmax(130px, 2fr) 62px; gap: 16px; align-items: center; }
-    .driver-row span { color: #d7d7da; font-size: 14px; }
-    .driver-track { height: 8px; overflow: hidden; border-radius: 99px; background: #57575c; }
-    .driver-track i { display: block; height: 100%; border-radius: inherit; background: #d7bd96; }
-    .driver-row strong { text-align: right; font-size: 15px; font-weight: 600; }
-    .tariff-method-note { max-width: 1050px; margin: 30px auto 0; color: #69696e; font-size: 14px; line-height: 1.5; text-align: center; }
 
-    /* Page-wide editorial system */
+  <style>
     :root {
       --ink: #29292c;
       --ink-soft: #3d3d41;
@@ -81,12 +23,37 @@
       --sand-light: #ead9bd;
       --radius: 30px;
     }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body { margin: 0; background: var(--paper); color: var(--ink); }
-    .shell { width: min(1240px, calc(100% - 48px)); margin-inline: auto; }
-    .trade-page { overflow: hidden; background: var(--paper); }
-    .trade-page h1, .trade-page h2, .trade-page h3 { text-wrap: balance; }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+    }
+
+    .shell {
+      width: min(1240px, calc(100% - 48px));
+      margin-inline: auto;
+    }
+
+    .trade-page {
+      overflow: hidden;
+      background: var(--paper);
+    }
+
+    .trade-page h1,
+    .trade-page h2,
+    .trade-page h3 {
+      text-wrap: balance;
+    }
+
     .trade-eyebrow,
     .reading-label,
     .answer-label,
@@ -100,21 +67,62 @@
       text-transform: uppercase;
     }
 
+    /* Header */
     .site-header {
       position: relative;
       z-index: 10;
-      border-bottom: 1px solid rgba(41,41,44,.12);
-      background: rgba(255,255,255,.94);
+      border-bottom: 1px solid #454549;
+      background: rgba(41, 41, 44, .98);
       backdrop-filter: blur(18px);
     }
-    .header-inner { display: flex; min-height: 94px; align-items: center; justify-content: space-between; gap: 42px; }
-    .wordmark { display: flex; align-items: center; }
-    .wordmark img { display: block; width: auto; max-width: 260px; height: 62px; object-fit: contain; }
-    .site-header nav { display: flex; align-items: center; gap: clamp(18px, 2.4vw, 36px); }
-    .site-header nav a { color: var(--ink); font-size: 14px; font-weight: 600; text-decoration: none; }
-    .site-header nav a:hover { opacity: .62; }
-    .site-header .nav-join { padding: 11px 18px; border-radius: 999px; background: var(--ink); color: #fff; }
 
+    .header-inner {
+      display: flex;
+      min-height: 94px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 42px;
+    }
+
+    .wordmark {
+      display: flex;
+      align-items: center;
+    }
+
+    .wordmark img {
+      display: block;
+      width: auto;
+      max-width: 260px;
+      height: 62px;
+      object-fit: contain;
+      filter: brightness(0) invert(1);
+    }
+
+    .site-header nav {
+      display: flex;
+      align-items: center;
+      gap: clamp(18px, 2.4vw, 36px);
+    }
+
+    .site-header nav a {
+      color: #f4f4f5;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .site-header nav a:hover {
+      opacity: .68;
+    }
+
+    .site-header .nav-join {
+      padding: 11px 18px;
+      border-radius: 999px;
+      background: var(--sand);
+      color: var(--ink);
+    }
+
+    /* Introduction */
     .trade-intro {
       display: grid;
       grid-template-columns: minmax(0, 1.45fr) minmax(280px, .55fr);
@@ -122,7 +130,12 @@
       align-items: end;
       padding-block: clamp(86px, 11vw, 148px) clamp(68px, 9vw, 110px);
     }
-    .trade-intro .trade-eyebrow { grid-column: 1 / -1; margin-bottom: -12px; }
+
+    .trade-intro .trade-eyebrow {
+      grid-column: 1 / -1;
+      margin-bottom: -12px;
+    }
+
     .trade-intro h1 {
       max-width: 920px;
       margin: 0;
@@ -131,178 +144,1213 @@
       line-height: .97;
       letter-spacing: -.055em;
     }
-    .trade-deck { max-width: 440px; margin: 0 0 8px; color: var(--muted); font-size: clamp(18px, 2vw, 23px); line-height: 1.48; }
 
+    .trade-deck {
+      max-width: 440px;
+      margin: 0 0 8px;
+      color: var(--muted);
+      font-size: clamp(18px, 2vw, 23px);
+      line-height: 1.48;
+    }
+
+    /* Interactive trade chart */
     .trade-workspace {
       overflow: hidden;
       margin-bottom: clamp(100px, 12vw, 160px);
       padding: 0;
-      border: 1px solid rgba(41,41,44,.08);
+      border: 1px solid rgba(41, 41, 44, .12);
       border-radius: var(--radius);
-      background: var(--surface);
-      box-shadow: 0 22px 60px rgba(31,31,33,.10);
+      background: var(--ink);
+      box-shadow: 0 22px 60px rgba(31, 31, 33, .14);
     }
+
     .trade-controls {
       display: flex;
       align-items: end;
       gap: 18px;
       padding: 22px 28px;
-      border-bottom: 1px solid var(--line);
+      border-bottom: 1px solid #d2cfc8;
       background: #eeece7;
     }
-    .mode-control { display: flex; gap: 4px; margin-right: auto; padding: 4px; border-radius: 999px; background: #dedbd4; }
-    .mode-button { min-height: 42px; padding: 0 18px; border: 0; border-radius: 999px; background: transparent; color: #616166; font: inherit; font-size: 13px; font-weight: 700; cursor: pointer; }
-    .mode-button.is-active { background: var(--ink); color: #fff; box-shadow: 0 3px 10px rgba(41,41,44,.16); }
-    .control-field { display: grid; gap: 8px; min-width: 210px; }
-    .control-field.compact-field { min-width: 150px; }
-    .control-field span { color: #65656a; font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
-    .control-field select { min-height: 42px; padding: 0 38px 0 13px; border: 1px solid #cbc8c1; border-radius: 10px; background-color: #fff; color: var(--ink); font: inherit; font-size: 14px; }
-    .chart-grid { display: grid; grid-template-columns: minmax(285px, .72fr) minmax(0, 1.7fr); }
-    .chart-reading { display: flex; flex-direction: column; min-height: 680px; padding: clamp(34px, 4vw, 56px); background: var(--ink); color: #fff; }
-    .chart-reading .reading-label { color: #bdbdc2; }
-    .chart-reading h2 { margin: 0 0 22px; font-size: clamp(31px, 3.3vw, 45px); font-weight: 500; line-height: 1.08; letter-spacing: -.035em; }
-    .chart-reading > p:not(.reading-label) { margin: 0; color: #bdbdc2; font-size: 16px; line-height: 1.58; }
-    .legend { display: grid; gap: 11px; margin: 36px 0; color: #d4d4d7; font-size: 13px; }
-    .legend span { display: flex; align-items: center; gap: 9px; }
-    .dot { width: 9px; height: 9px; border-radius: 50%; }
-    .trade-summary { display: grid; grid-template-columns: 1fr; gap: 0; margin: auto 0 0; }
-    .trade-summary div { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; padding: 15px 0; border-top: 1px solid #4c4c50; }
-    .trade-summary dt { color: #aaaab0; font-size: 13px; }
-    .trade-summary dd { margin: 0; color: #fff; font-size: 20px; font-weight: 600; }
-    .chart-panel { min-width: 0; padding: clamp(34px, 4vw, 56px); background: var(--surface); }
-    .chart-heading { display: flex; align-items: start; justify-content: space-between; gap: 24px; }
-    .chart-heading h2 { margin: 0; font-size: clamp(27px, 3vw, 38px); font-weight: 600; line-height: 1.1; letter-spacing: -.03em; }
-    .unit-note, .chart-note { color: #77777c; font-size: 12px; line-height: 1.45; }
-    .chart { min-height: 480px; margin-block: 22px 12px; }
-    .chart-note { margin: 0; padding-top: 17px; border-top: 1px solid #e1ded8; }
 
-    .shift-section { padding-block: clamp(100px, 12vw, 160px); border-top: 1px solid var(--line); background: #fff; }
-    .pattern-heading { display: grid; grid-template-columns: .58fr 1.42fr; gap: 50px; align-items: start; margin-bottom: 58px; }
-    .pattern-heading h2 { max-width: 760px; margin: 0; font-size: clamp(45px, 6vw, 76px); font-weight: 600; line-height: .98; letter-spacing: -.05em; }
-    .pattern-grid.findings-grid { gap: 16px; }
-    .findings-grid .pattern-card { position: relative; display: grid; min-height: 330px; grid-template-rows: auto 1fr; overflow: hidden; padding: clamp(30px, 4vw, 46px); border: 1px solid rgba(41,41,44,.12); border-radius: 24px; background: #fff; box-shadow: none; }
-    .findings-grid .pattern-card:nth-child(4) { border-color: transparent; background: var(--sand-light); }
-    .findings-grid .pattern-card:first-child { background: var(--ink); color: #fff; }
-    .pattern-signal { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; margin-bottom: 62px; }
-    .pattern-signal span { max-width: 145px; color: #7b7b80; font-size: 11px; font-weight: 700; letter-spacing: .11em; line-height: 1.35; text-transform: uppercase; }
-    .pattern-signal strong { color: var(--ink); font-size: clamp(37px, 4.5vw, 58px); font-weight: 600; line-height: .9; letter-spacing: -.055em; text-align: right; }
-    .pattern-card:first-child .pattern-signal span { color: #aaaab0; }
-    .pattern-card:first-child .pattern-signal strong { color: #fff; }
-    .pattern-card h3 { max-width: 520px; margin: 0 0 15px; font-size: clamp(27px, 3vw, 38px); font-weight: 600; line-height: 1.07; letter-spacing: -.035em; }
-    .pattern-card p { max-width: 570px; margin: 0; color: #66666b; font-size: 15px; line-height: 1.58; }
-    .pattern-card:first-child p { color: #bdbdc2; }
-    .pattern-card p strong { color: inherit; font-weight: 700; }
-    .pattern-caution, .locality-caution { max-width: 920px; margin: 32px 0 0; color: #737378; font-size: 13px; line-height: 1.55; }
+    .mode-control {
+      display: flex;
+      gap: 4px;
+      margin-right: auto;
+      padding: 4px;
+      border-radius: 999px;
+      background: #dedbd4;
+    }
 
-    .locality-section { padding-block: clamp(100px, 12vw, 160px); background: var(--paper); }
-    .locality-intro { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(300px, .75fr); gap: clamp(45px, 8vw, 110px); align-items: end; margin-bottom: 64px; }
-    .locality-intro h2 { max-width: 790px; margin: 0; font-size: clamp(43px, 5.7vw, 72px); font-weight: 600; line-height: 1; letter-spacing: -.05em; }
-    .locality-intro > p { margin: 0 0 6px; color: var(--muted); font-size: 18px; line-height: 1.55; }
-    .locality-answer { padding: clamp(34px, 5vw, 60px); border-radius: var(--radius); background: var(--ink); color: #fff; }
-    .locality-answer .answer-label { color: #bdbdc2; }
-    .answer-grid { display: grid; grid-template-columns: .72fr 1.28fr; gap: clamp(35px, 8vw, 100px); align-items: end; }
-    .answer-word { margin: 0; color: #fff; font-size: clamp(82px, 11vw, 142px); font-weight: 600; line-height: .82; letter-spacing: -.07em; }
-    .answer-copy { max-width: 400px; margin: 28px 0 0; color: #c8c8cd; font-size: 18px; line-height: 1.45; }
-    .distance-comparison { position: relative; display: grid; grid-template-columns: auto 1fr auto; gap: 20px; align-items: end; padding-bottom: 48px; }
-    .distance-year span { display: block; margin-bottom: 8px; color: #aaaab0; font-size: 12px; }
-    .distance-year strong { font-size: clamp(21px, 2.4vw, 31px); font-weight: 500; white-space: nowrap; }
-    .align-right { text-align: right; }
-    .distance-track { display: flex; align-items: center; padding-bottom: 10px; color: #c8c8cd; }
-    .track-start, .track-end { flex: 0 0 10px; height: 10px; border-radius: 50%; background: #c8c8cd; }
-    .track-line { flex: 1; height: 2px; background: #c8c8cd; }
-    .track-arrow { margin-left: -4px; font-size: 24px; line-height: 0; }
-    .distance-change { position: absolute; right: 0; bottom: 0; margin: 0; color: #d8d8dc; font-size: 14px; font-weight: 600; }
-    .locality-metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 16px 0 70px; }
-    .locality-metrics article { min-height: 280px; padding: 32px; border: 1px solid var(--line); border-radius: 22px; background: #faf9f7; }
-    .locality-metrics article > span { color: #8a8a8f; font-size: 11px; font-weight: 700; letter-spacing: .12em; }
-    .locality-metrics article > strong { display: block; margin: 40px 0 20px; font-size: clamp(38px, 4.5vw, 57px); font-weight: 600; line-height: .95; letter-spacing: -.05em; }
-    .locality-metrics h3 { margin: 0 0 10px; font-size: 18px; line-height: 1.25; }
-    .locality-metrics p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.5; }
-    .locality-chart-card { padding: clamp(30px, 5vw, 58px); border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
-    .locality-chart-heading { display: flex; justify-content: space-between; gap: 30px; align-items: end; margin-bottom: 28px; }
-    .locality-chart-heading h3 { margin: 0; font-size: clamp(28px, 3.4vw, 42px); line-height: 1.08; letter-spacing: -.03em; }
-    .locality-legend { display: flex; gap: 18px; color: #6c6c71; font-size: 13px; white-space: nowrap; }
-    .locality-legend span { display: flex; align-items: center; gap: 7px; }
-    .year-dot { width: 9px; height: 9px; border-radius: 50%; background: #8f8f94; }
-    .year-dot.current { background: var(--ink); }
-    .locality-chart { overflow-x: auto; }
-    .locality-chart svg { display: block; width: 100%; min-width: 760px; }
-    .locality-grid-line { stroke: #e3e0da; stroke-width: 1; }
-    .locality-axis-label, .locality-row-label, .locality-value { fill: #6e6e73; font-family: inherit; font-size: 12px; }
-    .locality-row-label { fill: var(--ink); font-size: 13px; }
-    .locality-link { stroke: #bebbb4; stroke-width: 2; }
-    .locality-old { fill: #aaa7a0; }
-    .locality-current { fill: var(--ink); }
-    .locality-note { margin: 20px 0 0; padding-top: 18px; border-top: 1px solid #e1ded8; color: #77777c; font-size: 12px; line-height: 1.5; }
+    .mode-button {
+      min-height: 42px;
+      padding: 0 18px;
+      border: 0;
+      border-radius: 999px;
+      background: transparent;
+      color: #616166;
+      font: inherit;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+    }
 
-    .trade-method { display: grid; grid-template-columns: .45fr 1.55fr; gap: clamp(45px, 8vw, 110px); padding-block: clamp(84px, 10vw, 130px); border-top: 1px solid var(--line); }
-    .trade-method > p { margin: 4px 0 0; color: #77777c; font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
-    .trade-method h2 { max-width: 760px; margin: 0 0 28px; font-size: clamp(36px, 4.6vw, 58px); font-weight: 600; line-height: 1.02; letter-spacing: -.045em; }
-    .trade-method div > p { max-width: 820px; color: var(--muted); font-size: 16px; line-height: 1.65; }
-    .trade-method .source { margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--line); font-size: 13px; }
-    .trade-inquiry { padding-block: clamp(92px, 11vw, 145px); border-top: 1px solid var(--line); background: #fff; }
-    .inquiry-grid { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(290px, .65fr); gap: clamp(48px, 9vw, 125px); align-items: end; }
-    .trade-inquiry h2 { max-width: 830px; margin: 0; font-size: clamp(43px, 5.8vw, 74px); font-weight: 600; line-height: .99; letter-spacing: -.05em; }
-    .inquiry-copy { max-width: 470px; }
-    .inquiry-copy > p { margin: 0 0 28px; color: var(--muted); font-size: 18px; line-height: 1.58; }
-    .inquiry-link { display: inline-flex; align-items: center; gap: 18px; padding: 14px 20px; border-radius: 999px; background: var(--ink); color: #fff; font-size: 14px; font-weight: 700; text-decoration: none; }
-    .inquiry-link span { font-size: 19px; line-height: 1; transition: transform .2s ease; }
-    .inquiry-link:hover span { transform: translateX(4px); }
-    .trade-source-note { margin: 70px 0 0; padding-top: 20px; border-top: 1px solid var(--line); color: #85858a; font-size: 11px; line-height: 1.55; }
-    footer { padding-top: 72px; background: var(--ink); color: #fff; }
-    .footer-grid { display: grid; grid-template-columns: 1fr auto; gap: 60px; padding-bottom: 70px; }
-    .footer-title { margin: 0 0 12px; font-size: 22px; font-weight: 600; }
-    .footer-grid p:not(.footer-title):not(.footer-label) { margin: 0; color: #aaaab0; }
-    .footer-label { margin: 0 0 14px; color: var(--sand); font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
-    .footer-grid a { display: block; margin-top: 8px; color: #fff; text-decoration: none; }
-    .footer-bottom { padding-block: 22px; border-top: 1px solid #48484c; color: #929297; font-size: 12px; }
+    .mode-button.is-active {
+      background: var(--ink);
+      color: #fff;
+      box-shadow: 0 3px 10px rgba(41, 41, 44, .16);
+    }
+
+    .control-field {
+      display: grid;
+      gap: 8px;
+      min-width: 210px;
+    }
+
+    .control-field.compact-field {
+      min-width: 150px;
+    }
+
+    .control-field span {
+      color: #65656a;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .control-field select {
+      min-height: 42px;
+      padding: 0 38px 0 13px;
+      border: 1px solid #cbc8c1;
+      border-radius: 10px;
+      background-color: #fff;
+      color: var(--ink);
+      font: inherit;
+      font-size: 14px;
+    }
+
+    .chart-grid {
+      display: grid;
+      grid-template-columns: minmax(285px, .72fr) minmax(0, 1.7fr);
+      background: var(--ink);
+    }
+
+    .chart-reading {
+      display: flex;
+      flex-direction: column;
+      min-height: 680px;
+      padding: clamp(34px, 4vw, 56px);
+      border-right: 1px solid #49494d;
+      background: var(--ink);
+      color: #fff;
+    }
+
+    .chart-reading .reading-label {
+      color: #bdbdc2;
+    }
+
+    .chart-reading h2 {
+      margin: 0 0 22px;
+      font-size: clamp(31px, 3.3vw, 45px);
+      font-weight: 500;
+      line-height: 1.08;
+      letter-spacing: -.035em;
+    }
+
+    .chart-reading > p:not(.reading-label) {
+      margin: 0;
+      color: #bdbdc2;
+      font-size: 16px;
+      line-height: 1.58;
+    }
+
+    .legend {
+      display: grid;
+      gap: 11px;
+      margin: 36px 0;
+      color: #d4d4d7;
+      font-size: 13px;
+    }
+
+    .legend span {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+    }
+
+    .trade-summary {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0;
+      margin: auto 0 0;
+    }
+
+    .trade-summary div {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 15px 0;
+      border-top: 1px solid #4c4c50;
+    }
+
+    .trade-summary dt {
+      color: #aaaab0;
+      font-size: 13px;
+    }
+
+    .trade-summary dd {
+      margin: 0;
+      color: #fff;
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .chart-panel {
+      min-width: 0;
+      padding: clamp(34px, 4vw, 56px);
+      background: var(--ink);
+      color: #fff;
+    }
+
+    .chart-heading {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .chart-heading h2 {
+      margin: 0;
+      color: #fff;
+      font-size: clamp(27px, 3vw, 38px);
+      font-weight: 600;
+      line-height: 1.1;
+      letter-spacing: -.03em;
+    }
+
+    .chart-panel #chart-kicker {
+      color: #bdbdc2;
+    }
+
+    .unit-note,
+    .chart-note {
+      color: #bdbdc2;
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .chart {
+      min-height: 480px;
+      margin-block: 22px 12px;
+      border-radius: 18px;
+      background: var(--ink);
+    }
+
+    .chart-note {
+      margin: 0;
+      padding-top: 17px;
+      border-top: 1px solid #4c4c50;
+    }
+
+    /* Improve visibility of SVG labels and axes */
+    #trade-chart svg text {
+      fill: #f2f2f3 !important;
+      paint-order: stroke;
+      stroke: #29292c;
+      stroke-width: 3px;
+      stroke-linejoin: round;
+    }
+
+    #trade-chart svg .tick text {
+      fill: #d1d1d5 !important;
+      font-weight: 500;
+    }
+
+    #trade-chart svg .tick line,
+    #trade-chart svg .domain {
+      stroke: #68686e !important;
+    }
+
+    #trade-chart svg .grid line {
+      stroke: #48484d !important;
+    }
+
+    #trade-chart svg .grid path {
+      stroke: transparent !important;
+    }
+
+    /* Findings */
+    .shift-section {
+      padding-block: clamp(100px, 12vw, 160px);
+      border-top: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .pattern-heading {
+      display: grid;
+      grid-template-columns: .58fr 1.42fr;
+      gap: 50px;
+      align-items: start;
+      margin-bottom: 58px;
+    }
+
+    .pattern-heading h2 {
+      max-width: 760px;
+      margin: 0;
+      font-size: clamp(45px, 6vw, 76px);
+      font-weight: 600;
+      line-height: .98;
+      letter-spacing: -.05em;
+    }
+
+    .pattern-grid.findings-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .findings-grid .pattern-card {
+      position: relative;
+      display: grid;
+      min-height: 330px;
+      grid-template-rows: auto 1fr;
+      overflow: hidden;
+      padding: clamp(30px, 4vw, 46px);
+      border: 1px solid rgba(41, 41, 44, .12);
+      border-radius: 24px;
+      background: #fff;
+      box-shadow: none;
+    }
+
+    .findings-grid .pattern-card::before,
+    .findings-grid .pattern-card::after {
+      display: none;
+    }
+
+    .findings-grid .pattern-card:nth-child(4) {
+      border-color: transparent;
+      background: var(--sand-light);
+    }
+
+    .findings-grid .pattern-card:first-child {
+      background: var(--ink);
+      color: #fff;
+    }
+
+    .pattern-signal {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 62px;
+    }
+
+    .pattern-signal span {
+      max-width: 145px;
+      color: #7b7b80;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .11em;
+      line-height: 1.35;
+      text-transform: uppercase;
+    }
+
+    .pattern-signal strong {
+      color: var(--ink);
+      font-size: clamp(37px, 4.5vw, 58px);
+      font-weight: 600;
+      line-height: .9;
+      letter-spacing: -.055em;
+      text-align: right;
+    }
+
+    .pattern-card:first-child .pattern-signal span {
+      color: #aaaab0;
+    }
+
+    .pattern-card:first-child .pattern-signal strong {
+      color: #fff;
+    }
+
+    .pattern-card h3 {
+      max-width: 520px;
+      margin: 0 0 15px;
+      font-size: clamp(27px, 3vw, 38px);
+      font-weight: 600;
+      line-height: 1.07;
+      letter-spacing: -.035em;
+    }
+
+    .pattern-card p {
+      max-width: 570px;
+      margin: 0;
+      color: #66666b;
+      font-size: 15px;
+      line-height: 1.58;
+    }
+
+    .pattern-card:first-child p {
+      color: #bdbdc2;
+    }
+
+    .pattern-card p strong {
+      display: inline;
+      margin: 0;
+      color: inherit;
+      font-weight: 700;
+    }
+
+    .pattern-caution,
+    .locality-caution {
+      max-width: 920px;
+      margin: 32px 0 0;
+      color: #737378;
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    /* Sourcing distance */
+    .locality-section {
+      padding-block: clamp(100px, 12vw, 160px);
+      background: var(--paper);
+    }
+
+    .locality-intro {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(300px, .75fr);
+      gap: clamp(45px, 8vw, 110px);
+      align-items: end;
+      margin-bottom: 64px;
+    }
+
+    .locality-intro h2 {
+      max-width: 790px;
+      margin: 0;
+      font-size: clamp(43px, 5.7vw, 72px);
+      font-weight: 600;
+      line-height: 1;
+      letter-spacing: -.05em;
+    }
+
+    .locality-intro > p {
+      margin: 0 0 6px;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.55;
+    }
+
+    .locality-answer {
+      padding: clamp(34px, 5vw, 60px);
+      border-radius: var(--radius);
+      background: var(--ink);
+      color: #fff;
+    }
+
+    .locality-answer .answer-label {
+      color: #bdbdc2;
+    }
+
+    .answer-grid {
+      display: grid;
+      grid-template-columns: .72fr 1.28fr;
+      gap: clamp(35px, 8vw, 100px);
+      align-items: end;
+    }
+
+    .answer-word {
+      margin: 0;
+      color: #fff;
+      font-size: clamp(82px, 11vw, 142px);
+      font-weight: 600;
+      line-height: .82;
+      letter-spacing: -.07em;
+    }
+
+    .answer-copy {
+      max-width: 400px;
+      margin: 28px 0 0;
+      color: #c8c8cd;
+      font-size: 18px;
+      line-height: 1.45;
+    }
+
+    .distance-comparison {
+      position: relative;
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 20px;
+      align-items: end;
+      padding-bottom: 48px;
+    }
+
+    .distance-year span {
+      display: block;
+      margin-bottom: 8px;
+      color: #aaaab0;
+      font-size: 12px;
+    }
+
+    .distance-year strong {
+      font-size: clamp(21px, 2.4vw, 31px);
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .align-right {
+      text-align: right;
+    }
+
+    .distance-track {
+      display: flex;
+      align-items: center;
+      padding-bottom: 10px;
+      color: #c8c8cd;
+    }
+
+    .track-start,
+    .track-end {
+      flex: 0 0 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #c8c8cd;
+    }
+
+    .track-line {
+      flex: 1;
+      height: 2px;
+      background: #c8c8cd;
+    }
+
+    .track-arrow {
+      margin-left: -4px;
+      font-size: 24px;
+      line-height: 0;
+    }
+
+    .distance-change {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      margin: 0;
+      color: #d8d8dc;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .locality-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin: 16px 0 70px;
+    }
+
+    .locality-metrics article {
+      min-height: 280px;
+      padding: 32px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: #faf9f7;
+    }
+
+    .locality-metrics article > span {
+      color: #8a8a8f;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .12em;
+    }
+
+    .locality-metrics article > strong {
+      display: block;
+      margin: 40px 0 20px;
+      font-size: clamp(38px, 4.5vw, 57px);
+      font-weight: 600;
+      line-height: .95;
+      letter-spacing: -.05em;
+    }
+
+    .locality-metrics h3 {
+      margin: 0 0 10px;
+      font-size: 18px;
+      line-height: 1.25;
+    }
+
+    .locality-metrics p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .locality-chart-card {
+      padding: clamp(30px, 5vw, 58px);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+    }
+
+    .locality-chart-heading {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      align-items: end;
+      margin-bottom: 28px;
+    }
+
+    .locality-chart-heading h3 {
+      margin: 0;
+      font-size: clamp(28px, 3.4vw, 42px);
+      line-height: 1.08;
+      letter-spacing: -.03em;
+    }
+
+    .locality-legend {
+      display: flex;
+      gap: 18px;
+      color: #6c6c71;
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    .locality-legend span {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .year-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #8f8f94;
+    }
+
+    .year-dot.current {
+      background: var(--ink);
+    }
+
+    .locality-chart {
+      overflow-x: auto;
+    }
+
+    .locality-chart svg {
+      display: block;
+      width: 100%;
+      min-width: 760px;
+    }
+
+    .locality-grid-line {
+      stroke: #e3e0da;
+      stroke-width: 1;
+    }
+
+    .locality-axis-label,
+    .locality-row-label,
+    .locality-value {
+      fill: #6e6e73;
+      font-family: inherit;
+      font-size: 12px;
+    }
+
+    .locality-row-label {
+      fill: var(--ink);
+      font-size: 13px;
+    }
+
+    .locality-link {
+      stroke: #bebbb4;
+      stroke-width: 2;
+    }
+
+    .locality-old {
+      fill: #aaa7a0;
+    }
+
+    .locality-current {
+      fill: var(--ink);
+    }
+
+    .locality-note {
+      margin: 20px 0 0;
+      padding-top: 18px;
+      border-top: 1px solid #e1ded8;
+      color: #77777c;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    /* Tariff analysis */
+    .tariff-section {
+      padding-block: clamp(100px, 12vw, 160px);
+      border-top: 1px solid #dedbd5;
+      background: #fff;
+    }
+
+    .tariff-intro {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(300px, .8fr);
+      gap: clamp(40px, 7vw, 100px);
+      align-items: end;
+      margin-bottom: 62px;
+    }
+
+    .tariff-intro h2 {
+      max-width: 850px;
+      margin: 0;
+      font-size: clamp(42px, 5.5vw, 72px);
+      font-weight: 600;
+      line-height: 1;
+      letter-spacing: -.05em;
+    }
+
+    .tariff-intro-copy {
+      max-width: 590px;
+      margin: 0;
+      color: #626267;
+      font-size: 19px;
+      line-height: 1.55;
+    }
+
+    .tariff-dashboard {
+      overflow: hidden;
+      border-radius: 30px;
+      background: #343437;
+      color: #fff;
+      box-shadow: 0 18px 45px rgba(29, 29, 31, .13);
+    }
+
+    .tariff-primary {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      min-height: 420px;
+    }
+
+    .tariff-number-panel {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: clamp(38px, 5vw, 68px);
+      background: #29292c;
+    }
+
+    .tariff-label {
+      margin: 0;
+      color: #c8c8cd;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .11em;
+      line-height: 1.3;
+      text-transform: uppercase;
+    }
+
+    .tariff-big-number {
+      display: block;
+      margin: 32px 0 12px;
+      color: #e2c69e;
+      font-size: clamp(76px, 10vw, 132px);
+      font-weight: 600;
+      line-height: .86;
+      letter-spacing: -.065em;
+    }
+
+    .tariff-per {
+      margin: 0;
+      color: #ededee;
+      font-size: 20px;
+      line-height: 1.35;
+    }
+
+    .tariff-number-note {
+      max-width: 420px;
+      margin: 42px 0 0;
+      color: #b8b8bd;
+      font-size: 15px;
+      line-height: 1.55;
+    }
+
+    .tariff-comparison {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(38px, 5vw, 68px);
+    }
+
+    .tariff-comparison h3 {
+      max-width: 600px;
+      margin: 10px 0 36px;
+      font-size: clamp(27px, 3vw, 40px);
+      font-weight: 500;
+      line-height: 1.1;
+      letter-spacing: -.03em;
+    }
+
+    .comparison-list {
+      display: grid;
+      gap: 0;
+    }
+
+    .comparison-row {
+      display: grid;
+      grid-template-columns: minmax(150px, 1.1fr) repeat(2, minmax(90px, .65fr)) minmax(90px, .65fr);
+      gap: 18px;
+      align-items: baseline;
+      padding: 18px 0;
+      border-top: 1px solid #505055;
+    }
+
+    .comparison-row > span {
+      color: #c5c5ca;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    .comparison-row > div span {
+      display: block;
+      margin-bottom: 5px;
+      color: #98989e;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .comparison-row strong {
+      font-size: clamp(20px, 2.1vw, 29px);
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .comparison-row .change {
+      color: #e2c69e;
+      text-align: right;
+    }
+
+    .tariff-history-panel {
+      padding: clamp(40px, 5vw, 68px);
+      border-top: 1px solid #505055;
+      background: #3d3d41;
+    }
+
+    .tariff-history-heading {
+      display: flex;
+      justify-content: space-between;
+      gap: 35px;
+      align-items: end;
+      margin-bottom: 38px;
+    }
+
+    .tariff-history-heading h3 {
+      max-width: 600px;
+      margin: 9px 0 0;
+      font-size: clamp(27px, 3vw, 39px);
+      font-weight: 500;
+      line-height: 1.1;
+      letter-spacing: -.03em;
+    }
+
+    .tariff-history-heading > p:last-child {
+      max-width: 300px;
+      margin: 0;
+      color: #b8b8bd;
+      font-size: 14px;
+      line-height: 1.5;
+      text-align: right;
+    }
+
+    .tariff-history-scroll {
+      overflow-x: auto;
+      padding-bottom: 4px;
+    }
+
+    .tariff-rate-grid {
+      display: grid;
+      grid-template-columns: repeat(9, minmax(62px, 1fr));
+      gap: clamp(10px, 2vw, 24px);
+      min-width: 720px;
+      align-items: end;
+    }
+
+    .rate-column {
+      display: grid;
+      grid-template-rows: auto 190px auto;
+      gap: 10px;
+      text-align: center;
+    }
+
+    .rate-column strong {
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .rate-column > span {
+      color: #bdbdc2;
+      font-size: 12px;
+    }
+
+    .rate-bar {
+      display: flex;
+      height: 190px;
+      align-items: end;
+      overflow: hidden;
+      border-radius: 8px 8px 3px 3px;
+      background: #4d4d52;
+    }
+
+    .rate-bar i {
+      display: block;
+      width: 100%;
+      min-height: 6px;
+      border-radius: 8px 8px 3px 3px;
+      background: #a9a9ae;
+    }
+
+    .rate-column.current strong {
+      color: #e2c69e;
+    }
+
+    .rate-column.current .rate-bar i {
+      background: #e2c69e;
+    }
+
+    .tariff-conclusion {
+      display: grid;
+      grid-template-columns: .48fr 1.52fr;
+      gap: clamp(35px, 7vw, 100px);
+      padding: clamp(40px, 5vw, 68px);
+      border-top: 1px solid #505055;
+      background: #29292c;
+    }
+
+    .tariff-conclusion h3 {
+      max-width: 720px;
+      margin: 8px 0 22px;
+      font-size: clamp(30px, 3.6vw, 46px);
+      font-weight: 500;
+      line-height: 1.08;
+      letter-spacing: -.035em;
+    }
+
+    .tariff-conclusion-copy > p {
+      max-width: 760px;
+      margin: 0;
+      color: #c5c5ca;
+      font-size: 17px;
+      line-height: 1.6;
+    }
+
+    .tariff-conclusion-copy strong {
+      color: #fff;
+    }
+
+    .tariff-caution {
+      margin-top: 26px !important;
+      padding-top: 23px;
+      border-top: 1px solid #505055;
+      color: #aaaab0 !important;
+      font-size: 14px !important;
+      line-height: 1.55 !important;
+    }
+
+    .tariff-method-note {
+      max-width: 1080px;
+      margin: 30px auto 0;
+      color: #69696e;
+      font-size: 13px;
+      line-height: 1.55;
+      text-align: center;
+    }
+
+    .tariff-method-note a {
+      color: inherit;
+      text-decoration-color: #aaa7a0;
+      text-underline-offset: 3px;
+    }
+
+    /* Inquiry */
+    .trade-inquiry {
+      padding-block: clamp(92px, 11vw, 145px);
+      border-top: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .inquiry-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(290px, .65fr);
+      gap: clamp(48px, 9vw, 125px);
+      align-items: end;
+    }
+
+    .trade-inquiry h2 {
+      max-width: 830px;
+      margin: 0;
+      font-size: clamp(43px, 5.8vw, 74px);
+      font-weight: 600;
+      line-height: .99;
+      letter-spacing: -.05em;
+    }
+
+    .inquiry-copy {
+      max-width: 470px;
+    }
+
+    .inquiry-copy > p {
+      margin: 0 0 28px;
+      color: var(--muted);
+      font-size: 18px;
+      line-height: 1.58;
+    }
+
+    .inquiry-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 18px;
+      padding: 14px 20px;
+      border-radius: 999px;
+      background: var(--ink);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .inquiry-link span {
+      font-size: 19px;
+      line-height: 1;
+      transition: transform .2s ease;
+    }
+
+    .inquiry-link:hover span {
+      transform: translateX(4px);
+    }
+
+    .trade-source-note {
+      margin: 70px 0 0;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+      color: #85858a;
+      font-size: 11px;
+      line-height: 1.55;
+    }
+
+    .trade-source-note a {
+      color: inherit;
+      text-underline-offset: 3px;
+    }
+
+    /* Footer */
+    footer {
+      padding-top: 72px;
+      background: var(--ink);
+      color: #fff;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 60px;
+      padding-bottom: 70px;
+    }
+
+    .footer-title {
+      margin: 0 0 12px;
+      font-size: 22px;
+      font-weight: 600;
+    }
+
+    .footer-grid p:not(.footer-title):not(.footer-label) {
+      margin: 0;
+      color: #aaaab0;
+    }
+
+    .footer-label {
+      margin: 0 0 14px;
+      color: var(--sand);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .footer-grid a {
+      display: block;
+      margin-top: 8px;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .footer-bottom {
+      padding-block: 22px;
+      border-top: 1px solid #48484c;
+      color: #929297;
+      font-size: 12px;
+    }
 
     @media (max-width: 760px) {
-      .shell { width: min(100% - 30px, 1240px); }
-      .header-inner { min-height: 78px; }
-      .wordmark img { max-width: 190px; height: 50px; }
-      .site-header nav a:not(.nav-join) { display: none; }
-      .trade-intro { grid-template-columns: 1fr; padding-block: 68px 72px; }
-      .trade-intro .trade-eyebrow { margin-bottom: -8px; }
-      .trade-intro h1 { font-size: clamp(46px, 14vw, 66px); }
-      .trade-controls { display: grid; grid-template-columns: 1fr; padding: 18px; }
-      .mode-control { width: 100%; margin: 0; }
-      .mode-button { flex: 1; padding-inline: 10px; }
-      .control-field, .control-field.compact-field { min-width: 0; }
-      .chart-grid { grid-template-columns: 1fr; }
-      .chart-reading { min-height: 0; }
-      .chart-panel { padding: 28px 20px; }
-      .chart-heading { display: block; }
-      .unit-note { margin-top: 10px; }
-      .chart { min-height: 410px; overflow-x: auto; }
-      .pattern-heading, .locality-intro, .answer-grid, .trade-method, .inquiry-grid { grid-template-columns: 1fr; }
-      .pattern-heading { gap: 10px; }
+      .shell {
+        width: min(100% - 30px, 1240px);
+      }
+
+      .header-inner {
+        min-height: 78px;
+      }
+
+      .wordmark img {
+        max-width: 190px;
+        height: 50px;
+      }
+
+      .site-header nav a:not(.nav-join) {
+        display: none;
+      }
+
+      .trade-intro {
+        grid-template-columns: 1fr;
+        padding-block: 68px 72px;
+      }
+
+      .trade-intro .trade-eyebrow {
+        margin-bottom: -8px;
+      }
+
+      .trade-intro h1 {
+        font-size: clamp(46px, 14vw, 66px);
+      }
+
+      .trade-controls {
+        display: grid;
+        grid-template-columns: 1fr;
+        padding: 18px;
+      }
+
+      .mode-control {
+        width: 100%;
+        margin: 0;
+      }
+
+      .mode-button {
+        flex: 1;
+        padding-inline: 10px;
+      }
+
+      .control-field,
+      .control-field.compact-field {
+        min-width: 0;
+      }
+
+      .chart-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .chart-reading {
+        min-height: 0;
+        border-right: 0;
+        border-bottom: 1px solid #49494d;
+      }
+
+      .chart-panel {
+        padding: 28px 20px;
+      }
+
+      .chart-heading {
+        display: block;
+      }
+
+      .unit-note {
+        margin-top: 10px;
+      }
+
+      .chart {
+        min-height: 410px;
+        overflow-x: auto;
+      }
+
+      .pattern-heading,
+      .locality-intro,
+      .answer-grid,
+      .tariff-intro,
+      .tariff-primary,
+      .tariff-conclusion,
+      .inquiry-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .pattern-heading {
+        gap: 10px;
+      }
+
       .pattern-grid.findings-grid {
         grid-template-columns: 1fr;
       }
-      .pattern-signal { margin-bottom: 44px; }
-      .locality-intro { gap: 28px; }
-      .distance-comparison { grid-template-columns: auto 1fr auto; gap: 10px; margin-top: 18px; }
-      .locality-metrics { grid-template-columns: 1fr; }
-      .locality-metrics article { min-height: 0; }
-      .locality-chart-heading { display: block; }
-      .locality-legend { margin-top: 18px; }
-      .tariff-intro, .tariff-primary, .tariff-secondary { grid-template-columns: 1fr; }
-      .tariff-trend-heading { display: block; }
-      .tariff-trend-heading p:last-child { margin-top: 14px; text-align: left; }
-      .tariff-timeline { gap: 18px; }
-      .tariff-year { padding-right: 5px; }
-      .driver-row { grid-template-columns: minmax(120px, 1fr) minmax(75px, 1fr) 52px; gap: 10px; }
-      .footer-grid { grid-template-columns: 1fr; }
+
+      .pattern-signal {
+        margin-bottom: 44px;
+      }
+
+      .locality-intro {
+        gap: 28px;
+      }
+
+      .distance-comparison {
+        grid-template-columns: auto 1fr auto;
+        gap: 10px;
+        margin-top: 18px;
+      }
+
+      .locality-metrics {
+        grid-template-columns: 1fr;
+      }
+
+      .locality-metrics article {
+        min-height: 0;
+      }
+
+      .locality-chart-heading,
+      .tariff-history-heading {
+        display: block;
+      }
+
+      .locality-legend {
+        margin-top: 18px;
+      }
+
+      .tariff-history-heading > p:last-child {
+        margin-top: 14px;
+        text-align: left;
+      }
+
+      .comparison-row {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .comparison-row > span {
+        grid-column: 1 / -1;
+      }
+
+      .comparison-row .change {
+        grid-column: 1 / -1;
+        text-align: left;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
+
 <body>
   <header class="site-header">
     <div class="shell header-inner">
       <a class="wordmark" href="index.html" aria-label="Supply Chain Geopolitics Observatory home">
         <img src="logo.png" alt="SCG Supply Chain Geopolitics Observatory">
       </a>
+
       <nav aria-label="Primary navigation">
         <a href="index.html">Home</a>
         <a href="who-we-are.html">Who We Are</a>
@@ -326,10 +1374,12 @@
           <button class="mode-button is-active" type="button" data-mode="position">Position in 2025</button>
           <button class="mode-button" type="button" data-mode="change">Change since 2017</button>
         </div>
+
         <label class="control-field">
           <span>Product category</span>
           <select id="item-filter"></select>
         </label>
+
         <label class="control-field compact-field">
           <span>Countries shown</span>
           <select id="country-count">
@@ -346,15 +1396,26 @@
           <p class="reading-label" id="reading-label">Trade position</p>
           <h2 id="reading-title">Imports show dependence. Exports show reach.</h2>
           <p id="reading-copy">Countries above the diagonal buy more from Cincinnati than they sell to it. Countries below the line are more important as sources of imports.</p>
+
           <div class="legend" aria-label="Chart legend">
             <span><i class="dot exporter"></i>Net export relationship</span>
             <span><i class="dot importer"></i>Net import relationship</span>
             <span id="arrow-legend" hidden><i class="arrow-mark">→</i>2017 to 2025</span>
           </div>
+
           <dl class="trade-summary">
-            <div><dt>Exports</dt><dd id="summary-exports">—</dd></div>
-            <div><dt>Imports</dt><dd id="summary-imports">—</dd></div>
-            <div><dt>Net position</dt><dd id="summary-balance">—</dd></div>
+            <div>
+              <dt>Exports</dt>
+              <dd id="summary-exports">—</dd>
+            </div>
+            <div>
+              <dt>Imports</dt>
+              <dd id="summary-imports">—</dd>
+            </div>
+            <div>
+              <dt>Net position</dt>
+              <dd id="summary-balance">—</dd>
+            </div>
           </dl>
         </aside>
 
@@ -364,9 +1425,12 @@
               <p id="chart-kicker">Cincinnati trade by partner country</p>
               <h2 id="chart-title">Exports and imports, 2025</h2>
             </div>
+
             <p class="unit-note">US dollars · logarithmic scale</p>
           </div>
+
           <div id="trade-chart" class="chart" role="img" aria-label="Scatter plot comparing Cincinnati exports and imports by country"></div>
+
           <p class="chart-note" id="chart-note">Distance from the diagonal indicates the size of the trade imbalance. Hover or focus on a country for details.</p>
         </div>
       </div>
@@ -378,7 +1442,9 @@
           <p class="trade-eyebrow">Changing import patterns</p>
           <h2>What the data reveals</h2>
         </div>
+
         <div id="pattern-cards" class="pattern-grid findings-grid"></div>
+
         <p class="pattern-caution">These are preliminary signals based on broad HS2 categories. Product-level analysis at HS4 and HS6 is needed to identify what moved and why.</p>
       </div>
     </section>
@@ -390,37 +1456,80 @@
             <p class="trade-eyebrow">Sourcing distance</p>
             <h2 id="locality-title">Is Greater Cincinnati’s international trade becoming more regional?</h2>
           </div>
+
           <p>Import origins moved farther away between 2017 and 2025. The calculation weights each country’s distance from Cincinnati by the value of imports recorded through the port district.</p>
         </div>
 
         <div class="locality-answer">
           <p class="answer-label">The short answer</p>
+
           <div class="answer-grid">
             <div>
               <p class="answer-word">No.</p>
               <p class="answer-copy">The average sourcing distance increased by <strong>16.9%</strong>.</p>
             </div>
+
             <div class="distance-comparison" aria-label="Average import distance increased from 7,531 kilometers in 2017 to 8,801 kilometers in 2025">
-              <div class="distance-year"><span>2017</span><strong>7,531 km</strong></div>
-              <div class="distance-track"><span class="track-start"></span><span class="track-line"></span><span class="track-arrow">→</span><span class="track-end"></span></div>
-              <div class="distance-year align-right"><span>2025</span><strong>8,801 km</strong></div>
+              <div class="distance-year">
+                <span>2017</span>
+                <strong>7,531 km</strong>
+              </div>
+
+              <div class="distance-track">
+                <span class="track-start"></span>
+                <span class="track-line"></span>
+                <span class="track-arrow">→</span>
+                <span class="track-end"></span>
+              </div>
+
+              <div class="distance-year align-right">
+                <span>2025</span>
+                <strong>8,801 km</strong>
+              </div>
+
               <p class="distance-change">+1,270 km farther</p>
             </div>
           </div>
         </div>
 
         <div class="locality-metrics" aria-label="Regionalization indicators">
-          <article><span>Sourcing distance</span><strong>+16.9%</strong><h3>Average import distance</h3><p>Distance rose from 7,531 to 8,801 kilometers.</p></article>
-          <article><span>Across categories</span><strong>53 of 85</strong><h3>Product categories moved farther</h3><p>Nearly two-thirds recorded a greater weighted sourcing distance.</p></article>
-          <article><span>Regional sourcing</span><strong>1.9%</strong><h3>Canada and Mexico share</h3><p>The regional share rose from 1.0%, but remains small.</p></article>
+          <article>
+            <span>Sourcing distance</span>
+            <strong>+16.9%</strong>
+            <h3>Average import distance</h3>
+            <p>Distance rose from 7,531 to 8,801 kilometers.</p>
+          </article>
+
+          <article>
+            <span>Across categories</span>
+            <strong>53 of 85</strong>
+            <h3>Product categories moved farther</h3>
+            <p>Nearly two-thirds recorded a greater weighted sourcing distance.</p>
+          </article>
+
+          <article>
+            <span>Regional sourcing</span>
+            <strong>1.9%</strong>
+            <h3>Canada and Mexico share</h3>
+            <p>The regional share rose from 1.0%, but remains small.</p>
+          </article>
         </div>
 
         <div class="locality-chart-card">
           <div class="locality-chart-heading">
-            <div><p class="trade-eyebrow">Largest import categories</p><h3>How sourcing distance changed by product</h3></div>
-            <div class="locality-legend"><span><i class="year-dot old"></i>2017</span><span><i class="year-dot current"></i>2025</span></div>
+            <div>
+              <p class="trade-eyebrow">Largest import categories</p>
+              <h3>How sourcing distance changed by product</h3>
+            </div>
+
+            <div class="locality-legend">
+              <span><i class="year-dot old"></i>2017</span>
+              <span><i class="year-dot current"></i>2025</span>
+            </div>
           </div>
+
           <div id="locality-chart" class="locality-chart" role="img" aria-label="Comparison of weighted sourcing distance in 2017 and 2025 for major import categories"></div>
+
           <p class="locality-note">Categories are ranked by 2025 import value. Distance is weighted by imports from each partner country. Nominal trade values are used as weights.</p>
         </div>
 
@@ -432,60 +1541,171 @@
       <div class="shell">
         <div class="tariff-intro">
           <div>
-            <p class="trade-eyebrow">Tariff exposure</p>
-            <h2 id="tariff-title">The cost of the gateway’s import mix has changed.</h2>
+            <p class="trade-eyebrow">Customs District 41</p>
+            <h2 id="tariff-title">Tariff exposure rose far faster than import value.</h2>
           </div>
-          <p class="tariff-intro-copy">Tariffs do not affect every product or sourcing country equally. Applying observed U.S. tariff rates to the mix of goods entering through Cincinnati–Lawrenceburg shows how quickly that exposure has increased.</p>
+
+          <p class="tariff-intro-copy">The value of imports recorded through the district increased modestly in 2025. Estimated calculated duties moved in a very different direction.</p>
         </div>
 
         <div class="tariff-dashboard">
           <div class="tariff-primary">
             <div class="tariff-number-panel">
               <div>
-                <p class="tariff-label">Estimated tariff exposure · 2026</p>
-                <strong class="tariff-big-number">$3.38</strong>
-                <p class="tariff-per">for every $100 imported</p>
+                <p class="tariff-label">Effective estimated duty rate · 2025</p>
+                <strong class="tariff-big-number">9.27%</strong>
+                <p class="tariff-per">$9.27 in estimated duties for every $100 in customs value</p>
               </div>
-              <p class="tariff-number-note">Equivalent to an estimated <strong>$402.5 million</strong> in tariff exposure on $11.9 billion in imports recorded from January through July.</p>
+
+              <p class="tariff-number-note">Estimated calculated duties reached <strong>$12.74 billion</strong> on <strong>$137.43 billion</strong> in imports recorded through Customs District 41.</p>
             </div>
 
-            <div class="tariff-trend-panel">
-              <div class="tariff-trend-heading">
-                <div><p class="tariff-label">Exposure rate</p><h3>The increase accelerated after 2024.</h3></div>
-                <p>Comparable January–July periods</p>
-              </div>
-              <div class="tariff-timeline" aria-label="Estimated exposure rate: 0.73 percent in 2017, 1.00 percent in 2024, 3.00 percent in 2025, and 3.38 percent in 2026">
-                <div class="tariff-year"><span>2017</span><strong>0.73%</strong></div>
-                <div class="tariff-year"><span>2024</span><strong>1.00%</strong></div>
-                <div class="tariff-year"><span>2025</span><strong>3.00%</strong></div>
-                <div class="tariff-year"><span>2026</span><strong>3.38%</strong></div>
+            <div class="tariff-comparison">
+              <p class="tariff-label">What changed in one year</p>
+              <h3>The increase in duties cannot be explained by import growth alone.</h3>
+
+              <div class="comparison-list">
+                <div class="comparison-row">
+                  <span>Customs value</span>
+
+                  <div>
+                    <span>2024</span>
+                    <strong>$133.28B</strong>
+                  </div>
+
+                  <div>
+                    <span>2025</span>
+                    <strong>$137.43B</strong>
+                  </div>
+
+                  <strong class="change">+3.1%</strong>
+                </div>
+
+                <div class="comparison-row">
+                  <span>Estimated calculated duties</span>
+
+                  <div>
+                    <span>2024</span>
+                    <strong>$3.83B</strong>
+                  </div>
+
+                  <div>
+                    <span>2025</span>
+                    <strong>$12.74B</strong>
+                  </div>
+
+                  <strong class="change">+232.4%</strong>
+                </div>
+
+                <div class="comparison-row">
+                  <span>Effective estimated duty rate</span>
+
+                  <div>
+                    <span>2024</span>
+                    <strong>2.88%</strong>
+                  </div>
+
+                  <div>
+                    <span>2025</span>
+                    <strong>9.27%</strong>
+                  </div>
+
+                  <strong class="change">+6.40 pts</strong>
+                </div>
               </div>
             </div>
           </div>
 
-          <div class="tariff-secondary">
-            <div class="tariff-counterfactual">
-              <p class="tariff-label">Sourcing mattered</p>
-              <h3>Changes in the import mix reduced the pressure.</h3>
-              <div class="counterfactual-row"><span>2026 tariffs with the 2024 sourcing mix</span><strong>4.36%</strong></div>
-              <div class="counterfactual-row observed"><span>Observed 2026 mix</span><strong>3.38%</strong></div>
-              <p class="tariff-offset">The shift in sourcing composition offset approximately <strong>29%</strong> of the tariff-driven increase.</p>
+          <div class="tariff-history-panel">
+            <div class="tariff-history-heading">
+              <div>
+                <p class="tariff-label">Effective estimated duty rate · 2017–2025</p>
+                <h3>Years of gradual change were followed by a sharp break in 2025.</h3>
+              </div>
+
+              <p>Calculated Duties divided by Customs Value for each calendar year.</p>
             </div>
 
-            <div class="tariff-drivers">
-              <p class="tariff-label">Largest contributors · 2026</p>
-              <h3>Machinery carries most of the estimated cost.</h3>
-              <div class="driver-list" aria-label="Largest product contributors to estimated tariff exposure">
-                <div class="driver-row"><span>Machinery</span><div class="driver-track"><i style="width:100%"></i></div><strong>$159M</strong></div>
-                <div class="driver-row"><span>Electrical machinery</span><div class="driver-track"><i style="width:64%"></i></div><strong>$102M</strong></div>
-                <div class="driver-row"><span>Tools and cutlery</span><div class="driver-track"><i style="width:16%"></i></div><strong>$26M</strong></div>
-                <div class="driver-row"><span>Precision and medical instruments</span><div class="driver-track"><i style="width:14%"></i></div><strong>$22M</strong></div>
-                <div class="driver-row"><span>Iron and steel articles</span><div class="driver-track"><i style="width:9%"></i></div><strong>$15M</strong></div>
+            <div class="tariff-history-scroll">
+              <div class="tariff-rate-grid" role="img" aria-label="Effective estimated duty rates: 1.69 percent in 2017, 2.15 percent in 2018, 3.30 percent in 2019, 3.32 percent in 2020, 3.43 percent in 2021, 3.33 percent in 2022, 3.04 percent in 2023, 2.88 percent in 2024, and 9.27 percent in 2025">
+                <div class="rate-column">
+                  <strong>1.69%</strong>
+                  <div class="rate-bar"><i style="height:18.2%"></i></div>
+                  <span>2017</span>
+                </div>
+
+                <div class="rate-column">
+                  <strong>2.15%</strong>
+                  <div class="rate-bar"><i style="height:23.2%"></i></div>
+                  <span>2018</span>
+                </div>
+
+                <div class="rate-column">
+                  <strong>3.30%</strong>
+                  <div class="rate-bar"><i style="height:35.6%"></i></div>
+                  <span>2019</span>
+                </div>
+
+                <div class="rate-column">
+                  <strong>3.32%</strong>
+                  <div class="rate-bar"><i style="height:35.8%"></i></div>
+                  <span>2020</span>
+                </div>
+
+                <div class="rate-column">
+                  <strong>3.43%</strong>
+                  <div class="rate-bar"><i style="height:37%"></i></div>
+                  <span>2021</span>
+                </div>
+
+                <div class="rate-column">
+                  <strong>3.33%</strong>
+                  <div class="rate-bar"><i style="height:35.9%"></i></div>
+                  <span>2022</span>
+                </div>
+
+                <div class="rate-column">
+                  <strong>3.04%</strong>
+                  <div class="rate-bar"><i style="height:32.8%"></i></div>
+                  <span>2023</span>
+                </div>
+
+                <div class="rate-column">
+                  <strong>2.88%</strong>
+                  <div class="rate-bar"><i style="height:31.1%"></i></div>
+                  <span>2024</span>
+                </div>
+
+                <div class="rate-column current">
+                  <strong>9.27%</strong>
+                  <div class="rate-bar"><i style="height:100%"></i></div>
+                  <span>2025</span>
+                </div>
               </div>
+            </div>
+          </div>
+
+          <div class="tariff-conclusion">
+            <div>
+              <p class="tariff-label">The central finding</p>
+            </div>
+
+            <div class="tariff-conclusion-copy">
+              <h3>The effective duty rate more than tripled in one year.</h3>
+
+              <p>Import value increased <strong>3.1%</strong>, from <strong>$133.28 billion to $137.43 billion</strong>. Estimated calculated duties increased <strong>232.4%</strong>, from <strong>$3.83 billion to $12.74 billion</strong>. The effective duty rate rose from <strong>2.88% to 9.27%</strong>.</p>
+
+              <p class="tariff-caution">This divergence is consistent with the changing U.S. tariff environment in 2025. District-level data cannot determine how much of the increase came from specific tariff measures or changes in the mix of countries and products.</p>
             </div>
           </div>
         </div>
-        <p class="tariff-method-note">Estimated exposure applies the national effective tariff rate for each country–HS2 combination to the corresponding import value entering through Port 4102. Port-level duties are not published. The measure describes gateway activity and does not represent purchases made exclusively by regional companies.</p>
+
+        <p class="tariff-method-note">
+          Calculated Duties are Census estimates and do not necessarily equal amounts ultimately paid. The tariff analysis covers the Cleveland Customs District, District 41, a broad customs geography that includes Cleveland, Cincinnati, Columbus, Dayton, Toledo–Sandusky, Indianapolis, Louisville and additional ports. It also includes dedicated Schedule D codes for UPS Courier, DHL Cincinnati and FedEx Indianapolis. CVG is home to Amazon Air’s primary U.S. hub, DHL’s Global Super Hub for the Americas and a significant FedEx presence, but district-level results cannot isolate CVG or the activity of individual carriers. Sources:
+          <a href="https://www.census.gov/foreign-trade/reference/definitions/" target="_blank" rel="noopener">U.S. Census trade definitions</a>,
+          <a href="https://www.census.gov/foreign-trade/schedules/d/distcode.html" target="_blank" rel="noopener">Schedule D district and port codes</a>, and
+          <a href="https://www.cvgairport.com/business/business-opportunities/air-service/air-cargo/" target="_blank" rel="noopener">CVG Air Cargo</a>.
+        </p>
       </div>
     </section>
 
@@ -496,105 +1716,257 @@
             <p class="trade-eyebrow">From regional signals to company exposure</p>
             <h2>This is a snapshot of the work we do.</h2>
           </div>
+
           <div class="inquiry-copy">
             <p>A focused study can reveal where your supply chain is exposed, which dependencies deserve attention, and how shifts in trade policy and sourcing may affect your market.</p>
-            <a class="inquiry-link" href="mailto:biazzinc1@nku.edu">Discuss a tailored study <span aria-hidden="true">→</span></a>
+
+            <a class="inquiry-link" href="mailto:biazzinc1@nku.edu">
+              Discuss a tailored study
+              <span aria-hidden="true">→</span>
+            </a>
           </div>
         </div>
-        <p class="trade-source-note">Data: U.S. Census Bureau, USA Trade Online and International Trade API. Trade relationship data cover 2017 and 2025; tariff exposure compares January–July 2017, 2024, 2025, and 2026. Results describe activity recorded through the Cincinnati–Lawrenceburg port district, not the complete Greater Cincinnati metropolitan economy.</p>
+
+        <p class="trade-source-note">
+          Data: U.S. Census Bureau, USA Trade Online and International Trade API. Trade relationship and sourcing-distance results compare 2017 and 2025 activity recorded through the Cincinnati–Lawrenceburg port district. The tariff analysis covers annual 2017–2025 activity recorded across the broader Cleveland Customs District, District 41. These customs geographies do not represent the complete Greater Cincinnati metropolitan economy or purchases made exclusively by regional companies.
+        </p>
       </div>
     </section>
   </main>
 
   <footer>
     <div class="shell footer-grid">
-      <div><p class="footer-title">Supply Chain Geopolitics Observatory</p><p>Researching the connections between global change and business.</p></div>
-      <div><p class="footer-label">Contact</p><a href="mailto:biazzinc1@nku.edu">biazzinc1@nku.edu</a><a href="https://www.linkedin.com/company/supply-chain-geopolitics-observ/">LinkedIn</a></div>
+      <div>
+        <p class="footer-title">Supply Chain Geopolitics Observatory</p>
+        <p>Researching the connections between global change and business.</p>
+      </div>
+
+      <div>
+        <p class="footer-label">Contact</p>
+        <a href="mailto:biazzinc1@nku.edu">biazzinc1@nku.edu</a>
+        <a href="https://www.linkedin.com/company/supply-chain-geopolitics-observ/">LinkedIn</a>
+      </div>
     </div>
+
     <div class="shell footer-bottom">© 2026 Supply Chain Geopolitics Observatory</div>
   </footer>
 
   <script>
-  (() => {
-    let filteredTradeData = [];
-    Object.defineProperty(window, 'TRADE_DATA', {
-      configurable: true,
-      get: () => filteredTradeData,
-      set: value => {
-        filteredTradeData = Array.isArray(value)
-          ? value.filter(row => !String(row.item || '').startsWith('98 '))
-          : value;
-      }
-    });
-  })();
-  </script>
-  <script src="cincinnati-trade-chart-v4.js"></script>
-  <script>
-  (() => {
-    const holder = document.querySelector('#locality-chart');
-    if (!holder) return;
-    const data = [
-      ['Pharmaceutical products',6201,6355],
-      ['Machinery and parts',7864,10477],
-      ['Electrical machinery',10699,11447],
-      ['Medical and optical instruments',8987,7909],
-      ['Tools and cutlery',7968,8289],
-      ['Organic chemicals',5833,7337],
-      ['Articles of iron or steel',8069,9093],
-      ['Stone, plaster and cement articles',7064,6815]
-    ];
-    const make = (tag, attrs = {}) => {
-      const element = document.createElementNS('http://www.w3.org/2000/svg', tag);
-      Object.entries(attrs).forEach(([key,value]) => element.setAttribute(key,value));
-      return element;
-    };
-    const label = (x,y,value,className,anchor) => {
-      const element = make('text',{x,y,class:className,'text-anchor':anchor});
-      element.textContent = value;
-      return element;
-    };
-    const width=1040,height=390,left=255,right=70,top=42,bottom=36;
-    const scale = value => left + (value-5000)/7000*(width-left-right);
-    const svg = make('svg',{viewBox:`0 0 ${width} ${height}`,'aria-hidden':'true'});
-    [6000,8000,10000,12000].forEach(value => {
-      const x=scale(value);
-      svg.append(make('line',{x1:x,y1:top-17,x2:x,y2:height-bottom,class:'locality-grid-line'}));
-      svg.append(label(x,20,`${value/1000}k km`,'locality-axis-label','middle'));
-    });
-    data.forEach(([name,oldValue,newValue],index) => {
-      const y=top+index*39;
-      const farther=newValue>=oldValue;
-      svg.append(label(left-18,y+4,name,'locality-row-label','end'));
-      svg.append(make('line',{x1:scale(oldValue),y1:y,x2:scale(newValue),y2:y,class:'locality-link'}));
-      svg.append(make('circle',{cx:scale(oldValue),cy:y,r:6,class:'locality-old'}));
-      svg.append(make('circle',{cx:scale(newValue),cy:y,r:7,class:'locality-current'}));
-      svg.append(label(scale(oldValue)+(farther?-10:10),y-11,oldValue.toLocaleString('en-US'),'locality-value',farther?'end':'start'));
-      svg.append(label(scale(newValue)+(farther?10:-10),y-11,newValue.toLocaleString('en-US'),'locality-value',farther?'start':'end'));
-    });
-    holder.replaceChildren(svg);
+    (() => {
+      let filteredTradeData = [];
 
-    const patternHolder = document.querySelector('#pattern-cards');
-    if (patternHolder) {
-      patternHolder.classList.add('is-explained');
-      patternHolder.innerHTML = `
-        <article class="pattern-card">
-          <div class="pattern-signal"><span>China · two categories</span><strong>−$357.3M</strong></div>
-          <div><h3>China’s role is changing</h3><p>Imports from China declined by <strong>$258.7M in machinery</strong> and <strong>$98.6M in electronics</strong>, while several other sourcing locations gained ground.</p></div>
-        </article>
-        <article class="pattern-card">
-          <div class="pattern-signal"><span>Costa Rica · 2025 imports</span><strong>$399.1M</strong></div>
-          <div><h3>Nearshoring extends beyond Mexico</h3><p>Imports from Costa Rica increased from <strong>$1.7M to $399.1M</strong>, surpassing Mexico’s <strong>$295.5M</strong> in 2025. Electronics and medical instruments accounted for most of this growth.</p></div>
-        </article>
-        <article class="pattern-card">
-          <div class="pattern-signal"><span>Four alternative hubs</span><strong>+$1.51B</strong></div>
-          <div><h3>Electronics dispersed across new hubs</h3><p>China’s electronics imports declined by <strong>$98.6M</strong>, while Malaysia, Taiwan, Costa Rica, and Thailand collectively gained <strong>$1.51B</strong>.</p></div>
-        </article>
-        <article class="pattern-card">
-          <div class="pattern-signal"><span>Emerging relationships</span><strong>4 markets</strong></div>
-          <div><h3>Unexpected suppliers are emerging</h3><p>New sourcing relationships are appearing outside the region’s established partners. Apparel imports from El Salvador rose from <strong>$373K to $5.2M</strong>, while Kenya increased from <strong>$1.7K to $1.25M</strong>. In machinery, Morocco rose from <strong>$1.9M to $18.8M</strong> and Tunisia from <strong>$70K to $3.7M</strong>.</p></div>
-        </article>`;
-    }
-  })();
+      Object.defineProperty(window, 'TRADE_DATA', {
+        configurable: true,
+        get: () => filteredTradeData,
+        set: value => {
+          filteredTradeData = Array.isArray(value)
+            ? value.filter(row => !String(row.item || '').startsWith('98 '))
+            : value;
+        }
+      });
+    })();
+  </script>
+
+  <script src="cincinnati-trade-chart-v4.js"></script>
+
+  <script>
+    (() => {
+      const holder = document.querySelector('#locality-chart');
+      if (!holder) return;
+
+      const data = [
+        ['Pharmaceutical products', 6201, 6355],
+        ['Machinery and parts', 7864, 10477],
+        ['Electrical machinery', 10699, 11447],
+        ['Medical and optical instruments', 8987, 7909],
+        ['Tools and cutlery', 7968, 8289],
+        ['Organic chemicals', 5833, 7337],
+        ['Articles of iron or steel', 8069, 9093],
+        ['Stone, plaster and cement articles', 7064, 6815]
+      ];
+
+      const make = (tag, attrs = {}) => {
+        const element = document.createElementNS('http://www.w3.org/2000/svg', tag);
+
+        Object.entries(attrs).forEach(([key, value]) => {
+          element.setAttribute(key, value);
+        });
+
+        return element;
+      };
+
+      const label = (x, y, value, className, anchor) => {
+        const element = make('text', {
+          x,
+          y,
+          class: className,
+          'text-anchor': anchor
+        });
+
+        element.textContent = value;
+        return element;
+      };
+
+      const width = 1040;
+      const height = 390;
+      const left = 255;
+      const right = 70;
+      const top = 42;
+      const bottom = 36;
+
+      const scale = value =>
+        left + (value - 5000) / 7000 * (width - left - right);
+
+      const svg = make('svg', {
+        viewBox: `0 0 ${width} ${height}`,
+        'aria-hidden': 'true'
+      });
+
+      [6000, 8000, 10000, 12000].forEach(value => {
+        const x = scale(value);
+
+        svg.append(
+          make('line', {
+            x1: x,
+            y1: top - 17,
+            x2: x,
+            y2: height - bottom,
+            class: 'locality-grid-line'
+          })
+        );
+
+        svg.append(
+          label(
+            x,
+            20,
+            `${value / 1000}k km`,
+            'locality-axis-label',
+            'middle'
+          )
+        );
+      });
+
+      data.forEach(([name, oldValue, newValue], index) => {
+        const y = top + index * 39;
+        const farther = newValue >= oldValue;
+
+        svg.append(
+          label(
+            left - 18,
+            y + 4,
+            name,
+            'locality-row-label',
+            'end'
+          )
+        );
+
+        svg.append(
+          make('line', {
+            x1: scale(oldValue),
+            y1: y,
+            x2: scale(newValue),
+            y2: y,
+            class: 'locality-link'
+          })
+        );
+
+        svg.append(
+          make('circle', {
+            cx: scale(oldValue),
+            cy: y,
+            r: 6,
+            class: 'locality-old'
+          })
+        );
+
+        svg.append(
+          make('circle', {
+            cx: scale(newValue),
+            cy: y,
+            r: 7,
+            class: 'locality-current'
+          })
+        );
+
+        svg.append(
+          label(
+            scale(oldValue) + (farther ? -10 : 10),
+            y - 11,
+            oldValue.toLocaleString('en-US'),
+            'locality-value',
+            farther ? 'end' : 'start'
+          )
+        );
+
+        svg.append(
+          label(
+            scale(newValue) + (farther ? 10 : -10),
+            y - 11,
+            newValue.toLocaleString('en-US'),
+            'locality-value',
+            farther ? 'start' : 'end'
+          )
+        );
+      });
+
+      holder.replaceChildren(svg);
+
+      const patternHolder = document.querySelector('#pattern-cards');
+
+      if (patternHolder) {
+        patternHolder.classList.add('is-explained');
+
+        patternHolder.innerHTML = `
+          <article class="pattern-card">
+            <div class="pattern-signal">
+              <span>China · two categories</span>
+              <strong>−$357.3M</strong>
+            </div>
+
+            <div>
+              <h3>China’s role is changing</h3>
+              <p>Imports from China declined by <strong>$258.7M in machinery</strong> and <strong>$98.6M in electronics</strong>, while several other sourcing locations gained ground.</p>
+            </div>
+          </article>
+
+          <article class="pattern-card">
+            <div class="pattern-signal">
+              <span>Costa Rica · 2025 imports</span>
+              <strong>$399.1M</strong>
+            </div>
+
+            <div>
+              <h3>Nearshoring extends beyond Mexico</h3>
+              <p>Imports from Costa Rica increased from <strong>$1.7M to $399.1M</strong>, surpassing Mexico’s <strong>$295.5M</strong> in 2025. Electronics and medical instruments accounted for most of this growth.</p>
+            </div>
+          </article>
+
+          <article class="pattern-card">
+            <div class="pattern-signal">
+              <span>Four alternative hubs</span>
+              <strong>+$1.51B</strong>
+            </div>
+
+            <div>
+              <h3>Electronics dispersed across new hubs</h3>
+              <p>China’s electronics imports declined by <strong>$98.6M</strong>, while Malaysia, Taiwan, Costa Rica, and Thailand collectively gained <strong>$1.51B</strong>.</p>
+            </div>
+          </article>
+
+          <article class="pattern-card">
+            <div class="pattern-signal">
+              <span>Emerging relationships</span>
+              <strong>4 markets</strong>
+            </div>
+
+            <div>
+              <h3>Unexpected suppliers are emerging</h3>
+              <p>New sourcing relationships are appearing outside the region’s established partners. Apparel imports from El Salvador rose from <strong>$373K to $5.2M</strong>, while Kenya increased from <strong>$1.7K to $1.25M</strong>. In machinery, Morocco rose from <strong>$1.9M to $18.8M</strong> and Tunisia from <strong>$70K to $3.7M</strong>.</p>
+            </div>
+          </article>
+        `;
+      }
+    })();
   </script>
 </body>
 </html>
