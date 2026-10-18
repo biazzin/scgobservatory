@@ -10,6 +10,7 @@
   <style>
     .w-kicker{font-size:13px;font-weight:600;color:#6e6e73;margin:0 0 14px}
     .w-dark{background:#000;color:#f5f5f7}
+    .w-dark .w-kicker{color:#86868b}
     .w-soft{background:#f5f5f7}
     .w-section{padding-block:104px}
     .w-h2{font-size:clamp(32px,4.2vw,48px);font-weight:600;letter-spacing:-.035em;line-height:1.1;margin:0;max-width:20ch}
@@ -18,11 +19,29 @@
     .w-products{padding:56px 0 96px}
     .w-hero h1{font-size:clamp(46px,6.4vw,84px);font-weight:600;letter-spacing:-.055em;line-height:1.02;max-width:16ch;margin:20px 0 24px}
     .w-hero .w-lede{font-size:clamp(19px,2.2vw,24px);line-height:1.42;letter-spacing:-.02em;color:#424245;max-width:44ch;margin:0}
+    .w-actions{display:flex;flex-wrap:wrap;gap:14px 28px;align-items:center}
 
+    .sig-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#2c2c2e;border-radius:14px;overflow:hidden;margin:52px 0 44px}
+    .sig{background:#161618;padding:34px 30px}
+    .sig .num{font-size:clamp(42px,5vw,60px);font-weight:600;letter-spacing:-.04em;line-height:1;color:#fff}
+    .sig .num small{font-size:.45em;color:#a1a1a6;font-weight:500;letter-spacing:0}
+    .sig .label{font-size:15px;font-weight:600;margin:16px 0 6px}
+    .sig .note{font-size:14px;line-height:1.5;color:#a1a1a6;margin:0}
+    .turn{font-size:clamp(22px,3vw,34px);font-weight:600;letter-spacing:-.025em;line-height:1.2;max-width:28ch;margin:0}
+    .turn span{color:#ff9f0a}
+    .w-source{font-size:12px;color:#86868b;margin:28px 0 0}
+    .w-source a{color:#2997ff}
+    .w-source a:hover{text-decoration:underline}
+
+    .q-list{list-style:none;margin:48px 0 0;padding:0;display:grid;grid-template-columns:repeat(2,1fr);gap:0 56px}
+    .q-list li{border-top:1px solid #d2d2d7;padding:24px 0;font-size:clamp(18px,2vw,22px);font-weight:500;letter-spacing:-.015em;line-height:1.35}
+
+    .w-intro{font-size:19px;line-height:1.5;color:#6e6e73;max-width:52ch;margin:18px 0 52px}
     .track-head{display:flex;justify-content:space-between;align-items:baseline;gap:24px;flex-wrap:wrap;margin:0 0 22px}
     .track-label{font-size:21px;font-weight:600;letter-spacing:-.02em;color:#1d1d1f;margin:0}
     .track-note{font-size:16px;color:#6e6e73;margin:0;max-width:52ch}
     .w-train{padding-top:72px}
+    .inst-grid.inst-grid-3{grid-template-columns:repeat(3,1fr)}
     .inst-line{border:1px solid #d2d2d7}
     .inst.sig-program{grid-column:1/-1;background:#000;color:#f5f5f7}
     .sig-program .inst-format{color:#ff9f0a}
@@ -56,6 +75,12 @@
     .gets ul{margin:0;padding-left:18px;font-size:15px;line-height:1.5}
     .gets li{margin:4px 0}
 
+    .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;margin-top:52px}
+    .step{border-top:2px solid #1d1d1f;padding-top:18px}
+    .step .n{font-family:"SF Mono",ui-monospace,Menlo,Consolas,monospace;font-size:13px;color:#86868b}
+    .step h3{font-size:20px;font-weight:600;letter-spacing:-.02em;margin:8px 0}
+    .step p{font-size:15px;line-height:1.5;color:#6e6e73;margin:0}
+
     .diff-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:44px;margin-top:52px}
     .diff-grid h3{font-size:22px;font-weight:600;letter-spacing:-.02em;margin:0 0 10px}
     .diff-grid p{font-size:16px;line-height:1.55;color:#6e6e73;margin:0}
@@ -66,4 +91,243 @@
 
     .offer{text-align:center;padding-block:112px}
     .offer .w-kicker{color:#ff9f0a}
-    .offer h2{font-size:clamp(36px,5.4vw,64px);font-wei
+    .offer h2{font-size:clamp(36px,5.4vw,64px);font-weight:600;letter-spacing:-.045em;line-height:1.04;max-width:16ch;margin:0 auto}
+    .offer p{font-size:19px;line-height:1.5;color:#a1a1a6;max-width:46ch;margin:24px auto 36px}
+    .offer .fine{font-size:13px;color:#86868b;margin:20px auto 0}
+
+    @media(max-width:820px){
+      .w-section{padding-block:72px}
+      .w-hero{padding:64px 0 36px}
+      .w-products{padding:40px 0 72px}
+      .sig-grid,.diff-grid,.inst-grid,.inst-grid.inst-grid-3,.q-list{grid-template-columns:1fr}
+      .w-train{padding-top:56px}
+      .sig-layout{grid-template-columns:1fr;gap:28px}
+      .steps{grid-template-columns:repeat(2,1fr)}
+      .offer{padding-block:80px}
+    }
+    @media(max-width:560px){
+      .steps{grid-template-columns:1fr}
+      .inst{padding:28px 22px}
+      .inst-top{flex-direction:column;gap:4px}
+      .inst-format{text-align:left}
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="wordmark" href="index.html" aria-label="Supply Chain Geopolitics Observatory home">
+        <img src="logo.png" alt="SCG Supply Chain Geopolitics Observatory">
+      </a>
+
+      <nav aria-label="Primary navigation">
+        <a href="index.html">Home</a>
+        <a href="who-we-are.html">Who We Are</a>
+        <a href="projects.html">Our Work</a>
+        <a href="publications.html">Ideas in Circulation</a>
+        <a href="work-with-us.html" aria-current="page">Work With Us</a>
+        <a class="nav-join" href="join.html">Join Us</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="w-hero shell">
+      <p class="eyebrow">Work With Us</p>
+      <h1>Know your exposure before it shows up in your costs.</h1>
+      <p class="w-lede">We analyze your exposure for you, or we train your team to do it themselves. Every engagement has a fixed scope and a clear output.</p>
+    </section>
+
+    <section class="w-soft w-products" id="instruments">
+      <div class="shell">
+
+        <div class="track-head">
+          <p class="track-label">Track 1 · We analyze for you</p>
+          <p class="track-note">Evidence on your company’s exposure, delivered to your leadership.</p>
+        </div>
+        <div class="inst-grid">
+          <article class="inst entry">
+            <div class="inst-top"><span class="inst-code">SCG-01</span><span class="inst-format">45 minutes · Starting point</span></div>
+            <h3>Exposure Readout</h3>
+            <p class="asks">Where should we look first?</p>
+            <p class="desc">You share your main import categories and source countries. We read them against the Observatory’s data and tell you, in plain terms, where your exposure is likely concentrated.</p>
+            <div class="gets">
+              <p class="gets-label">You leave with</p>
+              <ul>
+                <li>Your top three exposure points</li>
+                <li>A one-page summary for your leadership</li>
+                <li>A recommendation on whether to go deeper</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="inst">
+            <div class="inst-top"><span class="inst-code">SCG-02</span><span class="inst-format">3 weeks · Diagnostic</span></div>
+            <h3>Exposure Map</h3>
+            <p class="asks">How exposed are we, product by product?</p>
+            <p class="desc">A product-level study of your import base: duty exposure, country and supplier concentration, alternative origins already gaining ground, and what each scenario does to your costs.</p>
+            <div class="gets">
+              <p class="gets-label">You receive</p>
+              <ul>
+                <li>Exposure map by product and origin</li>
+                <li>Cost impact under three trade scenarios</li>
+                <li>Prioritized actions with decision triggers</li>
+                <li>Executive briefing for your leadership team</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="inst">
+            <div class="inst-top"><span class="inst-code">SCG-03</span><span class="inst-format">Half day · Leadership session</span></div>
+            <h3>Scenario Room</h3>
+            <p class="asks">What would we actually do if it happened tomorrow?</p>
+            <p class="desc">Your leadership team works through realistic disruptions built on your own suppliers and products: a new tariff, the loss of a critical source, a closed route. Decisions get made in the room, not later.</p>
+            <div class="gets">
+              <p class="gets-label">You receive</p>
+              <ul>
+                <li>A session designed around your supply base</li>
+                <li>Documented decisions and trade-offs</li>
+                <li>A contingency plan with clear owners</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="inst">
+            <div class="inst-top"><span class="inst-code">SCG-04</span><span class="inst-format">Quarterly · Ongoing</span></div>
+            <h3>Signal Briefing</h3>
+            <p class="asks">What changed this quarter that matters to us?</p>
+            <p class="desc">A private briefing for your executives or board on the trade, tariff and sourcing shifts that touch your categories, before they show up in your costs.</p>
+            <div class="gets">
+              <p class="gets-label">You receive</p>
+              <ul>
+                <li>A quarterly briefing tailored to your categories</li>
+                <li>Early signals with what to watch next</li>
+                <li>Direct access between briefings</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="w-products w-train" id="training">
+      <div class="shell">
+        <div class="track-head">
+          <p class="track-label">Track 2 · We build your team’s capability</p>
+          <p class="track-note">Instead of depending on us, your people learn to read global shifts and work with trade data themselves.</p>
+        </div>
+        <div class="inst-grid">
+          <article class="inst sig-program">
+            <div class="inst-top"><span class="inst-code">SCG-05</span><span class="inst-format">Signature program · 1–3 days · In company</span></div>
+            <div class="sig-layout">
+              <div>
+                <h3>Trace · Measure · Decide</h3>
+                <p class="asks">Can your team see the risks no supplier map shows?</p>
+                <p class="desc">Built on the Observatory’s own research method and tailored to your industry. Your team works on your products, your suppliers and your markets, and leaves able to repeat the process without us.</p>
+              </div>
+              <ol class="sig-steps">
+                <li><strong>Trace</strong><span>Follow one of your own products beyond your direct suppliers to the geopolitical chokepoints that shape its cost.</span></li>
+                <li><strong>Measure</strong><span>Quantify the exposure with public trade and tariff data, by product and by country of origin.</span></li>
+                <li><strong>Decide</strong><span>Turn signals into decision triggers, so your team knows in advance when to act and when to wait.</span></li>
+              </ol>
+            </div>
+            <div class="gets">
+              <p class="gets-label">Optional modules</p>
+              <ul class="mods">
+                <li>Beyond U.S.–China: triad thinking</li>
+                <li>Tariff-smart supplier negotiation</li>
+                <li>Invisible infrastructure risk</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="inst inst-line">
+            <div class="inst-top"><span class="inst-code">SCG-06</span><span class="inst-format">Keynote · 30–60 minutes</span></div>
+            <h3>Speaking</h3>
+            <p class="asks">What should our people understand about the global shifts ahead?</p>
+            <p class="desc">Keynotes and panels for conferences, industry associations and leadership meetings, built on current Observatory data and tailored to your audience.</p>
+            <div class="gets">
+              <p class="gets-label">Topics include</p>
+              <ul>
+                <li>Tariffs and the new cost of sourcing</li>
+                <li>Where nearshoring is really going</li>
+                <li>Hidden dependencies in global supply chains</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="inst inst-line">
+            <div class="inst-top"><span class="inst-code">SCG-07</span><span class="inst-format">Hands-on · Team workshop</span></div>
+            <h3>Trade Analytics Lab</h3>
+            <p class="asks">How do we build this analysis ourselves?</p>
+            <p class="desc">A working session where your team learns to find, analyze and interpret public trade and tariff data for your own products, and leaves with a model they keep using.</p>
+            <div class="gets">
+              <p class="gets-label">Your team leaves with</p>
+              <ul>
+                <li>Skills to work with Census and tariff data</li>
+                <li>An exposure model built on your products</li>
+                <li>A routine to monitor changes every quarter</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="w-dark offer" id="offer">
+      <div class="shell">
+        <p class="w-kicker">For Eggs ’N Issues attendees</p>
+        <h2>Five complimentary Exposure Readouts.</h2>
+        <p>Reserved for the first five companies that reach out after the event. Send your company name and your main import categories, and we’ll schedule a time.</p>
+        <a class="light-button" href="mailto:biazzinc1@nku.edu?subject=Exposure%20Readout%20request%20%E2%80%94%20Eggs%20%E2%80%99N%20Issues&amp;body=Company%3A%0AMain%20import%20categories%3A%0AMain%20source%20countries%3A%0ABest%20times%20to%20talk%3A">Request your Readout</a>
+        <p class="fine">Everything you share is treated as confidential.</p>
+      </div>
+    </section>
+
+    <section class="w-section w-why">
+      <div class="shell">
+        <p class="w-kicker">Why the Observatory</p>
+        <h2 class="w-h2">Research-grade evidence, read by someone who has run supply chains.</h2>
+        <div class="diff-grid">
+          <div>
+            <h3>Built by an operator</h3>
+            <p>Led by Dr. Cristiane Biazzin, former Director of Operations and Supply Chain for Latin America, with more than two decades at Owens-Illinois, SKF and Faiveley.</p>
+          </div>
+          <div>
+            <h3>Evidence, not opinion</h3>
+            <p>PhD in Operations and Supply Chain Management from FGV. Every finding rests on trade data and transparent methods, and we say just as clearly what the data cannot show.</p>
+          </div>
+          <div>
+            <h3>A view from more than one country</h3>
+            <p>Research on U.S.–China–Brazil trade and global production networks. We read your exposure from the side of your suppliers and markets, not only from here.</p>
+          </div>
+        </div>
+        <div class="proof">
+          <span><strong>As seen on</strong> Local 12 News (WKRC), on tariffs and regional business</span>
+          <span><strong>Published in</strong> Thunderbird International Business Review, Supply Chain Management: An International Journal</span>
+          <a href="publications.html">See all publications and media ›</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="shell footer-grid">
+      <div>
+        <p class="footer-title">Supply Chain Geopolitics Observatory</p>
+        <p>Researching the connections between global change and business.</p>
+      </div>
+      <div>
+        <p class="footer-label">Contact</p>
+        <a href="mailto:biazzinc1@nku.edu">biazzinc1@nku.edu</a>
+        <a href="https://www.linkedin.com/company/supply-chain-geopolitics-observ/">LinkedIn</a>
+      </div>
+    </div>
+    <div class="shell footer-bottom">© 2026 Supply Chain Geopolitics Observatory</div>
+  </footer>
+
+</body>
+</html>
