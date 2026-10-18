@@ -128,7 +128,7 @@
       grid-template-columns: minmax(0, 1.45fr) minmax(280px, .55fr);
       gap: clamp(42px, 8vw, 120px);
       align-items: end;
-      padding-block: clamp(86px, 11vw, 148px) clamp(68px, 9vw, 110px);
+      padding-block: clamp(44px, 5vw, 64px) clamp(32px, 4vw, 48px);
     }
 
     .trade-intro .trade-eyebrow {
@@ -156,7 +156,7 @@
     /* Interactive trade chart */
     .trade-workspace {
       overflow: hidden;
-      margin-bottom: clamp(100px, 12vw, 160px);
+      margin-bottom: clamp(48px, 6vw, 72px);
       padding: 0;
       border: 1px solid rgba(41, 41, 44, .12);
       border-radius: var(--radius);
@@ -389,7 +389,7 @@
 
     /* Findings */
     .shift-section {
-      padding-block: clamp(100px, 12vw, 160px);
+      padding-block: clamp(52px, 6vw, 80px);
       border-top: 1px solid var(--line);
       background: #fff;
     }
@@ -449,7 +449,7 @@
       align-items: flex-start;
       justify-content: space-between;
       gap: 24px;
-      margin-bottom: 62px;
+      margin-bottom: 40px;
     }
 
     .pattern-signal span {
@@ -518,7 +518,7 @@
 
     /* Sourcing distance */
     .locality-section {
-      padding-block: clamp(100px, 12vw, 160px);
+      padding-block: clamp(52px, 6vw, 80px);
       background: var(--paper);
     }
 
@@ -527,7 +527,7 @@
       grid-template-columns: minmax(0, 1.25fr) minmax(300px, .75fr);
       gap: clamp(45px, 8vw, 110px);
       align-items: end;
-      margin-bottom: 64px;
+      margin-bottom: 40px;
     }
 
     .locality-intro h2 {
@@ -787,7 +787,7 @@
 
     /* Tariff analysis */
     .tariff-section {
-      padding-block: clamp(100px, 12vw, 160px);
+      padding-block: clamp(52px, 6vw, 80px);
       border-top: 1px solid #dedbd5;
       background: #fff;
     }
@@ -797,7 +797,7 @@
       grid-template-columns: minmax(0, 1.2fr) minmax(300px, .8fr);
       gap: clamp(40px, 7vw, 100px);
       align-items: end;
-      margin-bottom: 62px;
+      margin-bottom: 40px;
     }
 
     .tariff-intro h2 {
@@ -1074,7 +1074,7 @@
 
     /* Inquiry */
     .trade-inquiry {
-      padding-block: clamp(92px, 11vw, 145px);
+      padding-block: clamp(52px, 6vw, 80px);
       border-top: 1px solid var(--line);
       background: #fff;
     }
@@ -1165,8 +1165,138 @@
       font-size: 15px;
     }
 
+    /* Snapshot banner */
+    .snapshot-banner {
+      background: #000;
+      color: #f5f5f7;
+    }
+
+    .snapshot-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) auto;
+      gap: 32px 56px;
+      align-items: center;
+      padding-block: 36px;
+    }
+
+    .snapshot-kicker {
+      margin: 0 0 8px;
+      color: #86868b;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    .snapshot-banner h2 {
+      margin: 0 0 10px;
+      font-size: clamp(26px, 3.2vw, 38px);
+      font-weight: 600;
+      line-height: 1.1;
+      letter-spacing: -.035em;
+    }
+
+    .snapshot-copy {
+      max-width: 720px;
+      margin: 0;
+      color: #a1a1a6;
+      font-size: 17px;
+      line-height: 1.5;
+    }
+
+    .snapshot-copy em { font-style: normal; color: #fff; }
+    .snapshot-copy strong { color: #ff9f0a; font-weight: 600; }
+
+    .snapshot-actions {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 14px;
+    }
+
+    .snapshot-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 13px 22px;
+      border-radius: 999px;
+      background: #0071e3;
+      color: #fff;
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .snapshot-button:hover { background: #0077ed; }
+
+    .snapshot-link {
+      color: #2997ff;
+      font-size: 15px;
+      text-decoration: none;
+    }
+
+    .snapshot-link:hover { text-decoration: underline; }
+
+    /* Readout card */
+    .readout-card {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) auto;
+      gap: 32px 56px;
+      align-items: center;
+      padding: clamp(28px, 4vw, 48px);
+      border-radius: 18px;
+      background: var(--ink);
+      color: #fff;
+    }
+
+    .readout-kicker {
+      margin: 0 0 12px;
+      color: #ff9f0a;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .readout-card h2 {
+      margin: 0 0 14px;
+      font-size: clamp(30px, 4vw, 48px);
+      font-weight: 600;
+      line-height: 1.05;
+      letter-spacing: -.04em;
+    }
+
+    .readout-main p:last-child {
+      max-width: 680px;
+      margin: 0;
+      color: #c7c7cc;
+      font-size: 17px;
+      line-height: 1.55;
+    }
+
+    .readout-actions {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .readout-card .inquiry-link {
+      background: #0071e3;
+      white-space: nowrap;
+    }
+
+    .readout-card .inquiry-secondary {
+      margin: 0;
+      color: #2997ff;
+    }
+
+    @media (max-width: 820px) {
+      .snapshot-inner,
+      .readout-card {
+        grid-template-columns: 1fr;
+      }
+    }
+
     .trade-source-note {
-      margin: 70px 0 0;
+      margin: 44px 0 0;
       padding-top: 20px;
       border-top: 1px solid var(--line);
       color: #85858a;
@@ -1399,6 +1529,20 @@
   </header>
 
   <main class="trade-page">
+    <section class="snapshot-banner">
+      <div class="shell snapshot-inner">
+        <div>
+          <p class="snapshot-kicker">From regional signals to company exposure</p>
+          <h2>This is a snapshot of the work we do.</h2>
+          <p class="snapshot-copy">A focused study shows where <em>your</em> company is exposed. For Eggs ’N Issues attendees: a complimentary Exposure Readout for the first five companies that contact us by <strong>October 31, 2026</strong>.</p>
+        </div>
+        <div class="snapshot-actions">
+          <a class="snapshot-button" href="#readout">Claim a Readout <span aria-hidden="true">↓</span></a>
+          <a class="snapshot-link" href="work-with-us.html">See how we work with companies ›</a>
+        </div>
+      </div>
+    </section>
+
     <section class="trade-intro shell">
       <p class="trade-eyebrow">Regional trade relationships</p>
       <h1>Where Cincinnati’s trade relationships are changing.</h1>
@@ -1746,23 +1890,15 @@
       </div>
     </section>
 
-    <section class="trade-inquiry">
+    <section class="trade-inquiry" id="readout">
       <div class="shell">
-        <div class="inquiry-grid">
-          <div>
-            <p class="trade-eyebrow">From regional signals to company exposure</p>
-            <h2>This is a snapshot of the work we do.</h2>
+        <div class="readout-card">
+          <div class="readout-main">
+            <p class="readout-kicker">For Eggs ’N Issues attendees · Valid through October 31, 2026</p>
+            <h2>What does this mean for your company?</h2>
+            <p>The first five companies that contact us by October 31, 2026 receive a complimentary Exposure Readout: a 45-minute conversation that reads your main import categories against this data and shows where your exposure is likely concentrated.</p>
           </div>
-
-          <div class="inquiry-copy">
-            <p>A focused study can reveal where your supply chain is exposed, which dependencies deserve attention, and how shifts in trade policy and sourcing may affect your market.</p>
-
-            <div class="inquiry-offer">
-              <p class="inquiry-offer-kicker">For Eggs ’N Issues attendees</p>
-              <p class="inquiry-offer-title">Five complimentary Exposure Readouts</p>
-              <p>A 45-minute conversation that reads your main import categories against this data and shows where your exposure is likely concentrated. Reserved for the first five companies that reach out.</p>
-            </div>
-
+          <div class="readout-actions">
             <a class="inquiry-link" href="mailto:biazzinc1@nku.edu?subject=Exposure%20Readout%20request%20%E2%80%94%20Eggs%20%E2%80%99N%20Issues&amp;body=Company%3A%0AMain%20import%20categories%3A%0AMain%20source%20countries%3A%0ABest%20times%20to%20talk%3A">
               Request your Readout
               <span aria-hidden="true">→</span>

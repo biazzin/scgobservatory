@@ -10,7 +10,6 @@
   <style>
     .w-kicker{font-size:13px;font-weight:600;color:#6e6e73;margin:0 0 14px}
     .w-dark{background:#000;color:#f5f5f7}
-    .w-dark .w-kicker{color:#86868b}
     .w-soft{background:#f5f5f7}
     .w-section{padding-block:104px}
     .w-h2{font-size:clamp(32px,4.2vw,48px);font-weight:600;letter-spacing:-.035em;line-height:1.1;margin:0;max-width:20ch}
@@ -19,29 +18,11 @@
     .w-products{padding:56px 0 96px}
     .w-hero h1{font-size:clamp(46px,6.4vw,84px);font-weight:600;letter-spacing:-.055em;line-height:1.02;max-width:16ch;margin:20px 0 24px}
     .w-hero .w-lede{font-size:clamp(19px,2.2vw,24px);line-height:1.42;letter-spacing:-.02em;color:#424245;max-width:44ch;margin:0}
-    .w-actions{display:flex;flex-wrap:wrap;gap:14px 28px;align-items:center}
 
-    .sig-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#2c2c2e;border-radius:14px;overflow:hidden;margin:52px 0 44px}
-    .sig{background:#161618;padding:34px 30px}
-    .sig .num{font-size:clamp(42px,5vw,60px);font-weight:600;letter-spacing:-.04em;line-height:1;color:#fff}
-    .sig .num small{font-size:.45em;color:#a1a1a6;font-weight:500;letter-spacing:0}
-    .sig .label{font-size:15px;font-weight:600;margin:16px 0 6px}
-    .sig .note{font-size:14px;line-height:1.5;color:#a1a1a6;margin:0}
-    .turn{font-size:clamp(22px,3vw,34px);font-weight:600;letter-spacing:-.025em;line-height:1.2;max-width:28ch;margin:0}
-    .turn span{color:#ff9f0a}
-    .w-source{font-size:12px;color:#86868b;margin:28px 0 0}
-    .w-source a{color:#2997ff}
-    .w-source a:hover{text-decoration:underline}
-
-    .q-list{list-style:none;margin:48px 0 0;padding:0;display:grid;grid-template-columns:repeat(2,1fr);gap:0 56px}
-    .q-list li{border-top:1px solid #d2d2d7;padding:24px 0;font-size:clamp(18px,2vw,22px);font-weight:500;letter-spacing:-.015em;line-height:1.35}
-
-    .w-intro{font-size:19px;line-height:1.5;color:#6e6e73;max-width:52ch;margin:18px 0 52px}
     .track-head{display:flex;justify-content:space-between;align-items:baseline;gap:24px;flex-wrap:wrap;margin:0 0 22px}
     .track-label{font-size:21px;font-weight:600;letter-spacing:-.02em;color:#1d1d1f;margin:0}
     .track-note{font-size:16px;color:#6e6e73;margin:0;max-width:52ch}
     .w-train{padding-top:72px}
-    .inst-grid.inst-grid-3{grid-template-columns:repeat(3,1fr)}
     .inst-line{border:1px solid #d2d2d7}
     .inst.sig-program{grid-column:1/-1;background:#000;color:#f5f5f7}
     .sig-program .inst-format{color:#ff9f0a}
@@ -75,12 +56,6 @@
     .gets ul{margin:0;padding-left:18px;font-size:15px;line-height:1.5}
     .gets li{margin:4px 0}
 
-    .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;margin-top:52px}
-    .step{border-top:2px solid #1d1d1f;padding-top:18px}
-    .step .n{font-family:"SF Mono",ui-monospace,Menlo,Consolas,monospace;font-size:13px;color:#86868b}
-    .step h3{font-size:20px;font-weight:600;letter-spacing:-.02em;margin:8px 0}
-    .step p{font-size:15px;line-height:1.5;color:#6e6e73;margin:0}
-
     .diff-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:44px;margin-top:52px}
     .diff-grid h3{font-size:22px;font-weight:600;letter-spacing:-.02em;margin:0 0 10px}
     .diff-grid p{font-size:16px;line-height:1.55;color:#6e6e73;margin:0}
@@ -99,14 +74,12 @@
       .w-section{padding-block:72px}
       .w-hero{padding:64px 0 36px}
       .w-products{padding:40px 0 72px}
-      .sig-grid,.diff-grid,.inst-grid,.inst-grid.inst-grid-3,.q-list{grid-template-columns:1fr}
+      .diff-grid,.inst-grid{grid-template-columns:1fr}
       .w-train{padding-top:56px}
       .sig-layout{grid-template-columns:1fr;gap:28px}
-      .steps{grid-template-columns:repeat(2,1fr)}
       .offer{padding-block:80px}
     }
     @media(max-width:560px){
-      .steps{grid-template-columns:1fr}
       .inst{padding:28px 22px}
       .inst-top{flex-direction:column;gap:4px}
       .inst-format{text-align:left}
@@ -280,7 +253,7 @@
       <div class="shell">
         <p class="w-kicker">For Eggs ’N Issues attendees</p>
         <h2>Five complimentary Exposure Readouts.</h2>
-        <p>Reserved for the first five companies that reach out after the event. Send your company name and your main import categories, and we’ll schedule a time.</p>
+        <p>Reserved for the first five companies that contact us by October 31, 2026. Send your company name and your main import categories, and we’ll schedule a time.</p>
         <a class="light-button" href="mailto:biazzinc1@nku.edu?subject=Exposure%20Readout%20request%20%E2%80%94%20Eggs%20%E2%80%99N%20Issues&amp;body=Company%3A%0AMain%20import%20categories%3A%0AMain%20source%20countries%3A%0ABest%20times%20to%20talk%3A">Request your Readout</a>
         <p class="fine">Everything you share is treated as confidential.</p>
       </div>
