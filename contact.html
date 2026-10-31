@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="description" content="Request an Exposure Readout or get in touch with the Supply Chain Geopolitics Observatory.">
+  <meta name="description" content="Get in touch with the Supply Chain Geopolitics Observatory. Companies, researchers and students are welcome.">
   <title>Contact | Supply Chain Geopolitics Observatory</title>
   <link rel="icon" href="favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,7 +33,7 @@
       <div class="sg-wrap">
         <p class="sg-kicker">Contact</p>
         <h1 class="sg-h1">Start with a conversation.</h1>
-        <p class="sg-lede">Tell us what you buy and where it comes from. We will reply to schedule your Exposure Readout, or to answer any other question.</p>
+        <p class="sg-lede">Companies, researchers and students are all welcome. Tell us who you are and what you have in mind, and we will get back to you.</p>
       </div>
     </section>
 
@@ -51,24 +51,24 @@
           <div class="sg-field sg-field--full">
             <label for="cf-topic">I'm interested in</label>
             <select id="cf-topic" name="topic">
-              <option>An Exposure Readout</option>
-              <option>Another service (Map, Scenario Room, Briefing, training)</option>
+              <option>Support for my company</option>
+              <option>Research collaboration</option>
+              <option>Student opportunities</option>
               <option>A talk or keynote</option>
               <option>The Supply Chain Geopolitics Forum</option>
-              <option>Research collaboration or student opportunities</option>
               <option>Something else</option>
             </select>
           </div>
-          <div class="sg-field">
-            <label for="cf-categories">Main import categories</label>
+          <div class="sg-field" data-company-only>
+            <label for="cf-categories">Main import categories (optional)</label>
             <input id="cf-categories" name="categories" type="text" placeholder="e.g. bearings, steel parts, electronics">
           </div>
-          <div class="sg-field">
-            <label for="cf-countries">Main countries of origin</label>
+          <div class="sg-field" data-company-only>
+            <label for="cf-countries">Main countries of origin (optional)</label>
             <input id="cf-countries" name="countries" type="text" placeholder="e.g. China, Germany, Mexico">
           </div>
           <div class="sg-field sg-field--full">
-            <label for="cf-message">Anything else we should know</label>
+            <label for="cf-message">What would you like to talk about?</label>
             <textarea id="cf-message" name="message"></textarea>
           </div>
           <div class="sg-form-foot">
@@ -89,7 +89,7 @@
           </div>
           <div>
             <p class="sg-kicker">Confidentiality</p>
-            <p class="sg-p">Everything you share is treated as confidential. Category and country names are enough to start.</p>
+            <p class="sg-p">Everything you share is treated as confidential.</p>
           </div>
         </div>
       </div>
@@ -108,6 +108,14 @@
             if (sel.options[i].text.toLowerCase().indexOf(preset.toLowerCase()) !== -1) { sel.selectedIndex = i; break; }
           }
         }
+        var topicSel = document.getElementById('cf-topic');
+        function syncFields() {
+          var show = topicSel.selectedIndex === 0;
+          var els = form.querySelectorAll('[data-company-only]');
+          for (var j = 0; j < els.length; j++) els[j].style.display = show ? '' : 'none';
+        }
+        topicSel.addEventListener('change', syncFields);
+        syncFields();
         form.addEventListener('submit', function (e) {
           e.preventDefault();
           var name = form.name.value.trim();
@@ -117,15 +125,12 @@
             return;
           }
           var topic = form.topic.value;
-          var lines = [
-            'Name: ' + name,
-            'Company: ' + form.company.value.trim(),
-            'Interested in: ' + topic,
-            'Main import categories: ' + form.categories.value.trim(),
-            'Main countries of origin: ' + form.countries.value.trim(),
-            '',
-            form.message.value.trim()
-          ];
+          var lines = ['Name: ' + name, 'Company or institution: ' + form.company.value.trim(), 'Interested in: ' + topic];
+          if (topicSel.selectedIndex === 0) {
+            if (form.categories.value.trim()) lines.push('Main import categories: ' + form.categories.value.trim());
+            if (form.countries.value.trim()) lines.push('Main countries of origin: ' + form.countries.value.trim());
+          }
+          lines.push('', form.message.value.trim());
           var subject = topic + (form.company.value.trim() ? ' — ' + form.company.value.trim() : '');
           window.location.href = 'mailto:biazzinc1@nku.edu?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(lines.join('\n'));
           status.textContent = 'Your email app should open with the message filled in. If it does not, write to biazzinc1@nku.edu.';
@@ -149,7 +154,7 @@
       </div>
       <div>
         <p class="sg-footer-label">Contact</p>
-        <a href="contact.html">Request an Exposure Readout</a>
+        <a href="contact.html">Start a conversation</a>
         <a href="mailto:biazzinc1@nku.edu">biazzinc1@nku.edu</a>
         <a href="https://www.linkedin.com/company/supply-chain-geopolitics-observ/">LinkedIn</a>
       </div>
