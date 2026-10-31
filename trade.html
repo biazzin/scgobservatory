@@ -8,6 +8,10 @@
   <title>Cincinnati Trade Relationships | Supply Chain Geopolitics Observatory</title>
   <link rel="icon" href="favicon.svg">
   <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&amp;display=swap">
+  <link rel="stylesheet" href="site.css">
   <link rel="stylesheet" href="trade.css">
 
   <style>
@@ -1161,7 +1165,7 @@
     .inquiry-secondary {
       display: block;
       margin-top: 18px;
-      color: #06c;
+      color: #5A0009;
       font-size: 15px;
     }
 
@@ -1218,7 +1222,7 @@
       gap: 12px;
       padding: 13px 22px;
       border-radius: 999px;
-      background: #0071e3;
+      background: #5A0009;
       color: #fff;
       font-size: 15px;
       font-weight: 600;
@@ -1226,10 +1230,10 @@
       white-space: nowrap;
     }
 
-    .snapshot-button:hover { background: #0077ed; }
+    .snapshot-button:hover { background: #440007; }
 
     .snapshot-link {
-      color: #2997ff;
+      color: #F3F3F2;
       font-size: 15px;
       text-decoration: none;
     }
@@ -1279,13 +1283,13 @@
     }
 
     .readout-card .inquiry-link {
-      background: #0071e3;
+      background: #5A0009;
       white-space: nowrap;
     }
 
     .readout-card .inquiry-secondary {
       margin: 0;
-      color: #2997ff;
+      color: #F3F3F2;
     }
 
     @media (max-width: 820px) {
@@ -1511,19 +1515,18 @@
 </head>
 
 <body>
-  <header class="site-header">
-    <div class="shell header-inner">
-      <a class="wordmark" href="index.html" aria-label="Supply Chain Geopolitics Observatory home">
+  <a class="sg-skip" href="#main">Skip to content</a>
+  <header class="sg-header">
+    <div class="sg-wrap sg-header-inner">
+      <a class="sg-logo" href="index.html" aria-label="Supply Chain Geopolitics Observatory home">
         <img src="logo.png" alt="SCG Supply Chain Geopolitics Observatory">
       </a>
-
-      <nav aria-label="Primary navigation">
-        <a href="index.html">Home</a>
-        <a href="who-we-are.html">Who We Are</a>
-        <a href="projects.html">Our Work</a>
-        <a href="publications.html">Ideas in Circulation</a>
-        <a href="work-with-us.html">Work With Us</a>
-        <a class="nav-join" href="join.html">Join Us</a>
+      <nav class="sg-nav" aria-label="Primary navigation">
+        <a href="work-with-us.html">Services</a>
+        <a href="projects.html" aria-current="page">Research</a>
+        <a href="publications.html">Publications &amp; Media</a>
+        <a href="who-we-are.html">About</a>
+        <a class="sg-nav-cta" href="contact.html">Contact</a>
       </nav>
     </div>
   </header>
@@ -1534,11 +1537,11 @@
         <div>
           <p class="snapshot-kicker">From regional signals to company exposure</p>
           <h2>This is a snapshot of the work we do.</h2>
-          <p class="snapshot-copy">A focused study shows where <em>your</em> company is exposed. For Eggs ’N Issues attendees: a complimentary Exposure Readout for the first five companies that contact us by <strong>October 31, 2026</strong>.</p>
+          <p class="snapshot-copy">A focused study shows where <em>your</em> company is exposed. The starting point is an Exposure Readout: a 45-minute conversation that reads your own import categories against this data.</p>
         </div>
         <div class="snapshot-actions">
-          <a class="snapshot-button" href="#readout">Claim a Readout <span aria-hidden="true">↓</span></a>
-          <a class="snapshot-link" href="work-with-us.html">See how we work with companies ›</a>
+          <a class="snapshot-button" href="contact.html">Request a Readout</a>
+          <a class="snapshot-link" href="work-with-us.html">See all services ›</a>
         </div>
       </div>
     </section>
@@ -1894,16 +1897,16 @@
       <div class="shell">
         <div class="readout-card">
           <div class="readout-main">
-            <p class="readout-kicker">For Eggs ’N Issues attendees · Valid through October 31, 2026</p>
+            <p class="readout-kicker">Exposure Readout</p>
             <h2>What does this mean for your company?</h2>
-            <p>The first five companies that contact us by October 31, 2026 receive a complimentary Exposure Readout: a 45-minute conversation that reads your main import categories against this data and shows where your exposure is likely concentrated.</p>
+            <p>In a 45-minute conversation we read your main import categories against this data and show where your exposure is likely concentrated. You leave with your top three exposure points and a one-page summary for leadership.</p>
           </div>
           <div class="readout-actions">
-            <a class="inquiry-link" href="mailto:biazzinc1@nku.edu?subject=Exposure%20Readout%20request%20%E2%80%94%20Eggs%20%E2%80%99N%20Issues&amp;body=Company%3A%0AMain%20import%20categories%3A%0AMain%20source%20countries%3A%0ABest%20times%20to%20talk%3A">
+            <a class="inquiry-link" href="contact.html">
               Request your Readout
               <span aria-hidden="true">→</span>
             </a>
-            <a class="inquiry-secondary" href="work-with-us.html">See how we work with companies ›</a>
+            <a class="inquiry-secondary" href="work-with-us.html">See all services ›</a>
           </div>
         </div>
 
@@ -1914,21 +1917,27 @@
     </section>
   </main>
 
-  <footer>
-    <div class="shell footer-grid">
+  <footer class="sg-footer">
+    <div class="sg-wrap sg-footer-grid">
       <div>
-        <p class="footer-title">Supply Chain Geopolitics Observatory</p>
-        <p>Researching the connections between global change and business.</p>
+        <p class="sg-footer-title">Supply Chain Geopolitics Observatory</p>
+        <p>Advisory and research on how geopolitical change reaches supply chains.</p>
       </div>
-
       <div>
-        <p class="footer-label">Contact</p>
+        <p class="sg-footer-label">Explore</p>
+        <a href="work-with-us.html">Services</a>
+        <a href="projects.html">Research</a>
+        <a href="publications.html">Publications &amp; Media</a>
+        <a href="who-we-are.html">About</a>
+      </div>
+      <div>
+        <p class="sg-footer-label">Contact</p>
+        <a href="contact.html">Request an Exposure Readout</a>
         <a href="mailto:biazzinc1@nku.edu">biazzinc1@nku.edu</a>
         <a href="https://www.linkedin.com/company/supply-chain-geopolitics-observ/">LinkedIn</a>
       </div>
     </div>
-
-    <div class="shell footer-bottom">© 2026 Supply Chain Geopolitics Observatory</div>
+    <div class="sg-wrap"><p class="sg-footer-bottom">© 2026 Supply Chain Geopolitics Observatory</p></div>
   </footer>
 
   <script>
