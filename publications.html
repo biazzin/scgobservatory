@@ -1,1065 +1,249 @@
 <!doctype html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta
-    name="description"
-    content="Publications, commentary, and media from the Supply Chain Geopolitics Observatory."
-  >
-
-  <title>Ideas in Circulation | Supply Chain Geopolitics Observatory</title>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Journal articles, book chapters, reports and media interviews from the Supply Chain Geopolitics Observatory.">
+  <title>Publications & Media | Supply Chain Geopolitics Observatory</title>
   <link rel="icon" href="favicon.svg">
-  <link rel="stylesheet" href="styles.css">
-
-  <style>
-    .publication-snapshot {
-      margin-top: 1.15rem;
-    }
-
-    .publication-snapshot summary {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      padding: 0.55rem 0.9rem;
-      border: 1px solid #555;
-      border-radius: 999px;
-      color: #333;
-      font-size: 0.86rem;
-      font-weight: 700;
-      letter-spacing: 0.02em;
-      cursor: pointer;
-      list-style: none;
-    }
-
-    .publication-snapshot summary::-webkit-details-marker {
-      display: none;
-    }
-
-    .publication-snapshot summary::after {
-      content: "+";
-      font-size: 1rem;
-      line-height: 1;
-    }
-
-    .publication-snapshot[open] summary::after {
-      content: "−";
-    }
-
-    .snapshot-content {
-      max-width: 760px;
-      margin-top: 1rem;
-      padding: 1rem;
-      border: 1px solid #d8d8d8;
-      border-radius: 18px;
-      background: #f7f7f5;
-    }
-
-    .snapshot-content img {
-      display: block;
-      width: 100%;
-      height: auto;
-      border-radius: 10px;
-    }
-
-    .snapshot-audio-label {
-      margin: 1rem 0 0.45rem;
-      color: #333;
-      font-size: 0.82rem;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-
-    .snapshot-content audio {
-      display: block;
-      width: 100%;
-    }
-
-    .media-clip {
-      margin-top: 1.15rem;
-    }
-
-    .media-clip summary {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      padding: 0.55rem 0.9rem;
-      border: 1px solid #555;
-      border-radius: 999px;
-      color: #333;
-      font-size: 0.86rem;
-      font-weight: 700;
-      letter-spacing: 0.02em;
-      cursor: pointer;
-      list-style: none;
-    }
-
-    .media-clip summary::-webkit-details-marker {
-      display: none;
-    }
-
-    .media-clip summary::after {
-      content: "+";
-      font-size: 1rem;
-      line-height: 1;
-    }
-
-    .media-clip[open] summary::after {
-      content: "−";
-    }
-
-    .media-clip-content {
-      max-width: 760px;
-      margin-top: 1rem;
-    }
-
-    .video-frame {
-      position: relative;
-      overflow: hidden;
-      width: 100%;
-      padding-top: 56.25%;
-      border-radius: 16px;
-      background: #111;
-    }
-
-    .video-frame iframe {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
-
-    .video-frame video {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      background: #111;
-    }
-
-    .media-source-link {
-      display: inline-block;
-      margin-top: 0.7rem;
-      font-size: 0.86rem;
-    }
-
-    .ideas-hero {
-      padding-block: 72px 58px;
-    }
-
-    .ideas-hero h1 {
-      font-size: clamp(54px, 6.5vw, 82px);
-      margin-bottom: 28px;
-    }
-
-    .featured-circulation {
-      padding: 54px 0 88px;
-    }
-
-    .featured-heading {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 24px;
-    }
-
-    .featured-heading h2 {
-      margin: 0;
-      font-size: 34px;
-      letter-spacing: -0.03em;
-    }
-
-    .featured-grid {
-      display: grid;
-      grid-template-columns: 1.08fr 0.92fr;
-      gap: 18px;
-    }
-
-    .featured-card {
-      overflow: hidden;
-      border-radius: 20px;
-    }
-
-    .featured-publication {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      min-height: 450px;
-      background: #f1ece2;
-    }
-
-    .featured-copy {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 38px;
-    }
-
-    .featured-copy h3 {
-      margin: 12px 0 16px;
-      font-size: clamp(30px, 3vw, 43px);
-      line-height: 1.08;
-      letter-spacing: -0.04em;
-    }
-
-    .featured-copy p {
-      color: #615b52;
-      line-height: 1.5;
-    }
-
-    .featured-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 18px;
-      align-items: center;
-      margin-top: 26px;
-    }
-
-    .featured-audio {
-      width: 100%;
-      height: 36px;
-      margin-top: 18px;
-    }
-
-    .featured-art {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-    }
-
-    .featured-media {
-      display: flex;
-      flex-direction: column;
-      padding: 18px;
-      background: #171719;
-      color: #f5f5f7;
-    }
-
-    .featured-media-copy {
-      padding: 20px 20px 24px;
-    }
-
-    .featured-media .section-kicker { color: #a1a1a6; }
-
-    .featured-media h3 {
-      margin: 12px 0 10px;
-      font-size: 31px;
-      line-height: 1.1;
-      letter-spacing: -0.03em;
-    }
-
-    .featured-media p {
-      color: #b6b6bb;
-      line-height: 1.5;
-    }
-
-    .featured-video {
-      position: relative;
-      overflow: hidden;
-      width: 100%;
-      padding-top: 56.25%;
-      border-radius: 13px;
-      background: #000;
-    }
-
-    .featured-video iframe {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
-    }
-
-    .publications-section {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 82px 52px;
-      padding-top: 0;
-    }
-
-    .publications-section .publication-category {
-      margin-top: 0;
-    }
-
-    .publication-category:first-child,
-    .publication-category:last-child {
-      grid-column: 1 / -1;
-    }
-
-    .publication-category:first-child .citation-list {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      column-gap: 48px;
-    }
-
-    .publication-category:first-child .citation-list article:first-child {
-      display: none;
-    }
-
-    .publication-category:nth-child(2) .category-heading,
-    .publication-category:nth-child(3) .category-heading {
-      grid-template-columns: 1fr;
-      gap: 8px;
-    }
-
-    .publication-category:nth-child(2) .category-heading > span,
-    .publication-category:nth-child(3) .category-heading > span {
-      text-align: left;
-    }
-
-    .publication-category:last-child .citation-list {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 18px;
-    }
-
-    .publication-category:last-child .citation-list article {
-      display: block;
-      padding: 28px;
-      border: 1px solid #d2d2d7;
-      border-radius: 16px;
-    }
-
-    .publication-category:last-child .citation-year {
-      display: block;
-      margin-bottom: 20px;
-    }
-
-    @media (max-width: 900px) {
-      .featured-grid,
-      .featured-publication,
-      .publications-section,
-      .publication-category:first-child .citation-list,
-      .publication-category:last-child .citation-list {
-        grid-template-columns: 1fr;
-      }
-
-      .publication-category:first-child,
-      .publication-category:last-child {
-        grid-column: auto;
-      }
-
-      .featured-publication { min-height: 0; }
-      .featured-art { max-height: 360px; }
-    }
-
-    /* Editorial front page */
-    .editorial-lead { padding: 52px 0 78px; }
-
-    .latest-strip {
-      display: grid;
-      grid-template-columns: 120px minmax(0, 1.35fr) minmax(280px, 0.65fr);
-      gap: 42px;
-      align-items: start;
-      padding: 34px 0 38px;
-      border-top: 1px solid #1d1d1f;
-      border-bottom: 1px solid #d2d2d7;
-    }
-
-    .latest-year {
-      color: #9b4d38;
-      font-size: 15px;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-    }
-
-    .latest-main h2 {
-      max-width: 720px;
-      margin: 0 0 14px;
-      font-size: clamp(34px, 4vw, 54px);
-      line-height: 1.03;
-      letter-spacing: -0.045em;
-    }
-
-    .latest-main p {
-      max-width: 690px;
-      margin: 0;
-      color: #6e6e73;
-      font-size: 17px;
-      line-height: 1.55;
-    }
-
-    .latest-actions {
-      padding-left: 30px;
-      border-left: 1px solid #d2d2d7;
-    }
-
-    .latest-source {
-      margin: 0 0 18px;
-      color: #4c4c50;
-      font-size: 15px;
-      line-height: 1.45;
-    }
-
-    .latest-actions audio {
-      width: 100%;
-      height: 36px;
-      margin-top: 20px;
-    }
-
-    .lead-snapshot { margin-top: 18px; }
-    .lead-snapshot summary {
-      color: #6e6e73;
-      font-size: 14px;
-      cursor: pointer;
-    }
-
-    .lead-snapshot img {
-      display: block;
-      width: min(100%, 520px);
-      margin-top: 16px;
-      border: 1px solid #d2d2d7;
-    }
-
-    .screen-stage {
-      padding: 76px 0 88px;
-      background: transparent;
-      color: #1d1d1f;
-    }
-
-    .screen-heading {
-      display: block;
-      margin-bottom: 34px;
-    }
-
-    .screen-heading h2 {
-      max-width: 820px;
-      margin: 0;
-      font-size: 42px;
-      line-height: 1.1;
-      letter-spacing: -0.035em;
-    }
-
-    .screen-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-    }
-
-    .screen-story {
-      overflow: hidden;
-      border: 1px solid #d2d2d7;
-      border-radius: 16px;
-      background: #fff;
-    }
-
-    .screen-video {
-      position: relative;
-      width: 100%;
-      padding-top: 56.25%;
-      background: #000;
-    }
-
-    .screen-video iframe,
-    .screen-video video {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      border: 0;
-      background: #000;
-    }
-
-    .screen-copy { padding: 24px 26px 28px; }
-    .screen-copy p:first-child {
-      margin: 0 0 10px;
-      color: #6e6e73;
-      font-size: 13px;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-
-    .screen-copy h3 {
-      margin: 0;
-      font-size: 25px;
-      line-height: 1.18;
-      letter-spacing: -0.025em;
-    }
-
-    .publication-category:last-child .citation-list {
-      grid-template-columns: 1fr;
-    }
-
-    .publication-category:last-child .citation-list article:nth-child(-n+2) {
-      display: none;
-    }
-
-    .publication-category:first-child .citation-list article:first-child {
-      display: grid;
-    }
-
-    .publication-category:last-child {
-      display: none;
-    }
-
-    .category-heading.simple-heading {
-      display: block;
-      margin-bottom: 28px;
-    }
-
-    .circulation-heading {
-      display: block;
-      margin-bottom: 28px;
-      padding-top: 24px;
-      border-top: 1px solid #d2d2d7;
-    }
-
-    .circulation-heading h2,
-    .screen-heading.circulation-heading h2 {
-      margin: 0;
-      font-size: 42px;
-      font-weight: 600;
-      line-height: 1.1;
-      letter-spacing: -0.035em;
-    }
-
-    @media (max-width: 900px) {
-      .latest-strip,
-      .screen-heading,
-      .screen-grid { grid-template-columns: 1fr; }
-      .latest-strip { gap: 22px; }
-      .latest-actions { padding: 24px 0 0; border-left: 0; border-top: 1px solid #d2d2d7; }
-      .screen-heading { gap: 16px; }
-    }
-  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&amp;display=swap">
+  <link rel="stylesheet" href="site.css">
 </head>
-
 <body>
-
-  <header class="site-header">
-    <div class="shell header-inner">
-
-      <a
-        class="wordmark"
-        href="index.html"
-        aria-label="Supply Chain Geopolitics Observatory home"
-      >
-        <img
-          src="logo.png"
-          alt="SCG Supply Chain Geopolitics Observatory"
-        >
+  <a class="sg-skip" href="#main">Skip to content</a>
+  <header class="sg-header">
+    <div class="sg-wrap sg-header-inner">
+      <a class="sg-logo" href="index.html" aria-label="Supply Chain Geopolitics Observatory home">
+        <img src="logo.png" alt="SCG Supply Chain Geopolitics Observatory">
       </a>
-
-      <nav aria-label="Primary navigation">
-        <a href="index.html">Home</a>
-        <a href="who-we-are.html">Who We Are</a>
-        <a href="projects.html">Our Work</a>
-        <a href="publications.html" aria-current="page">Ideas in Circulation</a>
-        <a href="work-with-us.html">Work With Us</a>
-        <a class="nav-join" href="join.html">Join Us</a>
+      <nav class="sg-nav" aria-label="Primary navigation">
+        <a href="work-with-us.html">Services</a>
+        <a href="projects.html">Research</a>
+        <a href="publications.html" aria-current="page">Publications &amp; Media</a>
+        <a href="who-we-are.html">About</a>
+        <a class="sg-nav-cta" href="contact.html">Contact</a>
       </nav>
-
     </div>
   </header>
 
-  <main>
-
-    <section class="page-hero shell ideas-hero">
-
-      <p class="eyebrow">
-        Ideas in Circulation
-      </p>
-
-      <h1>
-        Where our work travels.
-      </h1>
-
-      <p class="page-intro">
-        Research moves through journals, books, public commentary, media, and
-        conversations with the people making decisions.
-      </p>
-
-    </section>
-
-    <section class="screen-stage">
-      <div class="shell">
-        <div class="screen-heading circulation-heading">
-          <h2>In the Public Conversation</h2>
-        </div>
-
-        <div class="screen-grid">
-          <article class="screen-story">
-            <div class="screen-video">
-              <iframe
-                src="https://www.youtube-nocookie.com/embed/wthk4rO_CzQ"
-                title="Local 12 News interview about tariffs and regional business impact"
-                loading="lazy"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen
-              ></iframe>
-            </div>
-            <div class="screen-copy">
-              <p>Local 12 News · May 2025</p>
-              <h3>U.S. tariffs and regional business impact</h3>
-            </div>
-          </article>
-
-          <article class="screen-story">
-            <div class="screen-video">
-              <video controls preload="metadata" playsinline poster="https://local12.com/resources/media/067a0e09-1606-4c8f-9b48-19498230b1a4-dcfb2fc536db4e35871de68a48e4b5aa.png">
-                <source src="https://harvest-media-clips.sinclairstoryline.com/WKRC/v1/e18f3307-7478-4b4a-ad92-1aee88b364ec/mp4/index.mp4" type="video/mp4">
-                Your browser does not support embedded video.
-              </video>
-            </div>
-            <div class="screen-copy">
-              <p>Local 12 News · April 2025</p>
-              <h3>U.S.–China tariffs and healthcare costs</h3>
-            </div>
-          </article>
-        </div>
+  <main id="main">
+    <section class="sg-page-hero">
+      <div class="sg-wrap">
+        <p class="sg-kicker">Publications &amp; Media</p>
+        <h1 class="sg-h1">Where our work travels.</h1>
+        <p class="sg-lede">Research moves through journals, books, public commentary and conversations with the people making decisions.</p>
       </div>
     </section>
 
-    <section class="shell publications-section">
-
-      <div class="publication-category">
-
-        <div class="category-heading simple-heading circulation-heading">
-          <h2>In Academic Journals</h2>
+    <section class="sg-section" id="media">
+      <div class="sg-wrap sg-split">
+        <div class="sg-split-intro">
+          <p class="sg-kicker">In the media</p>
+          <h2 class="sg-h2">Interviews and commentary</h2>
         </div>
-
-        <div class="citation-list">
-
-          <article>
-            <span class="citation-year">2026</span>
+        <div class="sg-pubs">
+          <article class="sg-pub">
+            <span class="sg-pub-year">2025</span>
             <div>
-              <p class="citation-authors">
-                Hong, P. C., Biazzin, C., &amp; Ferreira, F. M. C.
-              </p>
-              <h3>
-                Evaluating the Brazil-China trade relationship: Navigating economic disparities,
-                divergent objectives, and strategic influence.
-              </h3>
-              <p class="citation-source">
-                Latin American Policy, 17(2), e70056.
-              </p>
-              <a
-                href="https://onlinelibrary.wiley.com/doi/10.1111/lamp.70056"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View publication ↗
-              </a>
-              <details class="publication-snapshot">
-                <summary>View snapshot</summary>
-                <div class="snapshot-content">
-                  <img
-                    src="infogra_Latin.jpg"
-                    alt="Infographic summarizing the interdependent Brazil-China trade relationship"
-                  >
-                  <p class="snapshot-audio-label">Listen to the audio snapshot</p>
-                  <audio controls preload="metadata">
-                    <source
-                      src="Why_lopsided_Brazil_China_trade_works.m4a"
-                      type="audio/mp4"
-                    >
-                    Your browser does not support embedded audio.
-                  </audio>
-                </div>
-              </details>
-            </div>
-          </article>
-
-
-          <article>
-            <span class="citation-year">2024</span>
-            <div>
-              <p class="citation-authors">
-                Ferreira, F. C. M., Biazzin, C., &amp; Hong, P. C.
-              </p>
-              <h3>
-                Transition paths of Brazil from an agricultural economy to a regional powerhouse:
-                A global supply chain perspective.
-              </h3>
-              <p class="citation-source">
-                Sustainability, 16(7), 2872.
-              </p>
-              <a
-                href="https://www.mdpi.com/2071-1050/16/7/2872"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View publication ↗
-              </a>
-            </div>
-          </article>
-
-          <article>
-            <span class="citation-year">2024</span>
-            <div>
-              <p class="citation-authors">
-                Biazzin, C., Ferreira, F. C. M., &amp; Hong, P. C.
-              </p>
-              <h3>
-                Populism pressure, public policies, and firm strategic choices: The case of Brazil.
-              </h3>
-              <p class="citation-source">
-                Thunderbird International Business Review, 66(3), 251–268.
-              </p>
-              <a
-                href="https://onlinelibrary.wiley.com/doi/10.1002/tie.22377"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View publication ↗
-              </a>
-            </div>
-          </article>
-
-
-          <article>
-            <span class="citation-year">2023</span>
-            <div>
-              <p class="citation-authors">
-                Picasso, F., Biazzin, C., Paiva, E. L., &amp; Partyka, R.
-              </p>
-              <h3>
-                Socially responsible supply chain initiatives and their outcomes: A taxonomy of
-                manufacturing companies.
-              </h3>
-              <p class="citation-source">
-                Supply Chain Management: An International Journal, 28(1), 90–106.
-              </p>
-              <a
-                href="https://www.emerald.com/insight/content/doi/10.1108/SCM-11-2020-0578/full/html"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View publication ↗
-              </a>
-            </div>
-          </article>
-
-
-          <article>
-            <span class="citation-year">2017</span>
-            <div>
-              <p class="citation-authors">
-                Biazzin, C., Solano-Charris, E. L., &amp; Quintero, J. A. J.
-              </p>
-              <h3>
-                Supply chain and operations strategies for problem-solving in Latin American
-                countries: An introduction.
-              </h3>
-              <p class="citation-source">
-                Journal of Operations and Supply Chain Management, 10(2), 1–5.
-              </p>
-              <a
-                href="https://periodicos.fgv.br/joscm/article/view/73027"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View publication ↗
-              </a>
-            </div>
-          </article>
-
-
-          <article>
-            <span class="citation-year">2013</span>
-            <div>
-              <p class="citation-authors">
-                Silva, R. T. P., Biazzin Villar, C., &amp; Siegler, J. M. B.
-              </p>
-              <h3>
-                Responsiveness in the supply chain: A possible decision-driver for location of
-                new subsidiaries?
-              </h3>
-              <p class="citation-source">
-                Journal of Operations and Supply Chain Management, 6, 26–41.
-              </p>
-              <a
-                href="https://doi.org/10.12660/joscmv6n1p26-41"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View publication ↗
-              </a>
-            </div>
-          </article>
-
-
-          <article>
-            <span class="citation-year">2012</span>
-            <div>
-              <p class="citation-authors">
-                Biazzin Villar, C., &amp; Paiva, E. L.
-              </p>
-              <h3>
-                Estratégia de operações internacionais: Evolução e tendências.
-              </h3>
-              <p class="citation-source">
-                Revista de Administração da UNIMEP, 10, 1–27.
-              </p>
-              <a
-                href="https://doi.org/10.15600/1679-5350/rau.v10n2p1-27"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                View publication ↗
-              </a>
-            </div>
-          </article>
-
-        </div>
-      </div>
-
-      <div class="publication-category">
-
-        <div class="category-heading simple-heading circulation-heading">
-          <h2>In Books</h2>
-        </div>
-
-        <div class="citation-list">
-
-          <article>
-            <span class="citation-year">2027</span>
-            <div>
-              <p class="citation-authors">Biazzin, C.</p>
-              <h3>
-                Global supply chains and the rise of strategic buffer economies.
-              </h3>
-              <p class="citation-source">
-                In T. Hoang (Ed.), Geopolitics, War, and the Strategic Repositioning of Supply
-                Chains. IGI Global. Forthcoming.
-              </p>
-            </div>
-          </article>
-
-
-          <article>
-            <span class="citation-year">2023</span>
-            <div>
-              <p class="citation-authors">
-                Biazzin, C., &amp; Ferreira, F. C. M.
-              </p>
-              <h3>
-                Populism expectations and supplier diversity.
-              </h3>
-              <p class="citation-source">
-                In Encyclopedia of New Populism and Responses in the 21st Century. Springer.
-              </p>
-              <a href="https://doi.org/10.1007/978-981-16-9859-0">
-                View DOI ›
-              </a>
-            </div>
-          </article>
-
-
-          <article>
-            <span class="citation-year">2019</span>
-            <div>
-              <p class="citation-authors">Biazzin, C.</p>
-              <h3>
-                The role of strategic sourcing on global supply chain competitiveness.
-              </h3>
-              <p class="citation-source">
-                In Managing Operations Throughout Global Supply Chains. IGI Global.
-              </p>
-            </div>
-          </article>
-
-
-        </div>
-      </div>
-
-      <div class="publication-category">
-
-        <div class="category-heading simple-heading circulation-heading">
-          <h2>In Practice</h2>
-        </div>
-
-        <div class="citation-list">
-
-
-          <article>
-            <span class="citation-year">2020</span>
-            <div>
-              <p class="citation-authors">
-                Biazzin, C., &amp; Smith, H.
-              </p>
-              <h3>
-                U.S. Foreign-Trade Zones: Operational strategies adopted by FTZ managers.
-              </h3>
-              <p class="citation-source">
-                Research report, Northern Kentucky University.
-              </p>
-            </div>
-          </article>
-
-          <article>
-            <span class="citation-year">2020</span>
-            <div>
-              <p class="citation-authors">
-                Miguel, P., &amp; Biazzin, C.
-              </p>
-              <h3>
-                Os efeitos em cascata da COVID-19 nas cadeias produtivas.
-              </h3>
-              <p class="citation-source">
-                O Estado de S. Paulo.
-              </p>
-            </div>
-          </article>
-
-
-        </div>
-      </div>
-
-      <div class="publication-category">
-
-        <div class="category-heading">
-          <p class="section-kicker">Media archive</p>
-          <h2>Earlier appearance</h2>
-          <span>Selected coverage</span>
-        </div>
-
-        <div class="citation-list">
-
-          <article>
-            <span class="citation-year">2025</span>
-            <div>
-              <p class="citation-authors">
-                Local 12 News (WKRC)
-              </p>
-              <h3>
-                U.S. tariffs and regional business impact.
-              </h3>
-              <p class="citation-source">
-                TV interview, Cincinnati, Ohio · May 2025
-              </p>
-              <details class="media-clip">
-                <summary>Watch interview</summary>
-                <div class="media-clip-content">
-                  <div class="video-frame">
-                    <iframe
-                      src="https://www.youtube-nocookie.com/embed/wthk4rO_CzQ"
-                      title="Local 12 News interview about tariffs and regional business impact"
-                      loading="lazy"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      referrerpolicy="strict-origin-when-cross-origin"
-                      allowfullscreen
-                    ></iframe>
+              <p class="sg-pub-authors">Local 12 News (WKRC) · Cincinnati · May 2025</p>
+              <h3 class="sg-pub-title">U.S. tariffs and the impact on regional business</h3>
+              <details class="sg-more">
+                <summary>Watch the interview</summary>
+                <div class="sg-more-body">
+                  <div class="sg-video">
+                    <iframe src="https://www.youtube-nocookie.com/embed/wthk4rO_CzQ" title="Local 12 News interview about tariffs and regional business impact" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                   </div>
-                  <a
-                    class="media-source-link"
-                    href="https://local12.com/news/consumer-alerts/goalpost-keeps-moving-tariffs-start-hitting-cincinnati-business-owners-struggle-uncertainty-amid-trump-trade-policies-businesses-pricing-growth-costs"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    View the full story on Local 12 ↗
-                  </a>
+                  <div class="sg-pub-links"><a href="https://local12.com/news/consumer-alerts/goalpost-keeps-moving-tariffs-start-hitting-cincinnati-business-owners-struggle-uncertainty-amid-trump-trade-policies-businesses-pricing-growth-costs" target="_blank" rel="noopener noreferrer">Full story on Local 12 ↗</a></div>
                 </div>
               </details>
             </div>
           </article>
-
-          <article>
-            <span class="citation-year">2025</span>
+          <article class="sg-pub">
+            <span class="sg-pub-year">2025</span>
             <div>
-              <p class="citation-authors">
-                Local 12 News (WKRC)
-              </p>
-              <h3>
-                U.S.–China tariffs and healthcare cost implications.
-              </h3>
-              <p class="citation-source">
-                TV interview, Cincinnati, Ohio · April 2025
-              </p>
-              <details class="media-clip">
-                <summary>Watch interview</summary>
-                <div class="media-clip-content">
-                  <div class="video-frame">
-                    <video
-                      controls
-                      preload="metadata"
-                      playsinline
-                      poster="https://local12.com/resources/media/067a0e09-1606-4c8f-9b48-19498230b1a4-dcfb2fc536db4e35871de68a48e4b5aa.png"
-                    >
-                      <source
-                        src="https://harvest-media-clips.sinclairstoryline.com/WKRC/v1/e18f3307-7478-4b4a-ad92-1aee88b364ec/mp4/index.mp4"
-                        type="video/mp4"
-                      >
-                      Your browser does not support embedded video.
+              <p class="sg-pub-authors">Local 12 News (WKRC) · Cincinnati · April 2025</p>
+              <h3 class="sg-pub-title">U.S.–China tariffs and what they mean for healthcare costs</h3>
+              <details class="sg-more">
+                <summary>Watch the interview</summary>
+                <div class="sg-more-body">
+                  <div class="sg-video">
+                    <video controls preload="none" playsinline poster="https://local12.com/resources/media/067a0e09-1606-4c8f-9b48-19498230b1a4-dcfb2fc536db4e35871de68a48e4b5aa.png">
+                      <source src="https://harvest-media-clips.sinclairstoryline.com/WKRC/v1/e18f3307-7478-4b4a-ad92-1aee88b364ec/mp4/index.mp4" type="video/mp4">
                     </video>
                   </div>
-                  <a
-                    class="media-source-link"
-                    href="https://local12.com/news/consumer-alerts/us-china-tariff-hike-impact-healthcare-costs-expenses-prices-price-medicine-doctor-hospitals-united-states-president-donald-trump-tariffs-chinese-goods-market-repercussions-consumers-customers-import-export-cincinnati"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    View the full story on Local 12 ↗
-                  </a>
+                  <div class="sg-pub-links"><a href="https://local12.com/news/consumer-alerts/us-china-tariff-hike-impact-healthcare-costs-expenses-prices-price-medicine-doctor-hospitals-united-states-president-donald-trump-tariffs-chinese-goods-market-repercussions-consumers-customers-import-export-cincinnati" target="_blank" rel="noopener noreferrer">Full story on Local 12 ↗</a></div>
                 </div>
               </details>
             </div>
           </article>
-
-          <article>
-            <span class="citation-year">2020</span>
+          <article class="sg-pub">
+            <span class="sg-pub-year">2020</span>
             <div>
-              <p class="citation-authors">
-                Local 12 News (WKRC)
-              </p>
-              <h3>
-                Coronavirus pandemic and protein supply shortages.
-              </h3>
-              <p class="citation-source">
-                TV interview, Cincinnati, Ohio
-              </p>
+              <p class="sg-pub-authors">O Estado de S. Paulo · Opinion</p>
+              <h3 class="sg-pub-title">Os efeitos em cascata da COVID-19 nas cadeias produtivas</h3>
+              <p class="sg-pub-source">Miguel, P., &amp; Biazzin, C.</p>
             </div>
           </article>
-
+          <article class="sg-pub">
+            <span class="sg-pub-year">2020</span>
+            <div>
+              <p class="sg-pub-authors">Local 12 News (WKRC) · Cincinnati</p>
+              <h3 class="sg-pub-title">The coronavirus pandemic and protein supply shortages</h3>
+            </div>
+          </article>
         </div>
       </div>
-
     </section>
 
+    <section class="sg-section sg-section--rule" id="journals">
+      <div class="sg-wrap sg-split">
+        <div class="sg-split-intro">
+          <p class="sg-kicker">Peer-reviewed</p>
+          <h2 class="sg-h2">Journal articles</h2>
+        </div>
+        <div class="sg-pubs">
+          <article class="sg-pub">
+            <span class="sg-pub-year">2026</span>
+            <div>
+              <p class="sg-pub-authors">Hong, P. C., Biazzin, C., &amp; Ferreira, F. M. C.</p>
+              <h3 class="sg-pub-title">Evaluating the Brazil-China trade relationship: Navigating economic disparities, divergent objectives, and strategic influence.</h3>
+              <p class="sg-pub-source">Latin American Policy, 17(2), e70056.</p>
+              <div class="sg-pub-links"><a href="https://onlinelibrary.wiley.com/doi/10.1111/lamp.70056" target="_blank" rel="noopener noreferrer">View publication ↗</a></div>
+              <details class="sg-more">
+                <summary>Snapshot and audio summary</summary>
+                <div class="sg-more-body">
+                  <img src="infogra_Latin.jpg" alt="Infographic summarizing the interdependent Brazil-China trade relationship" loading="lazy">
+                  <audio controls preload="none"><source src="Why_lopsided_Brazil_China_trade_works.m4a" type="audio/mp4"></audio>
+                </div>
+              </details>
+            </div>
+          </article>
+          <article class="sg-pub">
+            <span class="sg-pub-year">2024</span>
+            <div>
+              <p class="sg-pub-authors">Ferreira, F. C. M., Biazzin, C., &amp; Hong, P. C.</p>
+              <h3 class="sg-pub-title">Transition paths of Brazil from an agricultural economy to a regional powerhouse: A global supply chain perspective.</h3>
+              <p class="sg-pub-source">Sustainability, 16(7), 2872.</p>
+              <div class="sg-pub-links"><a href="https://www.mdpi.com/2071-1050/16/7/2872" target="_blank" rel="noopener noreferrer">View publication ↗</a></div>
+            </div>
+          </article>
+          <article class="sg-pub">
+            <span class="sg-pub-year">2024</span>
+            <div>
+              <p class="sg-pub-authors">Biazzin, C., Ferreira, F. C. M., &amp; Hong, P. C.</p>
+              <h3 class="sg-pub-title">Populism pressure, public policies, and firm strategic choices: The case of Brazil.</h3>
+              <p class="sg-pub-source">Thunderbird International Business Review, 66(3), 251–268.</p>
+              <div class="sg-pub-links"><a href="https://onlinelibrary.wiley.com/doi/10.1002/tie.22377" target="_blank" rel="noopener noreferrer">View publication ↗</a></div>
+            </div>
+          </article>
+          <article class="sg-pub">
+            <span class="sg-pub-year">2023</span>
+            <div>
+              <p class="sg-pub-authors">Picasso, F., Biazzin, C., Paiva, E. L., &amp; Partyka, R.</p>
+              <h3 class="sg-pub-title">Socially responsible supply chain initiatives and their outcomes: A taxonomy of manufacturing companies.</h3>
+              <p class="sg-pub-source">Supply Chain Management: An International Journal, 28(1), 90–106.</p>
+              <div class="sg-pub-links"><a href="https://www.emerald.com/insight/content/doi/10.1108/SCM-11-2020-0578/full/html" target="_blank" rel="noopener noreferrer">View publication ↗</a></div>
+            </div>
+          </article>
+          <article class="sg-pub">
+            <span class="sg-pub-year">2017</span>
+            <div>
+              <p class="sg-pub-authors">Biazzin, C., Solano-Charris, E. L., &amp; Quintero, J. A. J.</p>
+              <h3 class="sg-pub-title">Supply chain and operations strategies for problem-solving in Latin American countries: An introduction.</h3>
+              <p class="sg-pub-source">Journal of Operations and Supply Chain Management, 10(2), 1–5.</p>
+              <div class="sg-pub-links"><a href="https://periodicos.fgv.br/joscm/article/view/73027" target="_blank" rel="noopener noreferrer">View publication ↗</a></div>
+            </div>
+          </article>
+          <article class="sg-pub">
+            <span class="sg-pub-year">2013</span>
+            <div>
+              <p class="sg-pub-authors">Silva, R. T. P., Biazzin Villar, C., &amp; Siegler, J. M. B.</p>
+              <h3 class="sg-pub-title">Responsiveness in the supply chain: A possible decision-driver for location of new subsidiaries?</h3>
+              <p class="sg-pub-source">Journal of Operations and Supply Chain Management, 6, 26–41.</p>
+              <div class="sg-pub-links"><a href="https://doi.org/10.12660/joscmv6n1p26-41" target="_blank" rel="noopener noreferrer">View publication ↗</a></div>
+            </div>
+          </article>
+          <article class="sg-pub">
+            <span class="sg-pub-year">2012</span>
+            <div>
+              <p class="sg-pub-authors">Biazzin Villar, C., &amp; Paiva, E. L.</p>
+              <h3 class="sg-pub-title">Estratégia de operações internacionais: Evolução e tendências.</h3>
+              <p class="sg-pub-source">Revista de Administração da UNIMEP, 10, 1–27.</p>
+              <div class="sg-pub-links"><a href="https://doi.org/10.15600/1679-5350/rau.v10n2p1-27" target="_blank" rel="noopener noreferrer">View publication ↗</a></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="sg-section sg-section--soft" id="books">
+      <div class="sg-wrap sg-split">
+        <div class="sg-split-intro">
+          <p class="sg-kicker">Books and reports</p>
+          <h2 class="sg-h2">Chapters and applied research</h2>
+        </div>
+        <div class="sg-pubs">
+          <article class="sg-pub">
+            <span class="sg-pub-year">2027</span>
+            <div>
+              <p class="sg-pub-authors">Biazzin, C.</p>
+              <h3 class="sg-pub-title">Global supply chains and the rise of strategic buffer economies.</h3>
+              <p class="sg-pub-source">In T. Hoang (Ed.), Geopolitics, War, and the Strategic Repositioning of Supply Chains. IGI Global. <span class="sg-forthcoming">Forthcoming.</span></p>
+            </div>
+          </article>
+          <article class="sg-pub">
+            <span class="sg-pub-year">2023</span>
+            <div>
+              <p class="sg-pub-authors">Biazzin, C., &amp; Ferreira, F. C. M.</p>
+              <h3 class="sg-pub-title">Populism expectations and supplier diversity.</h3>
+              <p class="sg-pub-source">In Encyclopedia of New Populism and Responses in the 21st Century. Springer.</p>
+              <div class="sg-pub-links"><a href="https://doi.org/10.1007/978-981-16-9859-0" target="_blank" rel="noopener noreferrer">View DOI ↗</a></div>
+            </div>
+          </article>
+          <article class="sg-pub">
+            <span class="sg-pub-year">2020</span>
+            <div>
+              <p class="sg-pub-authors">Biazzin, C., &amp; Smith, H.</p>
+              <h3 class="sg-pub-title">U.S. Foreign-Trade Zones: Operational strategies adopted by FTZ managers.</h3>
+              <p class="sg-pub-source">Research report, Northern Kentucky University.</p>
+            </div>
+          </article>
+          <article class="sg-pub">
+            <span class="sg-pub-year">2019</span>
+            <div>
+              <p class="sg-pub-authors">Biazzin, C.</p>
+              <h3 class="sg-pub-title">The role of strategic sourcing on global supply chain competitiveness.</h3>
+              <p class="sg-pub-source">In Managing Operations Throughout Global Supply Chains. IGI Global.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
   </main>
 
-  <footer>
-
-    <div class="shell footer-grid">
-
+  <footer class="sg-footer">
+    <div class="sg-wrap sg-footer-grid">
       <div>
-        <p class="footer-title">
-          Supply Chain Geopolitics Observatory
-        </p>
-
-        <p>
-          Researching the connections between global change and business.
-        </p>
+        <p class="sg-footer-title">Supply Chain Geopolitics Observatory</p>
+        <p>Advisory and research on how geopolitical change reaches supply chains.</p>
       </div>
-
       <div>
-        <p class="footer-label">
-          Contact
-        </p>
-
-        <a href="mailto:biazzinc1@nku.edu">
-          biazzinc1@nku.edu
-        </a>
-
-        <a href="https://www.linkedin.com/company/supply-chain-geopolitics-observ/">
-          LinkedIn
-        </a>
+        <p class="sg-footer-label">Explore</p>
+        <a href="work-with-us.html">Services</a>
+        <a href="projects.html">Research</a>
+        <a href="publications.html">Publications &amp; Media</a>
+        <a href="who-we-are.html">About</a>
       </div>
-
+      <div>
+        <p class="sg-footer-label">Contact</p>
+        <a href="contact.html">Request an Exposure Readout</a>
+        <a href="mailto:biazzinc1@nku.edu">biazzinc1@nku.edu</a>
+        <a href="https://www.linkedin.com/company/supply-chain-geopolitics-observ/">LinkedIn</a>
+      </div>
     </div>
-
-    <div class="shell footer-bottom">
-      © 2026 Supply Chain Geopolitics Observatory
-    </div>
-
+    <div class="sg-wrap"><p class="sg-footer-bottom">© 2026 Supply Chain Geopolitics Observatory</p></div>
   </footer>
-
 </body>
-
 </html>

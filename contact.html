@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Request an Exposure Readout or get in touch with the Supply Chain Geopolitics Observatory.">
+  <title>Contact | Supply Chain Geopolitics Observatory</title>
+  <link rel="icon" href="favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&amp;display=swap">
+  <link rel="stylesheet" href="site.css">
+</head>
+<body>
+  <a class="sg-skip" href="#main">Skip to content</a>
+  <header class="sg-header">
+    <div class="sg-wrap sg-header-inner">
+      <a class="sg-logo" href="index.html" aria-label="Supply Chain Geopolitics Observatory home">
+        <img src="logo.png" alt="SCG Supply Chain Geopolitics Observatory">
+      </a>
+      <nav class="sg-nav" aria-label="Primary navigation">
+        <a href="work-with-us.html">Services</a>
+        <a href="projects.html">Research</a>
+        <a href="publications.html">Publications &amp; Media</a>
+        <a href="who-we-are.html">About</a>
+        <a class="sg-nav-cta" href="contact.html" aria-current="page">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="sg-page-hero">
+      <div class="sg-wrap">
+        <p class="sg-kicker">Contact</p>
+        <h1 class="sg-h1">Start with a conversation.</h1>
+        <p class="sg-lede">Tell us what you buy and where it comes from. We will reply to schedule your Exposure Readout, or to answer any other question.</p>
+      </div>
+    </section>
+
+    <section class="sg-section">
+      <div class="sg-wrap sg-contact">
+        <form class="sg-form" id="contact-form" novalidate>
+          <div class="sg-field">
+            <label for="cf-name">Name</label>
+            <input id="cf-name" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="sg-field">
+            <label for="cf-company">Company or institution</label>
+            <input id="cf-company" name="company" type="text" autocomplete="organization">
+          </div>
+          <div class="sg-field sg-field--full">
+            <label for="cf-topic">I'm interested in</label>
+            <select id="cf-topic" name="topic">
+              <option>An Exposure Readout</option>
+              <option>Another service (Map, Scenario Room, Briefing, training)</option>
+              <option>A talk or keynote</option>
+              <option>The Supply Chain Geopolitics Forum</option>
+              <option>Research collaboration or student opportunities</option>
+              <option>Something else</option>
+            </select>
+          </div>
+          <div class="sg-field">
+            <label for="cf-categories">Main import categories</label>
+            <input id="cf-categories" name="categories" type="text" placeholder="e.g. bearings, steel parts, electronics">
+          </div>
+          <div class="sg-field">
+            <label for="cf-countries">Main countries of origin</label>
+            <input id="cf-countries" name="countries" type="text" placeholder="e.g. China, Germany, Mexico">
+          </div>
+          <div class="sg-field sg-field--full">
+            <label for="cf-message">Anything else we should know</label>
+            <textarea id="cf-message" name="message"></textarea>
+          </div>
+          <div class="sg-form-foot">
+            <button class="sg-btn" type="submit">Send by email</button>
+            <p class="sg-note" id="cf-status" role="status">Opens your email app with the message ready to send.</p>
+          </div>
+        </form>
+
+        <div class="sg-aside">
+          <div>
+            <p class="sg-kicker">Email</p>
+            <p class="sg-email">biazzinc1@nku.edu</p>
+            <p class="sg-note">If the button does not open your email app, copy this address and write to us directly.</p>
+          </div>
+          <div>
+            <p class="sg-kicker">LinkedIn</p>
+            <a class="sg-link" href="https://www.linkedin.com/company/supply-chain-geopolitics-observ/">Follow the Observatory</a>
+          </div>
+          <div>
+            <p class="sg-kicker">Confidentiality</p>
+            <p class="sg-p">Everything you share is treated as confidential. Category and country names are enough to start.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      (function () {
+        var form = document.getElementById('contact-form');
+        var status = document.getElementById('cf-status');
+        if (!form) return;
+        var params = new URLSearchParams(location.search);
+        var preset = params.get('topic');
+        if (preset) {
+          var sel = document.getElementById('cf-topic');
+          for (var i = 0; i < sel.options.length; i++) {
+            if (sel.options[i].text.toLowerCase().indexOf(preset.toLowerCase()) !== -1) { sel.selectedIndex = i; break; }
+          }
+        }
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          var name = form.name.value.trim();
+          if (!name) {
+            status.textContent = 'Please add your name so we know who to reply to.';
+            form.name.focus();
+            return;
+          }
+          var topic = form.topic.value;
+          var lines = [
+            'Name: ' + name,
+            'Company: ' + form.company.value.trim(),
+            'Interested in: ' + topic,
+            'Main import categories: ' + form.categories.value.trim(),
+            'Main countries of origin: ' + form.countries.value.trim(),
+            '',
+            form.message.value.trim()
+          ];
+          var subject = topic + (form.company.value.trim() ? ' — ' + form.company.value.trim() : '');
+          window.location.href = 'mailto:biazzinc1@nku.edu?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(lines.join('\n'));
+          status.textContent = 'Your email app should open with the message filled in. If it does not, write to biazzinc1@nku.edu.';
+        });
+      })();
+    </script>
+  </main>
+
+  <footer class="sg-footer">
+    <div class="sg-wrap sg-footer-grid">
+      <div>
+        <p class="sg-footer-title">Supply Chain Geopolitics Observatory</p>
+        <p>Advisory and research on how geopolitical change reaches supply chains.</p>
+      </div>
+      <div>
+        <p class="sg-footer-label">Explore</p>
+        <a href="work-with-us.html">Services</a>
+        <a href="projects.html">Research</a>
+        <a href="publications.html">Publications &amp; Media</a>
+        <a href="who-we-are.html">About</a>
+      </div>
+      <div>
+        <p class="sg-footer-label">Contact</p>
+        <a href="contact.html">Request an Exposure Readout</a>
+        <a href="mailto:biazzinc1@nku.edu">biazzinc1@nku.edu</a>
+        <a href="https://www.linkedin.com/company/supply-chain-geopolitics-observ/">LinkedIn</a>
+      </div>
+    </div>
+    <div class="sg-wrap"><p class="sg-footer-bottom">© 2026 Supply Chain Geopolitics Observatory</p></div>
+  </footer>
+</body>
+</html>
